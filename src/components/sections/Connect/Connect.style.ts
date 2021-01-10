@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
 		paddingBottom: '16px',
 		[theme.breakpoints.up(750)]: {
 			...flexRowCenterStart,
-			paddingTop: '64px',
+			paddingTop: '32px',
 		}
 	},
 	formContainer: {
@@ -65,7 +65,7 @@ export const useStyles = makeStyles((theme) => ({
 		...flexColCenterCenter,
 		width: '40%',
 		[theme.breakpoints.up(750)]: {
-			height: '294px'
+			height: '262px'
 		}
 	},
 	copyrightContainer: {

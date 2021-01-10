@@ -19,7 +19,7 @@ export const Projects: FC = () => {
 		projectSkillDarkMode,
 		projectInfoOverlay,
 		projectDescription,
-		projectSkill
+		projectSkill,
 	} = useStyles();
 	const [activeTags, setActiveTags] = useState<string[]>([]);
 	const [hoveredProject, setHoveredProject] = useState<string>('');
@@ -82,7 +82,15 @@ export const Projects: FC = () => {
 								onMouseOver={() => setHoveredProject(proj.name)}
 								onMouseOut={() => setHoveredProject('')}
 							>
-								<Box className={projectInfoOverlay} style={{opacity: hoveredProject === proj.name ? 1 : 0}}>
+								<Box
+									className={projectInfoOverlay}
+									style={{
+										opacity:
+											hoveredProject === proj.name
+												? 1
+												: 0,
+									}}
+								>
 									<Box className={projectHeadingContainer}>
 										<Typography
 											className={projectHeading}
@@ -105,22 +113,47 @@ export const Projects: FC = () => {
 											src={proj.image}
 											alt={`${proj.image}-thumbnail`}
 											height='100%'
-											width={proj.forceFullWidthImage ? '100%' : 'auto'}
+											width={
+												proj.forceFullWidthImage
+													? '100%'
+													: 'auto'
+											}
 											style={{ maxWidth: '100%' }}
 										/>
 									)}
 								</Box>
-								<Box className={clsx(projectSkillsContainer, {[skillsContainerDarkMode]: hoveredProject === proj.name})}>
-									{proj.skills.map((skill: string, i: number) => (
-										<Box key={`skill-${proj.order}-${i}`} className={clsx(projectSkill, {[projectSkillDarkMode]: hoveredProject === proj.name})}>
-											<Typography
-												variant='body2'
-												color={hoveredProject === proj.name ? 'textSecondary' : 'textPrimary'}
+								<Box
+									className={clsx(projectSkillsContainer, {
+										[skillsContainerDarkMode]:
+											hoveredProject === proj.name,
+									})}
+								>
+									{proj.skills
+										.sort((x1: string, x2: string) =>
+											x1 < x2 ? -1 : 1
+										)
+										.map((skill: string, i: number) => (
+											<Box
+												key={`skill-${proj.order}-${i}`}
+												className={clsx(projectSkill, {
+													[projectSkillDarkMode]:
+														hoveredProject ===
+														proj.name,
+												})}
 											>
-												{skill}
-											</Typography>
-										</Box>
-									))}
+												<Typography
+													variant='body2'
+													color={
+														hoveredProject ===
+														proj.name
+															? 'textSecondary'
+															: 'textPrimary'
+													}
+												>
+													{skill}
+												</Typography>
+											</Box>
+										))}
 								</Box>
 							</Box>
 						))}
