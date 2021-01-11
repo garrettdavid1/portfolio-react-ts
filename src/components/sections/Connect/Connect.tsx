@@ -13,6 +13,7 @@ import clsx from 'clsx';
 import LinkedIn from '../../../assets/img/connectLogos/LinkedIn.png';
 import Github from '../../../assets/img/connectLogos/Github.png';
 import { ConnectLink } from './ConnectLink/ConnectLink';
+import { Repo } from '../../../network/Repo';
 
 const messageCharMax = 1000;
 const dataSentMessage = "Thanks for reaching out! I'll be in touch shortly.";
@@ -62,7 +63,7 @@ export const Connect: FC = () => {
 		}
 	};
 
-	const submit = (e: React.FormEvent<HTMLElement>) => {
+	const submit = async (e: React.FormEvent<HTMLElement>) => {
 		e.preventDefault();
 
 		const validationMaps = [
@@ -74,9 +75,9 @@ export const Connect: FC = () => {
 
 		if (containsInputErrors(validationMaps)) return;
 
-		// Send data to backend
+		const emailSent = await Repo.connect(name, email, serviceSelection, message);
 
-		setDataSent(true);
+		if(emailSent) setDataSent(true);
 	};
 
 	return (

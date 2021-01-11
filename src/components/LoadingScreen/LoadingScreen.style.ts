@@ -3,8 +3,8 @@ import { flexRowCenterCenter, fullHeight, fullWidth } from '../../styles/stylesL
 
 export const useStyles = makeStyles((theme) => ({
 	loadingScreenContainer: {
-		width: '100vw',
-		height: '100vh',
+		...fullWidth,
+		...fullHeight,
 		...flexRowCenterCenter,
 		backgroundColor: theme.palette.custom.common.darkGray,
 		position: 'absolute',
