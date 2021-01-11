@@ -4,6 +4,7 @@ import { TitledSection } from '../../shared/sections/TitledSection/TitledSection
 import { useStyles } from './Projects.style';
 import { Project, projects } from './Projects.data';
 import clsx from 'clsx';
+import { Image } from '../../shared/Image/Image';
 
 export const Projects: FC = () => {
 	const {
@@ -109,7 +110,7 @@ export const Projects: FC = () => {
 								</Box>
 								<Box className={projectImage}>
 									{proj.image && (
-										<img
+										<Image
 											src={proj.image}
 											alt={`${proj.image}-thumbnail`}
 											height='100%'

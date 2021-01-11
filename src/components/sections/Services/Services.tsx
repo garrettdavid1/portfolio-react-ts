@@ -1,6 +1,5 @@
 import { Box, Typography } from '@material-ui/core';
 import React, { FC, useEffect, useState } from 'react';
-import { SelectOutlined } from '../../shared/inputs/SelectOutlined/SelectOutlined';
 import { TitledSection } from '../../shared/sections/TitledSection/TitledSection';
 import { useStyles } from './Services.style';
 import { Service, services } from './Services.data';
@@ -10,6 +9,7 @@ import {
 	flexRowEndCenter,
 	flexRowStartCenter,
 } from '../../../styles/stylesLib';
+import { Image } from '../../shared/Image/Image';
 
 export const Services: FC = () => {
 	const { servicesContentContainer } = useStyles();
@@ -46,11 +46,11 @@ const ServiceSection: FC<{ service: Service }> = ({ service }) => {
 		[]
 	);
 
-	if (windowWidth < 750) {
+	if (windowWidth < 830) {
 		return (
 			<Box className={serviceSectionContainer}>
 				<Box className={imageContainer}>
-					<img
+					<Image
 						src={imageWithoutArrow}
 						alt={`${name}-service-img`}
 						height="100%"
@@ -76,7 +76,7 @@ const ServiceSection: FC<{ service: Service }> = ({ service }) => {
 		imageSide === 'left' ? flexRowEndCenter : flexRowStartCenter;
 	const imgTag = (
 		<Box className={imageContainer} style={{ ...imgContainerFlexStyle }}>
-			<img src={image} alt={`${name}-service-img`} height="100%" />
+			<Image src={image} alt={`${name}-service-img`} width="100%" />
 		</Box>
 	);
 

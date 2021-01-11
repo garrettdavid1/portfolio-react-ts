@@ -10,6 +10,11 @@ export const useStyles = makeStyles((theme) => ({
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
 		[theme.breakpoints.up('md')]: {
+			padding: '64px',
+			paddingTop: '64px',
+			paddingBottom: '64px'
+		},
+		[theme.breakpoints.up('xl')]: {
 			padding: '128px',
 			paddingTop: '64px',
 			paddingBottom: '64px'

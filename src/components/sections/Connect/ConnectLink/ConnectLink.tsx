@@ -1,6 +1,7 @@
 import { Typography } from '@material-ui/core';
 import React, { FC } from 'react';
 import { useStyles } from './ConnectLink.style';
+import { Image } from '../../../shared/Image/Image';
 
 interface ConnectLinkProps {
 	link: string;
@@ -18,7 +19,7 @@ export const ConnectLink: FC<ConnectLinkProps> = ({ link, image, text, textMargi
 			rel='noreferrer'
 			className={linkContainer}
 		>
-			<img src={image} alt={`${text}-link-img`} />
+			<Image src={image} alt={`${text}-link-img`} />
 			<Typography className={linkText} variant='h6' color='textSecondary' style={{marginRight: textMarginRight}}>
 				{text}
 			</Typography>

@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core";
-import { flexCol, flexColCenterCenter, flexRowSpaceAroundCenter, flexRowCenterCenter, flexRowEndCenter, fullWidth } from "../../../styles/stylesLib";
+import { flexCol, flexColCenterCenter, flexRowCenterCenter, fullWidth } from "../../../styles/stylesLib";
 
 export const useStyles = makeStyles((theme) => ({
 	servicesContentContainer: {
@@ -11,24 +11,25 @@ export const useStyles = makeStyles((theme) => ({
 	serviceSectionContainer: {
 		...flexColCenterCenter,
 		width: '95%',
-		marginTop: '64px',
-		[theme.breakpoints.up(750)]: {
+		marginTop: '32px',
+		[theme.breakpoints.up(830)]: {
 			...flexRowCenterCenter,
 			width: '100%',
-			height: '300px'
+			minHeight: '300px'
 		},
 		[theme.breakpoints.up('lg')]: {
-			width: '90%'
+			width: '90%',
+			marginTop: '64px'
 		}
 	},
 	imageContainer: {
 		...flexRowCenterCenter,
 		width: '95%',
 		height: '200px',
-		[theme.breakpoints.up(750)]: {
+		[theme.breakpoints.up(830)]: {
 			height: '100%',
 			width: '40%',
-			marginTop: '-128px',
+			marginTop: '-100px',
 		},
 		[theme.breakpoints.up('md')]: {
 			width: '30%'
@@ -39,7 +40,7 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	infoContainer: {
 		width: '95%',
-		[theme.breakpoints.up(750)]: {
+		[theme.breakpoints.up(830)]: {
 			...flexCol,
 			width: '80%',
 			height: '100%',
@@ -49,8 +50,8 @@ export const useStyles = makeStyles((theme) => ({
 		[theme.breakpoints.up('md')]: {
 			width: '60%'
 		},
-		[theme.breakpoints.up('lg')]: {
-			width: '40%'
+		[theme.breakpoints.up('xl')]: {
+			width: '50%'
 		}
 	}
 }))

@@ -1,23 +1,36 @@
 import { makeStyles } from "@material-ui/core";
-import { flexColCenterCenter, fullWidth } from "../../../styles/stylesLib";
+import { fullWidth } from "../../../styles/stylesLib";
 
 export const useStyles = makeStyles((theme) => ({
 	aboutContentContainer: {
 		...fullWidth,
-		...flexColCenterCenter,
-		paddingTop: '16px'
+		padding: '16px',
+		paddingBottom: 0,
+		[theme.breakpoints.up('md')]: {
+			paddingLeft: 0,
+			paddingRight: 0
+		}
 	},
-	aboutContent: {
-		width: '90%',
-		textAlign: 'left',
+	text: {
+		display: 'inline',
+		lineHeight: '38px',
 		[theme.breakpoints.up('sm')]: {
-			width: '80%'
+			lineHeight: '50px'
 		},
 		[theme.breakpoints.up('md')]: {
-			width: '70%'
+			lineHeight: '60px'
+		}
+	},
+	specialText: {
+		color: theme.palette.custom.common.orange,
+		'&.top-quality-text': {
+			fontFamily: '"Sree Krushnadevaraya"'
 		},
-		[theme.breakpoints.up('lg')]: {
-			width: '60%'
+		'&.beautiful-text': {
+			fontFamily: '"Dancing Script", cursive'
+		},
+		'&.your-goals-text': {
+			fontFamily: 'Montserrat, sans-serif'
 		}
 	}
 }))

@@ -3,6 +3,8 @@ import React, { FC, useEffect, useState } from 'react';
 import { FullWidthSection } from '../../shared/sections/FullWidthSection/FullWidthSection';
 import { useStyles } from './Jumbotron.style';
 import JumbotronPic from '../../../assets/img/JumbotronPic.png';
+import { Image } from '../../shared/Image/Image';
+import startup from '../../../util/StartupMonitor';
 
 export const Jumbotron: FC = () => {
 	const {
@@ -35,7 +37,7 @@ export const Jumbotron: FC = () => {
 				<Subtitle windowWidth={windowWidth} index={3} text='mentor.' />
 			</Box>
 			<Box className={rightJumbotronSection}>
-				<img
+				<Image
 					className={jumbotronPic}
 					src={JumbotronPic}
 					alt='jumbotron-pic'
@@ -52,7 +54,13 @@ const Subtitle: FC<{ windowWidth: number; text: string; index: number }> = ({
 }) => {
 	const { subtitle } = useStyles();
 	const [display, setDisplay] = useState<boolean>(false);
-	setTimeout(() => setDisplay(true), index * 1000);
+
+	const loadingCheck = setInterval(() => {
+		if(startup.allImagesLoaded){
+			clearInterval(loadingCheck);
+			setTimeout(() => setDisplay(true), (index * 1000) + 750);
+		}
+	}, 50)
 	return (
 		<Typography
 			className={subtitle}

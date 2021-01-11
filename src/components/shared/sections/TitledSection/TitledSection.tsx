@@ -1,5 +1,5 @@
 import { BoxProps, Typography } from '@material-ui/core';
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { colors } from '../../../../constants/colors';
 import { FullWidthSection } from '../FullWidthSection/FullWidthSection';
 import { useStyles } from './TitledSection.style';
@@ -7,6 +7,10 @@ import clsx from 'clsx';
 
 export const TitledSection: FC<BoxProps & {title: string, mode?: 'light' | 'dark'}> = ({ title, mode = 'light', children, ...rest }) => {
 	const { titledSection } = useStyles();
+	const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+
+	useEffect(() => window.addEventListener('resize', () => setWindowWidth(window.innerWidth)), []);
+
 	return (
 		<FullWidthSection 
 			id={title} 
@@ -16,7 +20,7 @@ export const TitledSection: FC<BoxProps & {title: string, mode?: 'light' | 'dark
 			}}
 			{...rest}
 		>
-			<Typography variant='h3' color={mode === 'light' ? 'textPrimary' : 'textSecondary'}>{title}</Typography>
+			<Typography variant={windowWidth < 600 ? 'h4' : 'h3'} color={mode === 'light' ? 'textPrimary' : 'textSecondary'}>{title}</Typography>
 			{children}
 		</FullWidthSection>
 	)
