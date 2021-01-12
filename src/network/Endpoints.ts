@@ -23,7 +23,7 @@ const endpoints = {
 	connect: {
 		...PostRequest,
 		...{
-			url: '/connect',
+			url: '/connect/',
 		},
 	},
 };
