@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { getAppConfig } from '../appConfig/appConfig';
 import { IRepo } from './IRepo';
 import { requestLogger, responseLogger } from './Interceptors';
 import { NetErrorManager } from './NetErrorManager';
@@ -17,8 +16,7 @@ class CRepo implements IRepo {
 	}
 
 	async init() {
-		const { apiBaseUrl } = await getAppConfig();
-		this.config.baseURL = apiBaseUrl;
+		this.config.baseURL = process.env.REACT_APP_API_BASE_URL;
 
 		this.net.interceptors.request.use(requestLogger);
 
