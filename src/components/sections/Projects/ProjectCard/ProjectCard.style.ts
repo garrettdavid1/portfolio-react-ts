@@ -29,12 +29,8 @@ export const useStyles = makeStyles((theme) => ({
 		color: theme.palette.custom.common.white,
 		borderBottom: `3px solid ${theme.palette.custom.common.orange}`,
 		borderRadius: '5px',
-		paddingBottom: '8px'
-	},
-	heading: {
-		[theme.breakpoints.down('sm')]: {
-			fontSize: '.7rem'
-		}
+		paddingBottom: '8px',
+		marginBottom: '16px'
 	},
 	projectImage: {
 		...flexRowCenterCenter,
@@ -81,10 +77,15 @@ export const useStyles = makeStyles((theme) => ({
 		position: 'absolute',
 		transition: 'opacity .7s',
 	},
+	descriptionContainer: {
+		...flexColCenterCenter,
+		width: '100%',
+		flex: '1',
+		overflowY: 'auto',
+	},
 	description: {
-		[theme.breakpoints.down('sm')]: {
-			fontSize: '.75rem'
-		}
+		height: '100%',
+		textAlign: 'center'
 	},
 	cancelDetailsViewBtn: {
 		position: 'absolute',

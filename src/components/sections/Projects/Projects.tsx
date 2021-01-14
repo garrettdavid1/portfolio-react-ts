@@ -1,4 +1,4 @@
-import { Box, MenuItem } from '@material-ui/core';
+import { Box, MenuItem, Typography } from '@material-ui/core';
 import React, { FC, useState } from 'react';
 import { TitledSection } from '../../shared/sections/TitledSection/TitledSection';
 import { useStyles } from './Projects.style';
@@ -67,6 +67,7 @@ export const Projects: FC = () => {
 								</MenuItem>
 							))}
 						</MultiSelectChipsOutlined>
+						<Typography color='textPrimary' variant='body2' style={{marginTop: '8px'}}>Tap a project for details.</Typography>
 					</MobileView>
 				<Box className={projectListContainer}>
 					{projects

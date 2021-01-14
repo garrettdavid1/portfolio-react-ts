@@ -10,12 +10,13 @@ import {
 	flexRowStartCenter,
 } from '../../../styles/stylesLib';
 import { Image } from '../../shared/Image/Image';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 export const Services: FC = () => {
 	const { servicesContentContainer } = useStyles();
 
 	return (
-		<TitledSection title="services">
+		<TitledSection title='services'>
 			<Box className={servicesContentContainer}>
 				{services.map((service: Service) => (
 					<ServiceSection
@@ -32,8 +33,9 @@ const ServiceSection: FC<{ service: Service }> = ({ service }) => {
 	const {
 		serviceSectionContainer,
 		imageContainer,
+		mobileImageContainer,
 		infoContainer,
-		heading
+		heading,
 	} = useStyles();
 	const { image, imageWithoutArrow, imageSide, name, text } = service;
 	const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
@@ -47,24 +49,28 @@ const ServiceSection: FC<{ service: Service }> = ({ service }) => {
 	);
 
 	if (windowWidth < 830) {
+		const img = (
+			<Image
+				src={imageWithoutArrow}
+				alt={`${name}-service-img`}
+				height='100%'
+			/>
+		);
 		return (
 			<Box className={serviceSectionContainer}>
-				<Box className={imageContainer}>
-					<Image
-						src={imageWithoutArrow}
-						alt={`${name}-service-img`}
-						height="100%"
-					/>
-				</Box>
+				<BrowserView viewClassName={imageContainer}>{img}</BrowserView>
+				<MobileView viewClassName={mobileImageContainer}>
+					{img}
+				</MobileView>
 				<Box className={infoContainer}>
 					<Typography
 						className={heading}
-						color="textPrimary"
-						variant="h5"
+						color='textPrimary'
+						variant='h5'
 					>
 						{name}
 					</Typography>
-					<Typography color="textPrimary" variant="body1">
+					<Typography color='textPrimary' variant='body1'>
 						{text}
 					</Typography>
 				</Box>
@@ -76,7 +82,7 @@ const ServiceSection: FC<{ service: Service }> = ({ service }) => {
 		imageSide === 'left' ? flexRowEndCenter : flexRowStartCenter;
 	const imgTag = (
 		<Box className={imageContainer} style={{ ...imgContainerFlexStyle }}>
-			<Image src={image} alt={`${name}-service-img`} width="100%" />
+			<Image src={image} alt={`${name}-service-img`} width='100%' />
 		</Box>
 	);
 
@@ -84,10 +90,10 @@ const ServiceSection: FC<{ service: Service }> = ({ service }) => {
 		imageSide === 'left' ? flexColCenterStart : flexColCenterEnd;
 	const infoSection = (
 		<Box className={infoContainer} style={{ ...infoContainerFlexStyle }}>
-			<Typography className={heading} color="textPrimary" variant="h5">
+			<Typography className={heading} color='textPrimary' variant='h5'>
 				{name}
 			</Typography>
-			<Typography color="textPrimary" variant="body1">
+			<Typography color='textPrimary' variant='body1'>
 				{text}
 			</Typography>
 		</Box>

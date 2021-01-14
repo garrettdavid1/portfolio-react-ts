@@ -5,7 +5,7 @@ import { Project } from '../Projects.data';
 import { useStyles } from './ProjectCard.style';
 import { Image } from '../../../shared/Image/Image';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import {MobileView} from 'react-device-detect';
+import {BrowserView, MobileView} from 'react-device-detect';
 
 interface ProjectCardProps {
 	proj: Project;
@@ -18,7 +18,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ proj, isHoveredProject, setH
 		projectCard,
 		infoOverlay,
 		headingContainer,
-		heading,
+		descriptionContainer,
 		description,
 		projectImage,
 		skillsContainer,
@@ -42,22 +42,29 @@ export const ProjectCard: FC<ProjectCardProps> = ({ proj, isHoveredProject, setH
 				}}
 			>
 				<Box className={headingContainer}>
-					<Typography className={heading} variant='h6'>
-						{proj.name}
-					</Typography>
+					<BrowserView>
+						<Typography variant='h6'>
+							{proj.name}
+						</Typography>
+					</BrowserView>
 					<MobileView>
+						<Typography variant='h5'>
+							{proj.name}
+						</Typography>
 						<Button className={cancelDetailsViewBtn} onClick={() => setHoveredProject('')}>
 							<HighlightOffIcon />
 						</Button>
 					</MobileView>
 				</Box>
-				<Typography
-					className={description}
-					variant='body2'
-					color='textSecondary'
-				>
-					{proj.description}
-				</Typography>
+				<Box className={descriptionContainer}>
+					<Typography
+						className={description}
+						variant='body2'
+						color='textSecondary'
+					>
+						{proj.description}
+					</Typography>
+				</Box>
 			</Box>
 			<Box className={projectImage}>
 				{proj.image && (

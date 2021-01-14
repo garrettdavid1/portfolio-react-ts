@@ -35,6 +35,9 @@ export const useStyles = makeStyles((theme) => ({
 			width: '30%'
 		}
 	},
+	mobileImageContainer: {
+		height: '100px'
+	},
 	heading: {
 		fontWeight: 700
 	},
