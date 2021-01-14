@@ -2,7 +2,7 @@ import { FormControl, InputLabel, OutlinedInput, Select, SelectProps } from '@ma
 import React, { FC } from 'react';
 import { useStyles } from './SelectOutlined.style';
 
-interface SelectOutlinedProps {
+export interface SelectOutlinedProps {
 	label: string;
 	inputId?: string;
 }

@@ -1,26 +1,18 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, MenuItem } from '@material-ui/core';
 import React, { FC, useState } from 'react';
 import { TitledSection } from '../../shared/sections/TitledSection/TitledSection';
 import { useStyles } from './Projects.style';
 import { Project, projects } from './Projects.data';
 import clsx from 'clsx';
-import { Image } from '../../shared/Image/Image';
+import { ProjectCard } from './ProjectCard/ProjectCard';
+import {BrowserView, MobileView} from 'react-device-detect';
+import { MultiSelectChipsOutlined } from '../../shared/inputs/MultiSelectChipsOutlined/MultiSelectChipsOutlined';
 
 export const Projects: FC = () => {
 	const {
 		projectsContentContainer,
 		tagFilterBtnContainer,
 		projectListContainer,
-		projectBox,
-		projectHeadingContainer,
-		projectHeading,
-		projectImage,
-		projectSkillsContainer,
-		skillsContainerDarkMode,
-		projectSkillDarkMode,
-		projectInfoOverlay,
-		projectDescription,
-		projectSkill,
 	} = useStyles();
 	const [activeTags, setActiveTags] = useState<string[]>([]);
 	const [hoveredProject, setHoveredProject] = useState<string>('');
@@ -48,7 +40,7 @@ export const Projects: FC = () => {
 	return (
 		<TitledSection title='projects'>
 			<Box className={projectsContentContainer}>
-				<Box className={tagFilterBtnContainer}>
+					<BrowserView viewClassName={tagFilterBtnContainer}>
 					{tags.map((tag: string, i: number) => (
 						<TagFilterButton
 							isActive={activeTags.indexOf(tag) >= 0}
@@ -58,7 +50,24 @@ export const Projects: FC = () => {
 							{tag}
 						</TagFilterButton>
 					))}
-				</Box>
+					</BrowserView>
+					<MobileView viewClassName={tagFilterBtnContainer} style={{width: '90%'}} >
+						<MultiSelectChipsOutlined
+							id='tag-selection'
+							value={activeTags}
+							margin='none'
+							onChange={(e: React.ChangeEvent<{ value: unknown }>) => setActiveTags(e.target.value as string[])}
+							label={`Filter by skill...`}
+							inputId='tag-selection-input'
+							fullWidth
+						>
+							{tags.map((tag: string, i: number) => (
+								<MenuItem key={`tag-${i}`} value={tag}>
+									{tag}
+								</MenuItem>
+							))}
+						</MultiSelectChipsOutlined>
+					</MobileView>
 				<Box className={projectListContainer}>
 					{projects
 						.filter((proj: Project) => {
@@ -76,88 +85,14 @@ export const Projects: FC = () => {
 						.sort((p1: Project, p2: Project) =>
 							p1.order < p2.order ? -1 : 1
 						)
-						.map((proj: Project) => (
-							<Box
-								className={projectBox}
-								key={`project-box-${proj.order}`}
-								onMouseOver={() => setHoveredProject(proj.name)}
-								onMouseOut={() => setHoveredProject('')}
-							>
-								<Box
-									className={projectInfoOverlay}
-									style={{
-										opacity:
-											hoveredProject === proj.name
-												? 1
-												: 0,
-									}}
-								>
-									<Box className={projectHeadingContainer}>
-										<Typography
-											className={projectHeading}
-											variant='h6'
-										>
-											{proj.name}
-										</Typography>
-									</Box>
-									<Typography
-										className={projectDescription}
-										variant='body2'
-										color='textSecondary'
-									>
-										{proj.description}
-									</Typography>
-								</Box>
-								<Box className={projectImage}>
-									{proj.image && (
-										<Image
-											src={proj.image}
-											alt={`${proj.image}-thumbnail`}
-											height='100%'
-											width={
-												proj.forceFullWidthImage
-													? '100%'
-													: 'auto'
-											}
-											style={{ maxWidth: '100%' }}
-										/>
-									)}
-								</Box>
-								<Box
-									className={clsx(projectSkillsContainer, {
-										[skillsContainerDarkMode]:
-											hoveredProject === proj.name,
-									})}
-								>
-									{proj.skills
-										.sort((x1: string, x2: string) =>
-											x1 < x2 ? -1 : 1
-										)
-										.map((skill: string, i: number) => (
-											<Box
-												key={`skill-${proj.order}-${i}`}
-												className={clsx(projectSkill, {
-													[projectSkillDarkMode]:
-														hoveredProject ===
-														proj.name,
-												})}
-											>
-												<Typography
-													variant='body2'
-													color={
-														hoveredProject ===
-														proj.name
-															? 'textSecondary'
-															: 'textPrimary'
-													}
-												>
-													{skill}
-												</Typography>
-											</Box>
-										))}
-								</Box>
-							</Box>
-						))}
+						.map((proj: Project) => 
+							<ProjectCard 
+								proj={proj} 
+								setHoveredProject={setHoveredProject} 
+								isHoveredProject={hoveredProject === proj.name}
+								key={`proj-${proj.order}`}
+							/>
+						)}
 				</Box>
 			</Box>
 		</TitledSection>
@@ -172,7 +107,7 @@ const TagFilterButton: FC<{
 	return (
 		<Box
 			className={clsx(tagFilterBtn, {
-				active: isActive,
+				'active': isActive
 			})}
 			onClick={onClick}
 		>

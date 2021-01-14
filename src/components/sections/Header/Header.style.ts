@@ -4,7 +4,7 @@ import { flexRowEndCenter, flexRowSpaceBetweenCenter, fullHeight } from "../../.
 export const useStyles = makeStyles((theme) => ({
 	container: {
 		...flexRowSpaceBetweenCenter,
-		width: 'calc(100vw - .5em)',
+		width: '100vw',
 		position: 'fixed',
 		top: 0,
 		left: 0,
@@ -12,14 +12,15 @@ export const useStyles = makeStyles((theme) => ({
 		background: theme.palette.custom.common.darkGray,
 		padding: '8px',
 		zIndex: 10,
+		paddingRight: '24px',
 		[theme.breakpoints.up('sm')]: {
-			height: '100px',
-			paddingLeft: '24px',
-			paddingRight: '48px'
+			paddingRight: '24px'
 		},
 		[theme.breakpoints.up('md')]: {
-			paddingRight: '96px'
-		},
+			height: '75px',
+			paddingLeft: '24px',
+			paddingRight: '48px'
+		}
 	},
 	leftSection: {
 		...fullHeight
@@ -29,6 +30,18 @@ export const useStyles = makeStyles((theme) => ({
 		...flexRowEndCenter,
 		[theme.breakpoints.down(770)]: {
 			display: 'none'
+		}
+	},
+	textLinkSection: {
+		display: 'none',
+		[theme.breakpoints.up('md')]: {
+			display: 'flex',
+		}
+	},
+	iconLinkSection: {
+		display: 'flex',
+		[theme.breakpoints.up('md')]: {
+			display: 'none',
 		}
 	},
 	logo: {

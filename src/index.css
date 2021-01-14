@@ -1,4 +1,4 @@
-*:not(input):not(textarea) {
+* {
 	box-sizing: border-box;
 	-webkit-user-select: none;
 	/* Safari */
@@ -10,13 +10,11 @@
 	/* Standard */
 }
 
-html,
-body,
-#root {
+html, #root {
 	height: 100vh;
 	width: 100vw;
-	overflow-x: hidden;
-	
+	overflow: hidden;
+	background-color: #282c34;
 }
 
 body {
@@ -26,6 +24,11 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	overflow: hidden;
+	background-color: #282c34;
 }
 
 code {
