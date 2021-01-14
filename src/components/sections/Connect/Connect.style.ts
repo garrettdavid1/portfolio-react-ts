@@ -59,7 +59,14 @@ export const useStyles = makeStyles((theme) => ({
 			backgroundColor: '#D75C33',
 			color: theme.palette.custom.common.white,
 		},
-		transition: 'opacity 2s, marginTop 2s'
+		transition: 'opacity 2s, marginTop 2s',
+		'&>.MuiButton-label': {
+			height: '40px'
+		},
+		'&.Mui-disabled': {
+			backgroundColor: `${theme.palette.custom.common.orange} !important`,
+			color: theme.palette.custom.common.white,
+		}
 	},
 	linkContainer: {
 		...flexColCenterCenter,

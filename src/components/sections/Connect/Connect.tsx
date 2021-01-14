@@ -14,6 +14,7 @@ import LinkedIn from '../../../assets/img/connectLogos/LinkedIn.png';
 import Github from '../../../assets/img/connectLogos/Github.png';
 import { ConnectLink } from './ConnectLink/ConnectLink';
 import { Repo } from '../../../network/Repo';
+import { LoadingAnimation } from '../../shared/LoadingAnimation/LoadingAnimation';
 
 const messageCharMax = 1000;
 const dataSentMessage = "Thanks for reaching out! I'll be in touch shortly.";
@@ -38,6 +39,7 @@ export const Connect: FC = () => {
 	const [hasEmailError, setHasEmailError] = useState<boolean>(false);
 	const [message, setMessage] = useState<string>('');
 	const [hasMessageError, setHasMessageError] = useState<boolean>(false);
+	const [sendingData, setSendingData] = useState<boolean>(false);
 	const [dataSent, setDataSent] = useState<boolean>(false);
 
 	const serviceNames = services.map((serv: Service) => serv.name);
@@ -75,6 +77,7 @@ export const Connect: FC = () => {
 
 		if (containsInputErrors(validationMaps)) return;
 
+		setSendingData(true);
 		const emailSent = await Repo.connect(name, email, serviceSelection, message);
 
 		if(emailSent) setDataSent(true);
@@ -131,6 +134,7 @@ export const Connect: FC = () => {
 					</Box>
 					<TextFieldOutlined
 						placeholder='Email'
+						type='email'
 						fullWidth
 						value={email}
 						error={hasEmailError}
@@ -165,11 +169,12 @@ export const Connect: FC = () => {
 					} characters remaining`}</Typography>
 					<Button
 						style={{ opacity: dataSent ? 0 : 1 }}
-						disabled={dataSent}
+						disabled={sendingData}
 						className={submitBtn}
 						type='submit'
 					>
-						submit
+						{!sendingData && 'submit'}
+						{sendingData && <LoadingAnimation />}
 					</Button>
 					<Typography
 						className={clsx(dataSentMessageText, {
