@@ -1,8 +1,10 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import React, { FC, useEffect, useState } from 'react';
 import Startup from '../../util/StartupMonitor';
 import { useStyles } from './LoadingScreen.style';
 import clsx from 'clsx';
+import { Image } from '../shared/Image/Image';
+import LoadingScreenText from '../../assets/img/LoadingScreenText.svg';
 
 interface LoadingScreenProps {
 	continueToApp: () => void;
@@ -10,7 +12,6 @@ interface LoadingScreenProps {
 export const LoadingScreen: FC<LoadingScreenProps> = ({ continueToApp }) => {
 	const { loadingScreenContainer, closing } = useStyles();
 	const [allImagesLoaded, setAllImagesLoaded] = useState<boolean>(false);
-	const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
 
 	const closeLoadingScreen = () => {
 		setAllImagesLoaded(true);
@@ -18,7 +19,6 @@ export const LoadingScreen: FC<LoadingScreenProps> = ({ continueToApp }) => {
 	}
 
 	useEffect(() => {
-		window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
 		let loadingTime = 0;
 		const loadingCheck = setInterval(() => {
 			loadingTime += 50;
@@ -31,13 +31,12 @@ export const LoadingScreen: FC<LoadingScreenProps> = ({ continueToApp }) => {
 
 		return () => {
 			clearInterval(loadingCheck);
-			window.removeEventListener('resize', () => setWindowWidth(window.innerWidth));
 		}
 	}, []);
 
 	return (
 		<Box className={clsx(loadingScreenContainer, {[closing]: allImagesLoaded})}>
-			<Typography variant={windowWidth > 400 ? 'h3' : 'h4'} color='textSecondary'>Waking David up...</Typography>
+			<Image src={LoadingScreenText} alt='loading-screen-img-waking-david-up' width='25%' />
 		</Box>
 	)
 }
