@@ -7,6 +7,7 @@ import Chickfila from '../../../assets/img/projectThumbnails/Chickfila.png';
 import WeatherStrike from '../../../assets/img/projectThumbnails/WeatherStrike.svg';
 import Teaching from '../../../assets/img/projectThumbnails/Teaching.jpg';
 import BoardStudio from '../../../assets/img/projectThumbnails/BoardStudio.png';
+import Portfolio from '../../../assets/img/projectThumbnails/Portfolio.png';
 
 export interface Project {
 	order: number;
@@ -32,6 +33,9 @@ enum Skills {
 	Knockout = 'KnockoutJS',
 	JQuery = 'JQuery',
 	NETWebAPI = 'C#/.NET Web API',
+	NodeJS = 'Node.js',
+	ExpressJS = 'Express.js',
+	Heroku = 'Heroku',
 	SignalR = 'SignalR',
 	MongoDB = 'MongoDB',
 	GrapesJS = 'GrapesJS',
@@ -47,7 +51,7 @@ enum Skills {
 
 export const projects: Project[] = [
 	{
-		order: 7,
+		order: 9,
 		employer: 'Chick-fil-a',
 		name: 'Training Director',
 		description:
@@ -66,7 +70,7 @@ export const projects: Project[] = [
 		forceFullWidthImage: true
 	},
 	{
-		order: 5,
+		order: 7,
 		employer: 'MDL autoMation',
 		name: 'Service Drive Flatscreen Rewrite',
 		description:
@@ -106,7 +110,7 @@ export const projects: Project[] = [
 		forceFullWidthImage: true
 	},
 	{
-		order: 4,
+		order: 5,
 		employer: 'MDL autoMation',
 		name: 'Dispatch Master Rewrite',
 		description:
@@ -126,7 +130,7 @@ export const projects: Project[] = [
 		image: MdlDispatch
 	},
 	{
-		order: 3,
+		order: 4,
 		employer: 'MDL autoMation',
 		name: 'MDL Mobile',
 		description:
@@ -141,7 +145,7 @@ export const projects: Project[] = [
 		image: MdlMobile
 	},
 	{
-		order: 2,
+		order: 3,
 		employer: 'VersaDev, LLC',
 		name: 'Toc Solutions Management Portal',
 		description:
@@ -156,7 +160,7 @@ export const projects: Project[] = [
 		image: TocBox
 	},
 	{
-		order: 1,
+		order: 2,
 		employer: 'VersaDev, LLC',
 		name: 'Earth Guardians Management Portal',
 		description:
@@ -171,7 +175,7 @@ export const projects: Project[] = [
 		image: EarthGuardians
 	},
 	{
-		order: 0,
+		order: 1,
 		employer: 'Juvare',
 		name: 'BoardStudio',
 		description:
@@ -192,6 +196,28 @@ export const projects: Project[] = [
 			Skills.BackEnd
 		],
 		image: BoardStudio,
+		forceFullWidthImage: true
+	},
+	{
+		order: 0,
+		employer: 'VersaDev, LLC',
+		name: 'This Portfolio',
+		description:
+			"Portfolio site to display my abilities. This app shows off my proficiency in planning and developing a professional website using modern technologies. Admittedly, I am not a designer, but with a little help and my skill with development using the MERN stack, I made this project come to life in about a week and a half during my free time.",
+		skills: [
+			Skills.Web,
+			Skills.HTML,
+			Skills.CSS,
+			Skills.TS,
+			Skills.ReactJS,
+			Skills.MongoDB,
+			Skills.NodeJS,
+			Skills.ExpressJS,
+			Skills.Heroku,
+			Skills.FrontEnd,
+			Skills.BackEnd
+		],
+		image: Portfolio,
 		forceFullWidthImage: true
 	},
 ];
