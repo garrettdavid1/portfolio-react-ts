@@ -10,33 +10,35 @@ interface LoadingScreenProps {
 	continueToApp: () => void;
 }
 export const LoadingScreen: FC<LoadingScreenProps> = ({ continueToApp }) => {
-	const { loadingScreenContainer, closing } = useStyles();
+	const { loadingScreenContainer, closing, loadingBarContainer, loadingBar } = useStyles();
 	const [allImagesLoaded, setAllImagesLoaded] = useState<boolean>(false);
+	const [imagesLoaded, setImagesLoaded] = useState<number>(0);
 
 	const closeLoadingScreen = () => {
 		setAllImagesLoaded(true);
-		setTimeout(() => continueToApp(), 1000);
+		setTimeout(() => continueToApp(), 2000);
 	}
 
 	useEffect(() => {
-		let loadingTime = 0;
-		const loadingCheck = setInterval(() => {
-			loadingTime += 50;
-			if(Startup.allImagesLoaded) {
-				clearInterval(loadingCheck);
-				if(loadingTime >= 1000) closeLoadingScreen();
-				else setTimeout(closeLoadingScreen, 1000 - loadingTime);
+		const startLoadTime = new Date().getTime();
+		Startup.registerForImageLoadUpdates(
+			setImagesLoaded, 
+			() => {
+				const timeLeft = new Date().getTime() - startLoadTime;
+				if(timeLeft < 2000) setTimeout(closeLoadingScreen, timeLeft);
+				else closeLoadingScreen();
 			}
-		}, 50);
-
-		return () => {
-			clearInterval(loadingCheck);
-		}
+		);
 	}, []);
 
 	return (
 		<Box className={clsx(loadingScreenContainer, {[closing]: allImagesLoaded})}>
 			<Image src={LoadingScreenText} alt='loading-screen-img-waking-david-up' width='25%' />
+			{ Startup.imagesExpected > 0 && 
+				<Box className={loadingBarContainer}>
+					<Box className={loadingBar} style={{width: `${(imagesLoaded / Startup.imagesExpected) * 100}%`}} />
+				</Box>
+			}
 		</Box>
 	)
 }
