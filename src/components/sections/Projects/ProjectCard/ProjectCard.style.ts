@@ -36,7 +36,8 @@ export const useStyles = makeStyles((theme) => ({
 		...flexRowCenterCenter,
 		...fullWidth,
 		height: '270px',
-		position: 'relative'
+		position: 'relative',
+		overflow: 'hidden'
 	},
 	skillsContainer: {
 		...flexRowCenterCenter,

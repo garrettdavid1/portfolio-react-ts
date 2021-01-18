@@ -71,9 +71,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ proj, isHoveredProject, setH
 					<Image
 						src={proj.image}
 						alt={`${proj.image}-thumbnail`}
-						height='100%'
-						width={proj.forceFullWidthImage ? '100%' : 'auto'}
-						style={{ maxWidth: '100%' }}
+						style={{minHeight: '100%', maxHeight: '150%'}}
 					/>
 				)}
 			</Box>
