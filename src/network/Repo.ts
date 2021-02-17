@@ -52,6 +52,14 @@ class CRepo implements IRepo {
 
 		return data.emailSent;
 	}
+
+	async ping(): Promise<boolean> {
+		const request = {...Endpoints.ping};
+
+		const response = await this.makeRequest(request);
+		const data: any = response.data;
+		return data;
+	}
 }
 
 export const Repo = new CRepo({ timeout: 30000 });

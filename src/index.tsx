@@ -4,6 +4,9 @@ import './index.css';
 import App from './components/App/App';
 import { MuiThemeProvider, StylesProvider } from '@material-ui/core';
 import { theme } from './styles/theme';
+import { Repo } from './network/Repo';
+
+Repo.ping();
 
 ReactDOM.render(
 	<StrictMode>

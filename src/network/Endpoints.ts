@@ -26,6 +26,12 @@ const endpoints = {
 			url: '/connect/',
 		},
 	},
+	ping: {
+		...GetRequest,
+		...{
+			url: '/ping'
+		}
+	}
 };
 
 export default endpoints;
