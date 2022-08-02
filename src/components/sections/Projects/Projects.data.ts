@@ -8,6 +8,8 @@ import WeatherStrike from '../../../assets/img/projectThumbnails/WeatherStrike.s
 import Teaching from '../../../assets/img/projectThumbnails/Teaching.jpg';
 import BoardStudio from '../../../assets/img/projectThumbnails/BoardStudio.png';
 import Portfolio from '../../../assets/img/projectThumbnails/Portfolio.png';
+import Modzy from '../../../assets/img/projectThumbnails/Modzy.png';
+import PreDiscover from '../../../assets/img/projectThumbnails/PreDiscover.png';
 
 export interface Project {
 	order: number;
@@ -46,12 +48,13 @@ enum Skills {
 	GraphQL = 'GraphQL',
 	Mentoring = 'Mentoring',
 	FrontEnd = 'Front End',
-	BackEnd = 'Back End'
+	BackEnd = 'Back End',
+	D3 = 'D3.js'
 }
 
 export const projects: Project[] = [
 	{
-		order: 9,
+		order: 11,
 		employer: 'Chick-fil-a',
 		name: 'Training Director',
 		description:
@@ -60,7 +63,7 @@ export const projects: Project[] = [
 		image: Chickfila
 	},
 	{
-		order: 8,
+		order: 10,
 		employer: 'Tucker High School',
 		name: 'High School English Teacher',
 		description:
@@ -70,7 +73,7 @@ export const projects: Project[] = [
 		forceFullWidthImage: true
 	},
 	{
-		order: 7,
+		order: 9,
 		employer: 'MDL autoMation',
 		name: 'Service Drive Flatscreen Rewrite',
 		description:
@@ -90,7 +93,7 @@ export const projects: Project[] = [
 		image: MdlFlatScreen
 	},
 	{
-		order: 6,
+		order: 8,
 		employer: 'VersaDev, LLC',
 		name: 'WeatherStrike',
 		description:
@@ -110,7 +113,7 @@ export const projects: Project[] = [
 		forceFullWidthImage: true
 	},
 	{
-		order: 5,
+		order: 7,
 		employer: 'MDL autoMation',
 		name: 'Dispatch Master Rewrite',
 		description:
@@ -130,7 +133,7 @@ export const projects: Project[] = [
 		image: MdlDispatch
 	},
 	{
-		order: 4,
+		order: 6,
 		employer: 'MDL autoMation',
 		name: 'MDL Mobile',
 		description:
@@ -145,7 +148,7 @@ export const projects: Project[] = [
 		image: MdlMobile
 	},
 	{
-		order: 3,
+		order: 5,
 		employer: 'VersaDev, LLC',
 		name: 'Toc Solutions Management Portal',
 		description:
@@ -160,7 +163,7 @@ export const projects: Project[] = [
 		image: TocBox
 	},
 	{
-		order: 2,
+		order: 4,
 		employer: 'VersaDev, LLC',
 		name: 'Earth Guardians Management Portal',
 		description:
@@ -175,7 +178,7 @@ export const projects: Project[] = [
 		image: EarthGuardians
 	},
 	{
-		order: 1,
+		order: 3,
 		employer: 'Juvare',
 		name: 'BoardStudio',
 		description:
@@ -199,7 +202,7 @@ export const projects: Project[] = [
 		forceFullWidthImage: true
 	},
 	{
-		order: 0,
+		order: 2,
 		employer: 'VersaDev, LLC',
 		name: 'This Portfolio',
 		description:
@@ -219,5 +222,46 @@ export const projects: Project[] = [
 		],
 		image: Portfolio,
 		forceFullWidthImage: true
+	},
+	{
+		order: 1,
+		employer: 'Modzy',
+		name: 'Modzy MLOps Web App',
+		description:
+			"Machine Learning Operations web app for a company called Modzy. In this project, I created charts for data visualization of large datasets, implemented pixel-perfect UI components, and created documentation for each component.",
+		skills: [
+			Skills.Web,
+			Skills.HTML,
+			Skills.CSS,
+			Skills.TS,
+			Skills.ReactJS,
+			Skills.FrontEnd,
+			Skills.D3
+		],
+		image: Modzy,
+		forceFullWidthImage: false
+	},
+	
+	{
+		order: 0,
+		employer: 'Versatile Development, LLC',
+		name: 'PreDiscover Criminal Background Search',
+		description:
+			"Greenfield Web App & Chrome Extension combo for the Criminal Background Search Industry. PreDiscover is a platform that allows background search companies to automate their searches. It collects the data from county-level courthouse websites, filters out cases, and submits searches to a Case Management software. Searches that took hours can now be done in minutes, if not seconds. This app has active, paying clients.",
+		skills: [
+			Skills.Web,
+			Skills.HTML,
+			Skills.CSS,
+			Skills.TS,
+			Skills.ReactJS,
+			Skills.MongoDB,
+			Skills.NodeJS,
+			Skills.ExpressJS,
+			Skills.Heroku,
+			Skills.FrontEnd,
+			Skills.BackEnd,
+		],
+		image: PreDiscover,
+		forceFullWidthImage: false
 	},
 ];
