@@ -3,17 +3,11 @@ import React, { FC, useEffect, useState } from 'react';
 import { TitledSection } from '../../shared/sections/TitledSection/TitledSection';
 import { useStyles } from './Services.style';
 import { Service, services } from './Services.data';
-import {
-	flexColCenterEnd,
-	flexColCenterStart,
-	flexRowEndCenter,
-	flexRowStartCenter,
-} from '../../../styles/stylesLib';
 import { Image } from '../../shared/Image/Image';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 export const Services: FC = () => {
-	const { servicesContentContainer } = useStyles();
+	const { servicesContentContainer } = useStyles({})();
 
 	return (
 		<TitledSection title='services'>
@@ -30,14 +24,14 @@ export const Services: FC = () => {
 };
 
 const ServiceSection: FC<{ service: Service }> = ({ service }) => {
+	const { image, imageWithoutArrow, imageSide, name, text } = service;
 	const {
 		serviceSectionContainer,
 		imageContainer,
 		mobileImageContainer,
 		infoContainer,
 		heading,
-	} = useStyles();
-	const { image, imageWithoutArrow, imageSide, name, text } = service;
+	} = useStyles({ imageSide })();
 	const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
 
 	useEffect(
@@ -78,18 +72,14 @@ const ServiceSection: FC<{ service: Service }> = ({ service }) => {
 		);
 	}
 
-	const imgContainerFlexStyle =
-		imageSide === 'left' ? flexRowEndCenter : flexRowStartCenter;
 	const imgTag = (
-		<Box className={imageContainer} style={{ ...imgContainerFlexStyle }}>
+		<Box className={imageContainer}>
 			<Image src={image} alt={`${name}-service-img`} width='100%' />
 		</Box>
 	);
 
-	const infoContainerFlexStyle =
-		imageSide === 'left' ? flexColCenterStart : flexColCenterEnd;
 	const infoSection = (
-		<Box className={infoContainer} style={{ ...infoContainerFlexStyle }}>
+		<Box className={infoContainer}>
 			<Typography className={heading} color='textPrimary' variant='h5'>
 				{name}
 			</Typography>

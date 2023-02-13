@@ -1,7 +1,16 @@
 import { makeStyles } from "@material-ui/core";
-import { flexCol, flexColCenterCenter, flexRowCenterCenter, fullWidth } from "../../../styles/stylesLib";
+import {
+	flexCol,
+	flexColCenterCenter,
+	flexColCenterEnd,
+	flexColCenterStart,
+	flexRowCenterCenter,
+	flexRowEndCenter,
+	flexRowStartCenter,
+	fullWidth,
+} from '../../../styles/stylesLib';
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = (props: { imageSide?: 'left' | 'right'}) => makeStyles((theme) => ({
 	servicesContentContainer: {
 		...fullWidth,
 		...flexColCenterCenter,
@@ -24,6 +33,7 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	imageContainer: {
 		...flexRowCenterCenter,
+		...( props.imageSide === undefined ? {} : props.imageSide === 'left' ? flexRowEndCenter : flexRowStartCenter ),
 		width: '95%',
 		height: '200px',
 		[theme.breakpoints.up(830)]: {
@@ -43,6 +53,7 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	infoContainer: {
 		width: '95%',
+		...( props.imageSide === undefined ? {} : props.imageSide === 'left' ? flexColCenterStart : flexColCenterEnd ),
 		[theme.breakpoints.up(830)]: {
 			...flexCol,
 			width: '80%',
