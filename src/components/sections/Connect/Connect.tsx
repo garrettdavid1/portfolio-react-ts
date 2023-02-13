@@ -190,7 +190,6 @@ export const Connect: FC = () => {
 						link='https://www.linkedin.com/in/david-garrett-dev'
 						image={LinkedIn}
 						text='linkedin'
-						textDecoration='none'
 					/>
 					<ConnectLink
 						link='https://github.com/garrettdavid1'
