@@ -12,6 +12,8 @@ import {
 import clsx from 'clsx';
 import LinkedIn from '../../../assets/img/connectLogos/LinkedIn.png';
 import Github from '../../../assets/img/connectLogos/Github.png';
+import Twitch from '../../../assets/img/connectLogos/Twitch.png';
+import Twitter from '../../../assets/img/connectLogos/Twitter.png';
 import { ConnectLink } from './ConnectLink/ConnectLink';
 import { Repo } from '../../../network/Repo';
 import { LoadingAnimation } from '../../shared/LoadingAnimation/LoadingAnimation';
@@ -195,6 +197,18 @@ export const Connect: FC = () => {
 						link='https://github.com/garrettdavid1'
 						image={Github}
 						text='github'
+						textMarginRight='10px'
+					/>
+					<ConnectLink
+						link='https://twitch.tv/davidthed3v'
+						image={Twitch}
+						text='twitch'
+						textMarginRight='10px'
+					/>
+					<ConnectLink
+						link='https://twitter.com/davidthed3v'
+						image={Twitter}
+						text='twitter'
 						textMarginRight='10px'
 					/>
 				</Box>

@@ -71,9 +71,6 @@ export const useStyles = makeStyles((theme) => ({
 	linkContainer: {
 		...flexColCenterCenter,
 		width: '40%',
-		[theme.breakpoints.up(750)]: {
-			height: '262px'
-		},
 
 		'& > a': {
 			textDecoration: 'none'
