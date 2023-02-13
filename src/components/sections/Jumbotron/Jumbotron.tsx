@@ -33,8 +33,8 @@ export const Jumbotron: FC = () => {
 					David Garrett
 				</Typography>
 				<Subtitle windowWidth={windowWidth} index={1} text='creator.' />
-				<Subtitle windowWidth={windowWidth} index={2} text='learner.' />
-				<Subtitle windowWidth={windowWidth} index={3} text='mentor.' />
+				<Subtitle windowWidth={windowWidth} index={2} text='mentor.' />
+				<Subtitle windowWidth={windowWidth} index={3} text='problem solver.' />
 			</Box>
 			<Box className={rightJumbotronSection}>
 				<Image
