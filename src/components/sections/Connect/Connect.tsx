@@ -189,7 +189,7 @@ export const Connect: FC = () => {
 				</Box>
 				<Box className={linkContainer}>
 					<ConnectLink
-						link='https://www.linkedin.com/in/david-garrett-dev'
+						link='https://www.linkedin.com/in/davidthed3v'
 						image={LinkedIn}
 						text='linkedin'
 					/>
