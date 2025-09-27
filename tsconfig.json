@@ -22,6 +22,18 @@
     "typeRoots": ["node_modules/@types"]
   },
   "include": [
-    "src/*"
-, "src/components/App/App.tsx", "src/components/App/App.test.tsx"  ]
+    "src/new/**/*",
+    "src/index.tsx",
+    "src/index.css",
+    "src/network/**/*",
+    "src/appConfig/**/*",
+    "src/constants/**/*",
+    "src/util/**/*",
+    "src/reportWebVitals.ts",
+    "src/setupTests.ts"
+  ],
+  "exclude": [
+    "src/components/**/*",
+    "src/styles/**/*"
+  ]
 }

@@ -1,22 +1,23 @@
 import React, { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
-import App from './components/App/App';
-import { MuiThemeProvider, StylesProvider } from '@material-ui/core';
-import { theme } from './styles/theme';
-import { Repo } from './network/Repo';
+import App from './new/App';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { theme } from './new/theme';
+// import { Repo } from './network/Repo'; // Not needed for frontend-only portfolio
+// Repo.ping(); // Commented out for frontend-only portfolio
 
-Repo.ping();
+const container = document.getElementById('root');
+const root = createRoot(container!);
 
-ReactDOM.render(
-	<StrictMode>
-		<StylesProvider injectFirst>
-			<MuiThemeProvider theme={theme}>
-				<App />
-			</MuiThemeProvider>
-		</StylesProvider>
-	</StrictMode>,
-	document.getElementById('root')
+root.render(
+  <StrictMode>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </StyledEngineProvider>
+  </StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
