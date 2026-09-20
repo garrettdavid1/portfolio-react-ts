@@ -34,7 +34,7 @@ export const nav = [
 export const hero = {
 	statement:
 		'I lead engineering teams, and I still ship the code myself. Both halves are the job now.',
-	sub: `${TODO('N')} years building software for other people: platforms taken from nothing to paying customers, legacy systems rewritten while the business kept running on them, and engineers I am accountable for. Today I manage ten-plus engineers across three teams at Deque Systems, and I keep a contract practice going so I never stop being the person who has to make it actually work.`,
+	sub: `${TODO('N')} years building software for other people: platforms taken from nothing to paying customers, legacy systems rewritten while the business kept running on them, and engineers I am accountable for. Today I manage ten-plus engineers across three teams at Deque Systems. There has never been a stretch where I was not also building something of my own, which is how I stay the person who has to make it actually work, not just the person who signs off on it.`,
 };
 
 /** The three things someone hires David for. */
@@ -131,7 +131,7 @@ export const work = [
 		body:
 			'Self-hosted app, API, scheduler and MCP server that runs my own working life: agents file tasks, urgent ones push to my phone, and a briefing lands every morning. It is where I learn what building with agents actually costs.',
 		outcome:
-			'In daily use. It is the reason I can lead three teams and still hold a contract practice.',
+			'In daily use, every day. It is the reason a full-time management job still leaves room to build.',
 		stack: 'TypeScript · Postgres · Railway · Web Push · MCP',
 	},
 ];
@@ -244,11 +244,11 @@ export const notes = [
 ];
 
 export const contact = {
-	kicker: 'OPEN TO THE RIGHT CONVERSATION',
-	title: 'What are you trying to ship?',
+	kicker: 'GET IN TOUCH',
+	title: 'Tell me what you are building',
 	body:
-		'A platform to build, a system nobody wants to touch, or a team that needs to get faster without breaking things. Tell me about it. I answer my own email.',
-	cta: 'Start a conversation',
+		'A question about anything above, a system you are stuck inside, or an argument about testing. I like hearing about hard problems whether or not anything comes of it, and I answer my own email.',
+	cta: 'Send it',
 	fineprint: 'Or find me on LinkedIn. I reply there too.',
 };
 

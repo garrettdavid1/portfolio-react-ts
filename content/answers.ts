@@ -56,7 +56,7 @@ export const answers: Answer[] = [
 		id: 'lead',
 		question: 'Is he a manager or an engineer?',
 		body:
-			'Both, deliberately. He manages ten-plus engineers across three teams at Deque Systems and keeps a contract engagement going so he is still the one who has to make something work.',
+			'Both, deliberately. He manages ten-plus engineers across three teams at Deque Systems, and there is always something of his own being built alongside it, so he is still someone who has to make a thing work and not only review it.',
 		more: `He came to management from teaching and from running training programs, not from being the strongest coder in the room. ${TODO('ADD ONE OUTCOME FROM THE DEQUE ROLE')}.`,
 		source: 'Deque Systems, Tucker High School, Chick-fil-A',
 		timing: '3 teams',
