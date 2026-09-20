@@ -1,9 +1,10 @@
 /**
- * The answers behind the "Ask my system" panel.
+ * The answers behind the "Ask about my work" panel.
  *
- * Today these are written by hand and served from the route handler, so the
- * panel is honest about being a canned index rather than a live model. To make
- * it live, keep this shape and swap the body of `answerFor()` in
+ * These are questions a hiring manager or a prospective client actually asks,
+ * answered from the record rather than from process talk. Written by hand and
+ * served from the route handler, so the panel is a curated index, not a model.
+ * To make it live, keep this shape and swap the body of `answerFor()` in
  * app/api/ask/route.ts — the client never changes.
  */
 
@@ -14,7 +15,7 @@ export type Answer = {
 	question: string;
 	body: string;
 	more: string;
-	/** Where the claim comes from. Shown verbatim under the answer. */
+	/** What the claim rests on. Shown verbatim under the answer. */
 	source: string;
 	/** Retrieval cost, shown next to the source. Honest, not decorative. */
 	timing: string;
@@ -25,29 +26,50 @@ export const answers: Answer[] = [
 		id: 'shipped',
 		question: 'What has he actually shipped?',
 		body:
-			'A self-hosted agent platform he uses every day: a web app, an API, a scheduler and an MCP server, with a task store that pushes to his phone when something is urgent.',
-		more: `Alongside that, ${TODO('N')} years of product engineering and an ongoing contract engagement. At Deque Systems he is accountable for three teams rather than a codebase, so the shipping there is other people’s.`,
-		source: 'domains/life-ops-platform, domains/side-contract',
-		timing: '4 files read',
+			'A background-search platform with paying clients, two rewrites of production systems running inside car dealerships, a greenfield app builder at Juvare, and data visualisation on an MLOps platform at Modzy.',
+		more:
+			'The through line is that all of it went live and someone depended on it. The most recent one is a self-hosted agent platform he uses every day to run his own working life.',
+		source: 'PreDiscover, MDL autoMation, BoardStudio, Modzy',
+		timing: '6 projects',
+	},
+	{
+		id: 'greenfield',
+		question: 'Can he start something from nothing?',
+		body:
+			'Twice, with a product at the end of it. PreDiscover began as an empty repo and ended as a platform with active, paying customers, cutting searches from hours to seconds.',
+		more:
+			'BoardStudio was the other: a drag-and-drop and code-editing surface for building applications inside an existing product ecosystem, which is a harder greenfield because it has to live inside someone else’s constraints.',
+		source: 'PreDiscover, BoardStudio',
+		timing: '2 greenfield builds',
+	},
+	{
+		id: 'legacy',
+		question: 'What about a system nobody wants to touch?',
+		body:
+			'Two Silverlight applications at MDL autoMation, rewritten on current technology while dealerships kept running on them.',
+		more:
+			'One drives the large screens that greet guests and track vehicles in real time from in-car devices. The other is the dispatch tool valet and service staff use all day. Both are the kind of rewrite where downtime is somebody’s afternoon.',
+		source: 'MDL autoMation',
+		timing: '2 rewrites',
+	},
+	{
+		id: 'lead',
+		question: 'Is he a manager or an engineer?',
+		body:
+			'Both, deliberately. He manages ten-plus engineers across three teams at Deque Systems and keeps a contract engagement going so he is still the one who has to make something work.',
+		more: `He came to management from teaching and from running training programs, not from being the strongest coder in the room. ${TODO('ADD ONE OUTCOME FROM THE DEQUE ROLE')}.`,
+		source: 'Deque Systems, Tucker High School, Chick-fil-A',
+		timing: '3 teams',
 	},
 	{
 		id: 'ai',
-		question: 'How does he use AI day to day?',
+		question: 'How does he use AI in the work?',
 		body:
-			'Eleven agents, each scoped to one domain, over a shared memory store and a control plane repo they all read before acting.',
+			'Most of the code he ships is written by an agent, over a shared written context, with hard stops on anything irreversible.',
 		more:
-			'They plan work, write and deploy code, triage his inbox and draft his writing. Anything irreversible stops and waits for him: money, contracts, first contact with a person.',
-		source: 'docs/agent-fleet.md, memory index',
-		timing: '7 files read',
-	},
-	{
-		id: 'a11y',
-		question: 'Is he any good at accessibility?',
-		body:
-			'He manages the teams building the tooling that finds and fixes it, including the API integrations and the scanning engine side.',
-		more: `In practice that means treating conformance as an engineering constraint with tests behind it, not a report produced at the end. ${TODO('ADD ONE CONCRETE OUTCOME HERE')}.`,
-		source: 'domains/deque',
-		timing: '3 files read',
+			'The discipline matters more than the tooling: one of his own automations reported four records created and all four were wrong, on a green run. Nothing counts as working until he has read what it wrote.',
+		source: 'his own agent platform, in daily use',
+		timing: 'daily',
 	},
 	{
 		id: 'work',
@@ -58,16 +80,6 @@ export const answers: Answer[] = [
 		source: 'written by David, not the agent',
 		timing: 'static',
 	},
-	{
-		id: 'broke',
-		question: 'What has he broken?',
-		body:
-			'An automation of his own reported four records created. All four were wrong, the run was green, and nothing in the output said otherwise.',
-		more:
-			'That is where his rule came from: a count is not a result, and nothing is working until he has read what it wrote. There is a post about it further down.',
-		source: 'memory: verify what the automation wrote',
-		timing: '1 file read',
-	},
 ];
 
 export const fallbackAnswer: Answer = {
@@ -75,9 +87,9 @@ export const fallbackAnswer: Answer = {
 	question: '',
 	body: 'I do not have a written answer for that one.',
 	more:
-		'This panel only answers from facts David has actually written down, and it will say so rather than invent something. Try one of the questions on the left, or email him.',
+		'This panel only answers from things David has actually written down, and it will say so rather than invent something. Try one of the questions on the left, or just email him.',
 	source: 'no matching record',
-	timing: '0 files read',
+	timing: 'no match',
 };
 
 export function findAnswer(id: string): Answer | undefined {
@@ -92,11 +104,12 @@ export function findAnswer(id: string): Answer | undefined {
 export function matchQuestion(text: string): Answer {
 	const q = text.toLowerCase();
 	const rules: Array<[string[], string]> = [
-		[['ship', 'built', 'build', 'portfolio', 'project'], 'shipped'],
-		[['ai', 'agent', 'llm', 'claude', 'automation', 'mcp'], 'ai'],
-		[['accessib', 'a11y', 'wcag', 'axe', 'deque'], 'a11y'],
-		[['work with', 'manage', 'team', 'lead', 'like to work'], 'work'],
-		[['broke', 'broken', 'fail', 'mistake', 'wrong'], 'broke'],
+		[['greenfield', 'from scratch', 'zero to', 'start something', 'new product'], 'greenfield'],
+		[['legacy', 'rewrite', 'migrat', 'old system', 'modernis', 'moderniz'], 'legacy'],
+		[['manage', 'lead', 'team', 'report', 'hiring', 'mentor'], 'lead'],
+		[['ai', 'agent', 'llm', 'claude', 'copilot', 'automation'], 'ai'],
+		[['work with', 'like to work', 'culture', 'communicat'], 'work'],
+		[['ship', 'built', 'build', 'project', 'portfolio', 'experience'], 'shipped'],
 	];
 	for (const [needles, id] of rules) {
 		if (needles.some((n) => q.includes(n))) {

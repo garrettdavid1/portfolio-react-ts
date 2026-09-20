@@ -47,7 +47,7 @@ export default function AskPanel({ questions, initial }: Props) {
 		<section className="ask" id="ask" aria-labelledby="ask-heading">
 			<div className="ask__bar mono">
 				<h2 id="ask-heading" className="mono" style={{ fontWeight: 400, fontSize: 12 }}>
-					Ask my system
+					Ask about my work
 				</h2>
 				<span className="ask__status">
 					<span className="ask__dot" aria-hidden="true" />
@@ -104,7 +104,7 @@ export default function AskPanel({ questions, initial }: Props) {
 			</div>
 
 			<p className="ask__foot mono">
-				This panel answers from facts David has written down, and it says so when it
+				This panel answers from things David has written down, and says so when it
 				has none. It does not guess.
 			</p>
 		</section>

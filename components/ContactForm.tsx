@@ -1,30 +1,31 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { contact } from '@/content/site';
 
 type State = { kind: 'idle' | 'busy' | 'done' | 'error'; message?: string };
 
-export default function SubscribeForm() {
+export default function ContactForm() {
 	const [email, setEmail] = useState('');
+	const [note, setNote] = useState('');
 	const [state, setState] = useState<State>({ kind: 'idle' });
-	const id = useId();
+	const emailId = useId();
+	const noteId = useId();
 
 	async function submit(e: React.FormEvent) {
 		e.preventDefault();
 		setState({ kind: 'busy' });
 		try {
-			const res = await fetch('/api/subscribe', {
+			const res = await fetch('/api/contact', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ email }),
+				body: JSON.stringify({ email, note }),
 			});
 			const data = (await res.json()) as { message?: string };
 			if (!res.ok) throw new Error(data.message ?? 'That did not go through.');
-			setState({
-				kind: 'done',
-				message: data.message ?? 'Sent. Check your inbox.',
-			});
+			setState({ kind: 'done', message: data.message ?? 'Sent. I will reply.' });
 			setEmail('');
+			setNote('');
 		} catch (err) {
 			setState({
 				kind: 'error',
@@ -35,11 +36,11 @@ export default function SubscribeForm() {
 
 	return (
 		<form className="briefing__form" onSubmit={submit}>
-			<label className="mono" htmlFor={id}>
-				Email
+			<label className="mono" htmlFor={emailId}>
+				Your email
 			</label>
 			<input
-				id={id}
+				id={emailId}
 				type="email"
 				required
 				autoComplete="email"
@@ -47,11 +48,23 @@ export default function SubscribeForm() {
 				placeholder="you@company.com"
 				onChange={(e) => setEmail(e.target.value)}
 			/>
+			<label className="mono" htmlFor={noteId}>
+				What you are trying to ship
+			</label>
+			<textarea
+				id={noteId}
+				required
+				rows={3}
+				maxLength={1200}
+				value={note}
+				placeholder="A sentence is plenty."
+				onChange={(e) => setNote(e.target.value)}
+			/>
 			<button className="btn" type="submit" disabled={state.kind === 'busy'}>
-				{state.kind === 'busy' ? 'Sending…' : 'Send it to me'}
+				{state.kind === 'busy' ? 'Sending…' : contact.cta}
 			</button>
 			<p className="briefing__fine" aria-live="polite">
-				{state.message ?? 'One email with the thing in it. Unsubscribe whenever.'}
+				{state.message ?? contact.fineprint}
 			</p>
 		</form>
 	);

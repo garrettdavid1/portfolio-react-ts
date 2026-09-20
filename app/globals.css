@@ -203,6 +203,232 @@ h3 {
 	max-width: 700px;
 }
 
+.hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	margin-top: 36px;
+}
+
+/* ---------- what I get hired for ---------- */
+
+.value {
+	padding-block: 24px 88px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.value__grid {
+	display: grid;
+	gap: 40px;
+}
+
+@media (min-width: 900px) {
+	.value__grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 48px;
+	}
+}
+
+.value__item {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	border-top: 2px solid var(--rule-strong);
+	padding-top: 20px;
+}
+
+.value__n {
+	margin: 0;
+	color: var(--accent);
+}
+
+.value__item h3 {
+	font-size: 25px;
+	line-height: 1.25;
+	font-weight: 600;
+}
+
+.value__body {
+	margin: 0;
+	font-size: 18px;
+	color: var(--ink-2);
+}
+
+.value__proof {
+	margin: auto 0 0;
+	padding-top: 8px;
+	color: var(--ink-3);
+	text-transform: none;
+	letter-spacing: 0.04em;
+	font-size: 13px;
+}
+
+/* ---------- selected work ---------- */
+
+.work {
+	padding-block: 0 88px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.work__note {
+	margin: 0;
+	color: var(--ink-3);
+	font-size: 17px;
+}
+
+.case {
+	display: grid;
+	gap: 12px 48px;
+	border-top: 1px solid var(--rule);
+	padding-block: 32px;
+}
+
+@media (min-width: 980px) {
+	.case {
+		grid-template-columns: 260px minmax(0, 1fr);
+	}
+}
+
+.case__aside {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.case__client {
+	margin: 0;
+	font-size: 19px;
+	font-weight: 500;
+}
+
+.case__period {
+	margin: 0;
+	color: var(--ink-3);
+}
+
+.case__role {
+	margin: 0;
+	font-size: 16px;
+	color: var(--ink-3);
+}
+
+.case__main {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.case__main h3 {
+	font-size: clamp(24px, 3vw, 31px);
+	line-height: 1.2;
+	font-weight: 600;
+}
+
+.case__body {
+	margin: 0;
+	font-size: 19px;
+	color: var(--ink-2);
+	max-width: var(--measure);
+}
+
+.case__outcome {
+	margin: 0;
+	font-size: 19px;
+	color: var(--ink);
+	border-left: 2px solid var(--accent);
+	padding-left: 16px;
+	max-width: var(--measure);
+}
+
+.case__stack {
+	margin: 4px 0 0;
+	color: var(--ink-3);
+	text-transform: none;
+	letter-spacing: 0.04em;
+	font-size: 13px;
+}
+
+/* ---------- the arc ---------- */
+
+.arc {
+	padding-block: 8px 0;
+}
+
+.arc__intro {
+	margin: 10px 0 0;
+	color: var(--ink-2);
+	max-width: 720px;
+}
+
+.timeline__org {
+	display: block;
+	font-weight: 500;
+	font-size: 17px;
+}
+
+.timeline__role {
+	display: block;
+	font-size: 15px;
+	color: var(--accent);
+}
+
+.timeline__note {
+	display: block;
+	font-size: 15px;
+	color: var(--ink-3);
+	line-height: 1.4;
+	margin-top: 4px;
+}
+
+/* ---------- how I work now ---------- */
+
+.how {
+	padding-block: 88px;
+	display: grid;
+	gap: 40px;
+}
+
+@media (min-width: 980px) {
+	.how {
+		grid-template-columns: 340px minmax(0, 1fr);
+		gap: 80px;
+	}
+}
+
+.how__intro p {
+	margin: 12px 0 0;
+	color: var(--ink-2);
+	font-size: 18px;
+}
+
+.how__grid {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+}
+
+.how__point {
+	border-top: 1px solid var(--rule);
+	padding-top: 20px;
+}
+
+.how__point h3 {
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.how__point p {
+	margin: 8px 0 0;
+	font-size: 18px;
+	color: var(--ink-2);
+	max-width: var(--measure);
+}
+
 /* ---------- ask panel ---------- */
 
 .ask {
@@ -352,6 +578,25 @@ label {
 	color: var(--ink-3);
 }
 
+textarea {
+	width: 100%;
+	padding: 13px 14px;
+	font-family: var(--font-body), Georgia, serif;
+	font-size: 17px;
+	line-height: 1.5;
+	border: 1px solid var(--rule-strong);
+	background: var(--paper);
+	color: var(--ink);
+	border-radius: 2px;
+	resize: vertical;
+}
+
+.briefing__form textarea {
+	background: var(--paper);
+	border-color: var(--paper);
+	color: #1a1814;
+}
+
 input[type='text'],
 input[type='email'] {
 	width: 100%;
@@ -385,6 +630,34 @@ input::placeholder {
 
 .btn:hover {
 	background: var(--accent-hover);
+}
+
+a.btn {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+}
+
+.btn--solid {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.btn--solid:hover {
+	background: var(--accent);
+	color: #fffdf8;
+}
+
+.btn--ghost {
+	background: transparent;
+	color: var(--ink);
+	border: 1px solid var(--rule-strong);
+}
+
+.btn--ghost:hover {
+	background: transparent;
+	color: var(--accent);
+	border-color: var(--accent);
 }
 
 .btn[disabled] {
