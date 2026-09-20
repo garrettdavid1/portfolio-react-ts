@@ -49,7 +49,7 @@ export default function ContactForm() {
 				onChange={(e) => setEmail(e.target.value)}
 			/>
 			<label className="mono" htmlFor={noteId}>
-				What is on your mind
+				What you are trying to ship
 			</label>
 			<textarea
 				id={noteId}

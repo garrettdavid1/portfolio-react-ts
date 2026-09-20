@@ -244,11 +244,11 @@ export const notes = [
 ];
 
 export const contact = {
-	kicker: 'GET IN TOUCH',
-	title: 'Tell me what you are building',
+	kicker: 'OPEN TO THE RIGHT CONVERSATION',
+	title: 'What are you trying to ship?',
 	body:
-		'A question about anything above, a system you are stuck inside, or an argument about testing. I like hearing about hard problems whether or not anything comes of it, and I answer my own email.',
-	cta: 'Send it',
+		'A platform to build, a system nobody wants to touch, or a team that needs to get faster without breaking things. Tell me about it. I answer my own email.',
+	cta: 'Start a conversation',
 	fineprint: 'Or find me on LinkedIn. I reply there too.',
 };
 
