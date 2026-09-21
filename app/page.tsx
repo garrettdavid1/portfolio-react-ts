@@ -102,7 +102,7 @@ export default function Home() {
 							<div className="case__main">
 								<h3>{w.title}</h3>
 								<p className="case__body">{w.body}</p>
-								<p className="case__outcome">{w.outcome}</p>
+								{w.outcome && <p className="case__outcome">{w.outcome}</p>}
 								<p className="case__stack mono">{w.stack}</p>
 							</div>
 						</article>

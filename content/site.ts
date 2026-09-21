@@ -121,7 +121,8 @@ export const work = [
 		period: 'April 2017 – September 2019',
 		body:
 			'Migrated legacy applications away from Silverlight onto modern JavaScript, live in high-end car dealerships: the screens that greet guests and track vehicles in real time, and the dispatch tool valet staff use all day. Also a React Native mobile app for service advisors.',
-		outcome: TODO('WHAT THE MIGRATION UNBLOCKED, ONE LINE'),
+		// No verified outcome line for this one yet; the case renders without it.
+		outcome: '',
 		stack: 'KnockoutJS · C#/.NET Web API · SignalR · MongoDB · React Native',
 	},
 	{
@@ -255,8 +256,8 @@ export const contact = {
 export const footer = {
 	line: 'Atlanta, Georgia. Dad of four. Fluent in Brazilian Portuguese. Usually building something.',
 	links: [
-		{ label: 'LinkedIn', href: TODO('LINKEDIN URL') },
-		{ label: 'GitHub', href: TODO('GITHUB URL') },
+		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/davidthed3v/' },
+		{ label: 'GitHub', href: 'https://github.com/garrettdavid1' },
 		{ label: 'Email', href: 'mailto:davidgarrettcoding@gmail.com' },
 		{ label: 'The briefing agent', href: '/briefing' },
 	],

@@ -9,8 +9,6 @@
  * changes.
  */
 
-import { TODO } from './site';
-
 export type Answer = {
 	id: string;
 	question: string;
@@ -88,7 +86,8 @@ export const answers: Answer[] = [
 		question: 'What is he like to work with?',
 		body:
 			'Direct, and allergic to progress theater. He would rather hear that something is broken on Tuesday than hear it is on track until Friday.',
-		more: `He writes decisions down once so they do not get re-made worse later, and he expects the same. ${TODO('ADD A LINE A FORMER COLLEAGUE ACTUALLY SAID')}.`,
+		more:
+			'He writes decisions down once so they do not get re-made worse later, and he expects the same.',
 		source: 'written by David, not the agent',
 		timing: 'static',
 	},
