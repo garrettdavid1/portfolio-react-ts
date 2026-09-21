@@ -1,11 +1,12 @@
 /**
  * The answers behind the "Ask about my work" panel.
  *
- * These are questions a hiring manager or a prospective client actually asks,
- * answered from the record rather than from process talk. Written by hand and
- * served from the route handler, so the panel is a curated index, not a model.
- * To make it live, keep this shape and swap the body of `answerFor()` in
- * app/api/ask/route.ts — the client never changes.
+ * Questions a hiring manager or a prospective client actually asks, answered
+ * from the record rather than from process talk. Facts come from David's
+ * resume (2026-08). Written by hand and served from the route handler, so the
+ * panel is a curated index, not a model. To make it live, keep this shape and
+ * swap the body of `answerFor()` in app/api/ask/route.ts — the client never
+ * changes.
  */
 
 import { TODO } from './site';
@@ -26,40 +27,51 @@ export const answers: Answer[] = [
 		id: 'shipped',
 		question: 'What has he actually shipped?',
 		body:
-			'A background-search platform with paying clients, two rewrites of production systems running inside car dealerships, a greenfield app builder at Juvare, and data visualisation on an MLOps platform at Modzy.',
+			'Ten years of it: enterprise SaaS at Shopmonkey, a new enterprise application at Juvare, legacy dealership systems migrated off Silverlight at MDL, and client platforms through his own consultancy, the largest being a background-search product with paying customers.',
 		more:
-			'The through line is that all of it went live and someone depended on it. The most recent one is a self-hosted agent platform he uses every day to run his own working life.',
-		source: 'PreDiscover, MDL autoMation, BoardStudio, Modzy',
-		timing: '6 projects',
+			'At Deque he ships alongside the management job rather than instead of it: a Datadog APM and logging migration, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
+		source: 'resume, August 2026',
+		timing: '5 employers',
 	},
 	{
 		id: 'greenfield',
 		question: 'Can he start something from nothing?',
 		body:
-			'Twice, with a product at the end of it. PreDiscover began as an empty repo and ended as a platform with active, paying customers, cutting searches from hours to seconds.',
+			'PreDiscover began as an empty repo and ended as a background-search platform with active paying clients, cutting searches that took hours down to minutes or seconds.',
 		more:
-			'BoardStudio was the other: a drag-and-drop and code-editing surface for building applications inside an existing product ecosystem, which is a harder greenfield because it has to live inside someone else’s constraints.',
-		source: 'PreDiscover, BoardStudio',
+			'DesignStudio at Juvare was the other kind of greenfield, harder in its way: a new enterprise application built inside an existing product ecosystem, where he architected both the front end and the testing suite.',
+		source: 'PreDiscover, DesignStudio',
 		timing: '2 greenfield builds',
 	},
 	{
 		id: 'legacy',
 		question: 'What about a system nobody wants to touch?',
 		body:
-			'Two Silverlight applications at MDL autoMation, rewritten on current technology while dealerships kept running on them.',
+			'He migrated MDL autoMation off Silverlight onto modern JavaScript while high-end dealerships kept running on it: the screens that greet guests and track vehicles in real time, and the dispatch tool valet staff use all day.',
 		more:
-			'One drives the large screens that greet guests and track vehicles in real time from in-car devices. The other is the dispatch tool valet and service staff use all day. Both are the kind of rewrite where downtime is somebody’s afternoon.',
-		source: 'MDL autoMation',
-		timing: '2 rewrites',
+			'The other version of that job was Shopmonkey, where he was the sole engineer holding version one up for roughly six thousand auto shops across the US and Canada while version two was being built.',
+		source: 'MDL autoMation, Shopmonkey',
+		timing: '2 engagements',
 	},
 	{
 		id: 'lead',
 		question: 'Is he a manager or an engineer?',
 		body:
-			'Both, deliberately. He manages ten-plus engineers across three teams at Deque Systems, and there is always something of his own being built alongside it, so he is still someone who has to make a thing work and not only review it.',
-		more: `He came to management from teaching and from running training programs, not from being the strongest coder in the room. ${TODO('ADD ONE OUTCOME FROM THE DEQUE ROLE')}.`,
-		source: 'Deque Systems, Tucker High School, Chick-fil-A',
-		timing: '3 teams',
+			'Both, deliberately. He manages twelve engineers across three product teams in a forty-engineer organization at Deque Systems, and still ships production code.',
+		more:
+			'The numbers he would point at: engineers on his teams grew a median of 3.2 times in merged throughput year over year against a 2.1 times company rate, and API Integrations went from 43 percent to 100 percent roadmap completion quarter over quarter.',
+		source: 'resume, August 2026',
+		timing: '12 reports',
+	},
+	{
+		id: 'people',
+		question: 'How does he actually grow people?',
+		body:
+			'By building real relationships first: bi-weekly one-to-ones, pair programming, and career planning built around what each engineer wants rather than only what the roadmap wants.',
+		more:
+			'It predates the job title. He taught high school English and ran training and advancement programs at Chick-fil-A. At Shopmonkey he built the team that interviewed, trained and placed more than twenty-five engineers across the org in three months, and mentored a support colleague into a full-time engineering role.',
+		source: 'Deque, Shopmonkey, Chick-fil-A, Tucker High School',
+		timing: '25+ engineers placed',
 	},
 	{
 		id: 'ai',
@@ -67,8 +79,8 @@ export const answers: Answer[] = [
 		body:
 			'Most of the code he ships is written by an agent, over a shared written context, with hard stops on anything irreversible.',
 		more:
-			'The discipline matters more than the tooling: one of his own automations reported four records created and all four were wrong, on a green run. Nothing counts as working until he has read what it wrote.',
-		source: 'his own agent platform, in daily use',
+			'At Deque this became an AI-assisted engineering operating system, productized at the CTO’s request into two org-wide template repositories, plus coding guidelines adopted across six-plus repos. The discipline matters more than the tooling: one of his own automations reported four records created and all four were wrong, on a green run.',
+		source: 'Deque Systems, his own agent platform',
 		timing: 'daily',
 	},
 	{
@@ -106,7 +118,8 @@ export function matchQuestion(text: string): Answer {
 	const rules: Array<[string[], string]> = [
 		[['greenfield', 'from scratch', 'zero to', 'start something', 'new product'], 'greenfield'],
 		[['legacy', 'rewrite', 'migrat', 'old system', 'modernis', 'moderniz'], 'legacy'],
-		[['manage', 'lead', 'team', 'report', 'hiring', 'mentor'], 'lead'],
+		[['grow', 'mentor', 'coach', 'hiring', 'interview', 'onboard', 'career'], 'people'],
+		[['manage', 'lead', 'team', 'report', 'headcount'], 'lead'],
 		[['ai', 'agent', 'llm', 'claude', 'copilot', 'automation'], 'ai'],
 		[['work with', 'like to work', 'culture', 'communicat'], 'work'],
 		[['ship', 'built', 'build', 'project', 'portfolio', 'experience'], 'shipped'],

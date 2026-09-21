@@ -2,24 +2,16 @@ import type { CSSProperties } from 'react';
 import { record } from '@/content/site';
 
 /**
- * Wide screens draw the career as an engraved axis, positioning each role with
- * the `--pos` custom property. Narrow screens fall back to a plain ordered
- * list, which is also what a screen reader gets either way.
+ * Wide screens draw the career as an engraved axis running April 2017 to late
+ * 2026, positioning each role with the `--pos` custom property so the spacing
+ * is real time. Narrow screens fall back to a plain ordered list, which is
+ * also what a screen reader gets either way.
  *
- * Markers are evenly spaced because the real years are not in yet. Once they
- * are, replace `spread()` with a map from year to fraction and the axis
- * becomes proportional without touching anything else.
+ * The rust segment over the axis is the stretch when the consultancy ran
+ * alongside a full-time job.
  */
-const FIRST = 0.04;
-const LAST = 0.94;
-
-function spread(i: number, n: number): number {
-	if (n < 2) return 0.5;
-	return FIRST + ((LAST - FIRST) * i) / (n - 1);
-}
-
 export default function CareerArc() {
-	const roles = record.roles;
+	const { span } = record;
 
 	return (
 		<section className="arc wrap" id="record" aria-labelledby="arc-heading">
@@ -30,11 +22,21 @@ export default function CareerArc() {
 
 			<ol className="timeline">
 				<span className="timeline__axis" aria-hidden="true" />
-				{roles.map((r, i) => (
+				<span
+					className="timeline__span"
+					aria-hidden="true"
+					style={
+						{
+							'--from': String(span.from),
+							'--to': String(span.to),
+						} as CSSProperties
+					}
+				/>
+				{record.roles.map((r) => (
 					<li
 						key={r.org}
 						className={`timeline__item timeline__item--${r.side}`}
-						style={{ '--pos': String(spread(i, roles.length)) } as CSSProperties}
+						style={{ '--pos': String(r.pos) } as CSSProperties}
 					>
 						<span className="timeline__time">{r.year}</span>
 						<span className="timeline__text">
@@ -44,6 +46,17 @@ export default function CareerArc() {
 						</span>
 					</li>
 				))}
+				<div className="timeline__scale" aria-hidden="true">
+					{record.axisLabels.map((a) => (
+						<span
+							key={a.label}
+							className="timeline__tick"
+							style={{ '--pos': String(a.pos) } as CSSProperties}
+						>
+							{a.label}
+						</span>
+					))}
+				</div>
 			</ol>
 		</section>
 	);

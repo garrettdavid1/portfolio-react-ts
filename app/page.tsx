@@ -49,7 +49,7 @@ export default function Home() {
 				<div className="meta-bar mono">
 					<span>{site.role}</span>
 					<span>{site.location}</span>
-					<span>Building software since {record.roles[2].year}</span>
+					<span>Building software since {record.roles[0].year}</span>
 				</div>
 			</header>
 

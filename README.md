@@ -34,11 +34,14 @@ one visible.
 
 Outstanding as of this commit:
 
-- years shipping software (used in the hero and the ask panel)
-- a year for each role in the arc, which also makes its axis proportional
-- one measurable outcome each for Deque, BoardStudio, Modzy, and the MDL rewrites
+- one line on what the MDL Silverlight migration unblocked
 - a line a former colleague actually said, for the "what is he like to work with" answer
-- the three footer links
+- LinkedIn and GitHub URLs for the footer
+
+Open questions: whether the Juvare product was BoardStudio (old site) or DesignStudio
+(resume), and whether Modzy, which the old site listed as an employer, belongs under
+VersaDev client work.
+
 
 
 ## The Ask panel

@@ -732,7 +732,9 @@ a.btn {
 }
 
 .timeline__axis,
-.timeline__hours {
+.timeline__hours,
+.timeline__span,
+.timeline__scale {
 	display: none;
 }
 
@@ -832,6 +834,36 @@ a.btn {
 		left: 130px;
 		right: 130px;
 		top: 330px;
+		font-family: var(--font-mono), ui-monospace, monospace;
+		font-size: 11px;
+		letter-spacing: 0.06em;
+		color: var(--ink-3);
+	}
+
+	/* the years the consultancy ran alongside a full-time job */
+	.timeline__span {
+		display: block;
+		position: absolute;
+		top: 145px;
+		height: 8px;
+		background: var(--accent);
+		left: calc(130px + (100% - 260px) * var(--from));
+		width: calc((100% - 260px) * (var(--to) - var(--from)));
+	}
+
+	.timeline__scale {
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 330px;
+		height: 16px;
+	}
+
+	.timeline__tick {
+		position: absolute;
+		transform: translateX(-50%);
+		left: calc(130px + (100% - 260px) * var(--pos));
 		font-family: var(--font-mono), ui-monospace, monospace;
 		font-size: 11px;
 		letter-spacing: 0.06em;

@@ -5,8 +5,8 @@
  * Anything wrapped in TODO() is an unverified fact. `npm run build` is happy
  * with them; the dev banner in app/page.tsx is not, on purpose.
  *
- * Project history recovered from the previous site (Projects.data.ts on
- * master), so the descriptions started as David's own words.
+ * Source of record: David's resume (2026-08), plus project descriptions
+ * recovered from the previous site. Where the two disagreed the resume won.
  */
 
 export function TODO(text: string): string {
@@ -17,10 +17,10 @@ export const site = {
 	name: 'David Garrett',
 	domain: 'davidgarrett.us',
 	role: 'Engineering Manager, Deque Systems',
-	location: 'Woodstock, Georgia',
+	location: 'Atlanta, Georgia',
 	tagline: 'Engineering leader who still ships.',
 	description:
-		'Engineering manager at Deque Systems. Greenfield platforms, rewrites of systems a business already runs on, and teams that had to get faster without breaking anything.',
+		'Engineering manager at Deque Systems: twelve engineers across three teams, and production code alongside it. Greenfield platforms, legacy systems replaced under load, and the systems an engineering org runs on.',
 };
 
 export const nav = [
@@ -34,7 +34,7 @@ export const nav = [
 export const hero = {
 	statement:
 		'I lead engineering teams, and I still ship the code myself. Both halves are the job now.',
-	sub: `${TODO('N')} years building software for other people: platforms taken from nothing to paying customers, legacy systems rewritten while the business kept running on them, and engineers I am accountable for. Today I manage ten-plus engineers across three teams at Deque Systems. There has never been a stretch where I was not also building something of my own, which is how I stay the person who has to make it actually work, not just the person who signs off on it.`,
+	sub: 'Ten years of full-stack work, now managing twelve engineers across three product teams inside a forty-engineer organization. I build the systems an engineering org runs on, delivery measurement, review cycles, the AI workflows underneath them, and I have never gone a stretch without something of my own being built alongside it.',
 };
 
 /** The three things someone hires David for. */
@@ -43,24 +43,24 @@ export const value = {
 	items: [
 		{
 			n: '01',
-			title: 'Nothing to paying customers',
+			title: 'Making a team faster without adding people',
 			body:
-				'PreDiscover went from an empty repo to a background-search platform with active, paying clients: searches that took hours run in seconds. BoardStudio was greenfield too, a drag-and-drop builder for applications inside an existing product ecosystem.',
-			proof: 'PreDiscover · BoardStudio',
+				'Engineers on my teams grew a median of 3.2 times in merged throughput year over year, against a 2.1 times company-wide rate, with five of six established engineers outpacing the org. API Integrations went from 43 percent to 100 percent roadmap completion quarter over quarter.',
+			proof: 'Deque Systems',
 		},
 		{
 			n: '02',
 			title: 'Replacing what the business already runs on',
 			body:
-				'Two full rewrites of Silverlight apps at MDL autoMation, live in high-end car dealerships: the screens that greet guests and track their vehicles in real time, and the dispatch tool valet staff use all day. No pause in service.',
-			proof: 'MDL autoMation',
+				'Legacy Silverlight applications migrated onto modern JavaScript at MDL autoMation while dealerships kept running on them. At Shopmonkey I was the sole engineer holding version one up for roughly six thousand auto shops while version two was built.',
+			proof: 'MDL autoMation · Shopmonkey',
 		},
 		{
 			n: '03',
-			title: 'Growing engineers, not just output',
+			title: 'Building the layer a whole org runs on',
 			body:
-				'I taught high school English and ran training and advancement programs before I wrote software professionally. The part of engineering management most people pick up late is the part I started with.',
-			proof: 'Deque · Tucker High School · Chick-fil-A',
+				'Delivery measurement in DX from a three-team proof of concept to ten teams, quarterly performance reviews automated end to end, and an AI-assisted engineering operating system productized at the CTO’s request into two org-wide template repositories.',
+			proof: 'Deque Systems',
 		},
 	],
 };
@@ -69,122 +69,122 @@ export const work = [
 	{
 		slug: 'deque',
 		client: 'Deque Systems',
-		title: 'Three teams on accessibility tooling',
-		role: 'Engineering Manager',
-		period: `${TODO('YEAR')}–present`,
+		title: 'Twelve engineers, three teams, and the org’s delivery layer',
+		role: 'Engineering Manager, previously Technical Lead',
+		period: 'June 2024 – present',
 		body:
-			'Ten-plus engineers across API integrations, scanning and results, and accessibility program management. Platform work: the interfaces other teams depend on, and what happens when one of them breaks at two in the morning.',
-		outcome: TODO('ONE MEASURABLE OUTCOME'),
-		stack: 'Accessibility · axe · platform · developer experience',
-	},
-	{
-		slug: 'prediscover',
-		client: 'Versatile Development',
-		title: 'PreDiscover criminal background search',
-		role: 'Lead engineer, greenfield',
-		period: TODO('YEARS'),
-		body:
-			'A platform and Chrome extension that let background-search companies automate their searches: collecting data from county-level courthouse sites, filtering cases, and submitting into case-management software.',
+			'Three product teams (API Integrations, Scan and Results, Bandura) inside a forty-engineer organization, owning axe-core, Axe Watcher, Axe Linter, the DevTools CLI, Developer Hub, Axe Reports and Axe Monitor. Alongside the management work: a Datadog APM and logging migration, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
 		outcome:
-			'Searches that took hours now take minutes or seconds. Shipped with active, paying clients.',
-		stack: 'React · Node · Express · MongoDB · Chrome extension',
+			'Median merged throughput per engineer up 3.2 times year over year against a 2.1 times company rate. API Integrations went 43 percent to 100 percent roadmap completion quarter over quarter. Delivery measurement scaled from three teams to ten.',
+		stack: 'TypeScript · Node · React · Postgres · MySQL · Prisma · DX',
 	},
 	{
-		slug: 'boardstudio',
-		client: 'Juvare',
-		title: 'BoardStudio',
-		role: 'Engineer, greenfield',
-		period: TODO('YEARS'),
+		slug: 'shopmonkey',
+		client: 'Shopmonkey',
+		title: 'Enterprise SaaS, version one and version two',
+		role: 'Senior Software Engineer, then Engineering Lead',
+		period: 'July 2021 – June 2024',
 		body:
-			'A web app for building complex applications that integrate with the WebEOC product ecosystem, giving users drag, drop and code editing in one surface.',
-		outcome: TODO('WHAT IT CHANGED FOR JUVARE OR ITS USERS'),
-		stack: 'React · TypeScript · GrapesJS · Monaco Editor',
+			'Led teams of up to twelve senior engineers across both platforms, and built the strategic "farm" team that interviewed, trained, onboarded and placed more than twenty-five engineers across the org in three months.',
+		outcome:
+			'Average Jira ticket age cut from over 130 days to 27. Sole engineer supporting version one for roughly six thousand auto shops during the version-two build. Mentored a support colleague into a full-time engineering role.',
+		stack: 'TypeScript · Node · React · Postgres · MongoDB',
+	},
+	{
+		slug: 'juvare',
+		client: 'Juvare',
+		title: 'DesignStudio',
+		role: 'Software Engineer and Scrum Master',
+		period: 'September 2019 – July 2021',
+		body:
+			'Architected the front end and the testing suite for DesignStudio, a new enterprise application, and managed offshore contractors delivering FormStudio. Also on WebEOC enhancements, defects and deployment through Azure and Jenkins.',
+		outcome: 'FormStudio delivered on time with a distributed contract team.',
+		stack: 'TypeScript · React · ASP.NET · Azure · Jenkins',
+	},
+	{
+		slug: 'versadev',
+		client: 'VersaDev',
+		title: 'My own consultancy, alongside the day job',
+		role: 'Founder and engineer',
+		period: 'February 2018 – November 2024',
+		body:
+			'Client work for startups through to internal enterprise tools: admin portals, data-visualization dashboards, documented component libraries. The largest was PreDiscover, a criminal-background-search platform and Chrome extension that pulled data from county-level courthouse sites, filtered cases and submitted into case-management software.',
+		outcome:
+			'PreDiscover turned searches that took hours into minutes or seconds, and shipped with active paying clients.',
+		stack: 'React · Node · Express · MongoDB · Chrome extension',
 	},
 	{
 		slug: 'mdl',
 		client: 'MDL autoMation',
-		title: 'Flatscreen and Dispatch rewrites',
-		role: 'Full-stack engineer',
-		period: TODO('YEARS'),
+		title: 'Getting the dealerships off Silverlight',
+		role: 'Software Developer',
+		period: 'April 2017 – September 2019',
 		body:
-			'Two Silverlight apps rebuilt on current technology without interrupting the dealerships running on them. One greets guests on large screens and tracks vehicles in real time from in-car devices; the other is how valet and service staff locate and deliver a customer’s car.',
-		outcome: TODO('WHAT THE REWRITE UNBLOCKED'),
+			'Migrated legacy applications away from Silverlight onto modern JavaScript, live in high-end car dealerships: the screens that greet guests and track vehicles in real time, and the dispatch tool valet staff use all day. Also a React Native mobile app for service advisors.',
+		outcome: TODO('WHAT THE MIGRATION UNBLOCKED, ONE LINE'),
 		stack: 'KnockoutJS · C#/.NET Web API · SignalR · MongoDB · React Native',
-	},
-	{
-		slug: 'modzy',
-		client: 'Modzy',
-		title: 'MLOps web app',
-		role: 'Front-end engineer',
-		period: TODO('YEARS'),
-		body:
-			'Data visualisation over large datasets, pixel-accurate UI components, and the documentation for each of them, on a machine-learning operations platform.',
-		outcome: TODO('WHAT IT CHANGED'),
-		stack: 'React · TypeScript · D3.js',
 	},
 	{
 		slug: 'agent-platform',
 		client: 'Personal',
 		title: 'A personal agent platform',
 		role: 'Sole engineer',
-		period: '2025–present',
+		period: '2025 – present',
 		body:
-			'Self-hosted app, API, scheduler and MCP server that runs my own working life: agents file tasks, urgent ones push to my phone, and a briefing lands every morning. It is where I learn what building with agents actually costs.',
+			'Self-hosted app, API, scheduler and MCP server that runs my own working life: agents file tasks, the urgent ones push to my phone, and a briefing lands every morning. It is where I learn what building with agents actually costs before I recommend it to anyone.',
 		outcome:
-			'In daily use, every day. It is the reason a full-time management job still leaves room to build.',
+			'In daily use. It is the reason a full-time management job still leaves room to build.',
 		stack: 'TypeScript · Postgres · Railway · Web Push · MCP',
 	},
 ];
 
 /**
- * The arc, drawn as an engraved instrument. Markers are evenly spaced for now;
- * once real years land in `year`, the axis can be made proportional.
+ * The arc, drawn as an engraved axis. `pos` is the fraction along an axis that
+ * runs April 2017 to late 2026, so the spacing is real. `span` is the rust
+ * stretch marking the years the consultancy ran alongside a full-time job.
  */
 export const record = {
 	heading: 'The arc',
 	intro:
-		'I did not start in software. The first half of this list is a large part of why I am useful in the second half.',
+		'Before software I taught high school English and ran training and advancement programs at Chick-fil-A. That is where the management half came from. The rust stretch of the line is VersaDev, my own consultancy, running alongside a full-time job for six of these years.',
+	span: { from: 0.087, to: 0.798 },
+	axisLabels: [
+		{ label: '2017', pos: 0 },
+		{ label: '2020', pos: 0.289 },
+		{ label: '2023', pos: 0.605 },
+		{ label: '2026', pos: 0.921 },
+	],
 	roles: [
 		{
-			org: 'Tucker High School',
-			role: 'English teacher',
-			year: TODO('YR'),
-			note: 'Preparing a lesson, and mentoring with care.',
-			side: 'above' as const,
-		},
-		{
-			org: 'Chick-fil-A',
-			role: 'Training director',
-			year: TODO('YR'),
-			note: 'Built the training and advancement programs.',
-			side: 'below' as const,
-		},
-		{
 			org: 'MDL autoMation',
-			role: 'Full-stack engineer',
-			year: TODO('YR'),
-			note: 'Two production rewrites of real-time systems.',
+			role: 'Software developer',
+			year: '2017',
+			pos: 0,
+			note: 'Legacy apps off Silverlight, without stopping the dealerships.',
 			side: 'above' as const,
 		},
 		{
-			org: 'Versatile Development',
-			role: 'Contract engineer',
-			year: TODO('YR'),
-			note: 'PreDiscover, WeatherStrike, portals for Toc and Earth Guardians.',
+			org: 'Juvare',
+			role: 'Engineer, scrum master',
+			year: '2019',
+			pos: 0.255,
+			note: 'Front end and test suite for a new enterprise app.',
 			side: 'below' as const,
 		},
 		{
-			org: 'Juvare, then Modzy',
-			role: 'Product engineer',
-			year: TODO('YR'),
-			note: 'Greenfield builder, then MLOps data visualisation.',
+			org: 'Shopmonkey',
+			role: 'Senior engineer, then lead',
+			year: '2021',
+			pos: 0.447,
+			note: 'Up to twelve senior engineers across two platforms.',
 			side: 'above' as const,
 		},
 		{
 			org: 'Deque Systems',
-			role: 'Engineering manager',
-			year: TODO('YR'),
-			note: 'Three teams. Accountable for people, not only code.',
+			role: 'Tech lead, then manager',
+			year: '2024',
+			pos: 0.755,
+			note: 'Twelve reports, three teams, a forty-engineer org.',
 			side: 'below' as const,
 		},
 	],
@@ -193,7 +193,7 @@ export const record = {
 export const how = {
 	heading: 'How I work now',
 	intro:
-		'Most of the code I ship is written by an agent, so the job moved to knowing which parts to distrust. This is not a hobby. It is why the work above is possible alongside a full-time management role.',
+		'Most of the code I ship is written by an agent, so the job moved to knowing which parts to distrust. At work this became an AI-assisted operating system productized at the CTO’s request into two org-wide template repositories, and the coding guidelines adopted across six-plus repos.',
 	points: [
 		{
 			title: 'A count is not a result.',
@@ -253,11 +253,11 @@ export const contact = {
 };
 
 export const footer = {
-	line: 'Woodstock, Georgia. Dad of four. Usually building something.',
+	line: 'Atlanta, Georgia. Dad of four. Fluent in Brazilian Portuguese. Usually building something.',
 	links: [
 		{ label: 'LinkedIn', href: TODO('LINKEDIN URL') },
 		{ label: 'GitHub', href: TODO('GITHUB URL') },
-		{ label: 'Email', href: TODO('MAILTO') },
+		{ label: 'Email', href: 'mailto:davidgarrettcoding@gmail.com' },
 		{ label: 'The briefing agent', href: '/briefing' },
 	],
 };
