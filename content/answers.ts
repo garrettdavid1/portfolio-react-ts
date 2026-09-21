@@ -25,7 +25,7 @@ export const answers: Answer[] = [
 		id: 'shipped',
 		question: 'What has he actually shipped?',
 		body:
-			'Ten years of it: enterprise SaaS at Shopmonkey, a new enterprise application at Juvare, legacy dealership systems migrated off Silverlight at MDL, and client platforms through his own consultancy, the largest being a background-search product with paying customers.',
+			'Ten years of it: enterprise SaaS at Shopmonkey, a new enterprise application at Juvare, legacy dealership systems migrated off Silverlight at MDL, and client platforms built outside the day job, the largest being a background-search product with paying customers.',
 		more:
 			'At Deque he ships alongside the management job rather than instead of it: a Datadog APM and logging migration, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
 		source: 'resume, August 2026',
@@ -35,7 +35,7 @@ export const answers: Answer[] = [
 		id: 'greenfield',
 		question: 'Can he start something from nothing?',
 		body:
-			'PreDiscover began as an empty repo and ended as a background-search platform with active paying clients, cutting searches that took hours down to minutes or seconds.',
+			'PreDiscover began as an empty repo and ended as a background-search platform with paying clients, cutting searches that took hours down to minutes or seconds.',
 		more:
 			'DesignStudio at Juvare was the other kind of greenfield, harder in its way: a new enterprise application built inside an existing product ecosystem, where he architected both the front end and the testing suite.',
 		source: 'PreDiscover, DesignStudio',
@@ -55,9 +55,9 @@ export const answers: Answer[] = [
 		id: 'lead',
 		question: 'Is he a manager or an engineer?',
 		body:
-			'Both, deliberately. He manages twelve engineers across three product teams in a forty-engineer organization at Deque Systems, and still ships production code.',
+			'Both, deliberately. He manages thirteen engineers across three product teams in a forty-engineer organization at Deque Systems, and still ships production code.',
 		more:
-			'The numbers he would point at: engineers on his teams grew a median of 3.2 times in merged throughput year over year against a 2.1 times company rate, and API Integrations went from 43 percent to 100 percent roadmap completion quarter over quarter.',
+			'What he actually does with it: keeps engineers on their top priorities, holds the bar on accountability, and builds the incentive that lets a team rally around a quarter. He also built the delivery-measurement layer the organization reads, so the result is visible rather than asserted.',
 		source: 'resume, August 2026',
 		timing: '12 reports',
 	},

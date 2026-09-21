@@ -7,7 +7,7 @@ import { record } from '@/content/site';
  * is real time. Narrow screens fall back to a plain ordered list, which is
  * also what a screen reader gets either way.
  *
- * The rust segment over the axis is the stretch when the consultancy ran
+ * The rust segment over the axis is the stretch when the freelance work ran
  * alongside a full-time job.
  */
 export default function CareerArc() {

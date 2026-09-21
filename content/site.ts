@@ -20,7 +20,7 @@ export const site = {
 	location: 'Atlanta, Georgia',
 	tagline: 'Engineering leader who still ships.',
 	description:
-		'Engineering manager at Deque Systems: twelve engineers across three teams, and production code alongside it. Greenfield platforms, legacy systems replaced under load, and the systems an engineering org runs on.',
+		'Engineering manager at Deque Systems: thirteen engineers across three teams, and production code alongside it. Greenfield platforms, legacy systems replaced under load, and the systems an engineering org runs on.',
 };
 
 export const nav = [
@@ -34,7 +34,7 @@ export const nav = [
 export const hero = {
 	statement:
 		'I lead engineering teams, and I still ship the code myself. Both halves are the job now.',
-	sub: 'Ten years of full-stack work, now managing twelve engineers across three product teams inside a forty-engineer organization. I build the systems an engineering org runs on, delivery measurement, review cycles, the AI workflows underneath them, and I have never gone a stretch without something of my own being built alongside it.',
+	sub: 'Ten years of full-stack work, now managing thirteen engineers across three product teams inside a forty-engineer organization. I build the systems an engineering org runs on, delivery measurement, review cycles, the AI workflows underneath them, and I have never gone a stretch without something of my own being built alongside it.',
 };
 
 /** The three things someone hires David for. */
@@ -45,7 +45,7 @@ export const value = {
 			n: '01',
 			title: 'Making a team faster without adding people',
 			body:
-				'Engineers on my teams grew a median of 3.2 times in merged throughput year over year, against a 2.1 times company-wide rate, with five of six established engineers outpacing the org. API Integrations went from 43 percent to 100 percent roadmap completion quarter over quarter.',
+				'Keeping engineers on their top priorities, holding the bar on accountability, and building the incentive and motivation that let a team rally around a quarter. The measurement work underneath it means the change is visible rather than claimed.',
 			proof: 'Deque Systems',
 		},
 		{
@@ -59,7 +59,7 @@ export const value = {
 			n: '03',
 			title: 'Building the layer a whole org runs on',
 			body:
-				'Delivery measurement in DX from a three-team proof of concept to ten teams, quarterly performance reviews automated end to end, and an AI-assisted engineering operating system productized at the CTO’s request into two org-wide template repositories.',
+				'Delivery measurement in DX now covering ten teams, plus the reporting methodology used across engineering. Quarterly performance reviews automated end to end, and an AI-assisted engineering operating system productized at the CTO’s request into two org-wide template repositories.',
 			proof: 'Deque Systems',
 		},
 	],
@@ -69,13 +69,13 @@ export const work = [
 	{
 		slug: 'deque',
 		client: 'Deque Systems',
-		title: 'Twelve engineers, three teams, and the org’s delivery layer',
-		role: 'Engineering Manager, previously Technical Lead',
+		title: 'Thirteen engineers, three teams, and the org’s delivery layer',
+		role: 'Software Engineering Manager, previously Technical Lead',
 		period: 'June 2024 – present',
 		body:
-			'Three product teams (API Integrations, Scan and Results, Bandura) inside a forty-engineer organization, owning axe-core, Axe Watcher, Axe Linter, the DevTools CLI, Developer Hub, Axe Reports and Axe Monitor. Alongside the management work: a Datadog APM and logging migration, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
+			'Three product teams (API Integrations, Scan and Results, Bandura) inside a forty-engineer organization. The teams build and maintain axe-core, Axe Watcher, Axe Linter, the DevTools CLI, Developer Hub, Axe Reports and Axe Monitor. Alongside the management work: a Datadog APM and logging migration, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
 		outcome:
-			'Median merged throughput per engineer up 3.2 times year over year against a 2.1 times company rate. API Integrations went 43 percent to 100 percent roadmap completion quarter over quarter. Delivery measurement scaled from three teams to ten.',
+			'Built the delivery-measurement layer the organization runs on, now covering ten teams, and automated the management layer itself: quarterly reviews end to end, per-report status pages, 1:1 prep and the weekly staff report.',
 		stack: 'TypeScript · Node · React · Postgres · MySQL · Prisma · DX',
 	},
 	{
@@ -85,7 +85,7 @@ export const work = [
 		role: 'Senior Software Engineer, then Engineering Lead',
 		period: 'July 2021 – June 2024',
 		body:
-			'Led teams of up to twelve senior engineers across both platforms, and built the strategic "farm" team that interviewed, trained, onboarded and placed more than twenty-five engineers across the org in three months.',
+			'Led a team of four senior engineers across both platforms, and built the strategic "farm" team that interviewed, trained, onboarded and placed more than twenty-five engineers across the org in three months.',
 		outcome:
 			'Average Jira ticket age cut from over 130 days to 27. Sole engineer supporting version one for roughly six thousand auto shops during the version-two build. Mentored a support colleague into a full-time engineering role.',
 		stack: 'TypeScript · Node · React · Postgres · MongoDB',
@@ -103,14 +103,14 @@ export const work = [
 	},
 	{
 		slug: 'versadev',
-		client: 'VersaDev',
-		title: 'My own consultancy, alongside the day job',
-		role: 'Founder and engineer',
-		period: 'February 2018 – November 2024',
+		client: 'VersaDev, LLC',
+		title: 'Building outside the day job',
+		role: 'Owner, freelance',
+		period: 'February 2018 – June 2023',
 		body:
-			'Client work for startups through to internal enterprise tools: admin portals, data-visualization dashboards, documented component libraries. The largest was PreDiscover, a criminal-background-search platform and Chrome extension that pulled data from county-level courthouse sites, filtered cases and submitted into case-management software.',
+			'Web applications built outside my day job, from startup products to internal enterprise tools: admin portals, data-visualization dashboards, documented component libraries, and junior developers mentored into the industry. The largest was PreDiscover, a criminal-background-search platform and Chrome extension that pulled data from county-level courthouse sites, filtered cases and submitted into case-management software.',
 		outcome:
-			'PreDiscover turned searches that took hours into minutes or seconds, and shipped with active paying clients.',
+			'PreDiscover turned searches that took hours into minutes or seconds, and shipped with paying clients using it.',
 		stack: 'React · Node · Express · MongoDB · Chrome extension',
 	},
 	{
@@ -142,13 +142,13 @@ export const work = [
 /**
  * The arc, drawn as an engraved axis. `pos` is the fraction along an axis that
  * runs April 2017 to late 2026, so the spacing is real. `span` is the rust
- * stretch marking the years the consultancy ran alongside a full-time job.
+ * stretch marking the years the freelance work ran alongside a full-time job.
  */
 export const record = {
 	heading: 'The arc',
 	intro:
-		'Before software I taught high school English and ran training and advancement programs at Chick-fil-A. That is where the management half came from. The rust stretch of the line is VersaDev, my own consultancy, running alongside a full-time job for six of these years.',
-	span: { from: 0.087, to: 0.798 },
+		'Before software I taught high school English and ran training and advancement programs at Chick-fil-A. That is where the management half came from. The rust stretch of the line is VersaDev, my own freelance work, running alongside a full-time job for five of these years.',
+	span: { from: 0.087, to: 0.647 },
 	axisLabels: [
 		{ label: '2017', pos: 0 },
 		{ label: '2020', pos: 0.289 },
@@ -177,7 +177,7 @@ export const record = {
 			role: 'Senior engineer, then lead',
 			year: '2021',
 			pos: 0.447,
-			note: 'Up to twelve senior engineers across two platforms.',
+			note: 'A team of four senior engineers across two platforms.',
 			side: 'above' as const,
 		},
 		{
@@ -185,7 +185,7 @@ export const record = {
 			role: 'Tech lead, then manager',
 			year: '2024',
 			pos: 0.755,
-			note: 'Twelve reports, three teams, a forty-engineer org.',
+			note: 'Thirteen reports, three teams, a forty-engineer org.',
 			side: 'below' as const,
 		},
 	],
