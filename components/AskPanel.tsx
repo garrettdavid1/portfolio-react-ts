@@ -1,47 +1,20 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useState } from 'react';
 import type { Answer } from '@/content/answers';
 
 type Props = {
-	questions: Array<{ id: string; question: string }>;
-	initial: Answer;
+	answers: Answer[];
 };
 
-export default function AskPanel({ questions, initial }: Props) {
-	const [answer, setAnswer] = useState<Answer>(initial);
-	const [selected, setSelected] = useState<string>(initial.id);
-	const [typed, setTyped] = useState('');
-	const [busy, setBusy] = useState(false);
-	const inputId = useId();
-
-	async function ask(payload: { id?: string; text?: string }) {
-		setBusy(true);
-		try {
-			const res = await fetch('/api/ask', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(payload),
-			});
-			if (!res.ok) throw new Error(`ask failed: ${res.status}`);
-			const next = (await res.json()) as Answer;
-			setAnswer(next);
-			setSelected(next.id);
-		} catch {
-			setAnswer({
-				id: 'error',
-				question: payload.text ?? answer.question,
-				body: 'That did not come back.',
-				more:
-					'The panel could not reach its index. Everything else on this page is static, so scrolling on will still tell you plenty.',
-				source: 'request failed',
-				timing: '—',
-			});
-			setSelected('error');
-		} finally {
-			setBusy(false);
-		}
-	}
+/**
+ * A set of answers David wrote, picked from a list. There is no model behind
+ * it and no free-text box: every answer ships in the page, so switching between
+ * them is local state, not a request.
+ */
+export default function AskPanel({ answers }: Props) {
+	const [selected, setSelected] = useState(answers[0].id);
+	const answer = answers.find((a) => a.id === selected) ?? answers[0];
 
 	return (
 		<section className="ask" id="ask" aria-labelledby="ask-heading">
@@ -49,51 +22,26 @@ export default function AskPanel({ questions, initial }: Props) {
 				<h2 id="ask-heading" className="mono" style={{ fontWeight: 400, fontSize: 12 }}>
 					Ask about my work
 				</h2>
-				<span className="ask__status">
-					<span className="ask__dot" aria-hidden="true" />
-					{busy ? 'Reading' : 'Ready'}
-				</span>
 			</div>
 
 			<div className="ask__body">
 				<div className="ask__questions">
-					<p className="ask__legend mono">Put a question to it</p>
-					{questions.map((q) => (
+					<p className="ask__legend mono">Pick a question</p>
+					{answers.map((a) => (
 						<button
-							key={q.id}
+							key={a.id}
 							type="button"
 							className="ask__q"
-							aria-pressed={selected === q.id}
-							onClick={() => ask({ id: q.id })}
+							aria-pressed={selected === a.id}
+							onClick={() => setSelected(a.id)}
 						>
-							{q.question}
+							{a.question}
 						</button>
 					))}
-
-					<form
-						className="ask__own"
-						onSubmit={(e) => {
-							e.preventDefault();
-							const text = typed.trim();
-							if (text) ask({ text });
-						}}
-					>
-						<label className="mono" htmlFor={inputId}>
-							Or ask your own
-						</label>
-						<input
-							id={inputId}
-							type="text"
-							value={typed}
-							maxLength={200}
-							placeholder="Type a question…"
-							onChange={(e) => setTyped(e.target.value)}
-						/>
-					</form>
 				</div>
 
-				<div className="ask__answer" aria-live="polite" aria-busy={busy}>
-					<p className="ask__asked">&gt; {answer.question || 'Ask something'}</p>
+				<div className="ask__answer" aria-live="polite">
+					<p className="ask__asked">&gt; {answer.question}</p>
 					<p className="ask__lead">{answer.body}</p>
 					<p className="ask__more">{answer.more}</p>
 					<div className="ask__source mono">
@@ -104,8 +52,8 @@ export default function AskPanel({ questions, initial }: Props) {
 			</div>
 
 			<p className="ask__foot mono">
-				This panel answers from things David has written down, and says so when it
-				has none. It does not guess.
+				Seven questions I get asked, answered from the record rather than from
+				process talk. If yours is not here, email me.
 			</p>
 		</section>
 	);

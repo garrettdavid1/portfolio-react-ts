@@ -447,20 +447,7 @@ h3 {
 	color: var(--on-ink);
 }
 
-.ask__status {
-	display: flex;
-	align-items: center;
-	gap: 9px;
-	color: var(--accent-soft);
-}
 
-.ask__dot {
-	width: 7px;
-	height: 7px;
-	border-radius: 50%;
-	background: var(--ok);
-	flex: none;
-}
 
 .ask__body {
 	display: grid;
@@ -515,12 +502,6 @@ h3 {
 	border-color: var(--ink);
 }
 
-.ask__own {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	margin-top: 8px;
-}
 
 .ask__answer {
 	padding: 28px 24px;
@@ -998,7 +979,7 @@ a.btn {
 	}
 }
 
-.note:hover h3 {
+.note--link:hover h3 {
 	color: var(--accent);
 }
 

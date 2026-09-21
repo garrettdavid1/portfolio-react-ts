@@ -3,10 +3,9 @@
  *
  * Questions a hiring manager or a prospective client actually asks, answered
  * from the record rather than from process talk. Facts come from David's
- * resume (2026-08). Written by hand and served from the route handler, so the
- * panel is a curated index, not a model. To make it live, keep this shape and
- * swap the body of `answerFor()` in app/api/ask/route.ts — the client never
- * changes.
+ * resume (2026-08). Written by hand and shipped with the page, so the
+ * panel is a curated index. There is no model behind it and no request: the
+ * answers ship in the page and the panel switches between them locally.
  */
 
 export type Answer = {
@@ -88,46 +87,7 @@ export const answers: Answer[] = [
 			'Direct, and allergic to progress theater. He would rather hear that something is broken on Tuesday than hear it is on track until Friday.',
 		more:
 			'He writes decisions down once so they do not get re-made worse later, and he expects the same.',
-		source: 'written by David, not the agent',
+		source: 'written by David',
 		timing: 'static',
 	},
 ];
-
-export const fallbackAnswer: Answer = {
-	id: 'unknown',
-	question: '',
-	body: 'I do not have a written answer for that one.',
-	more:
-		'This panel only answers from things David has actually written down, and it will say so rather than invent something. Try one of the questions on the left, or just email him.',
-	source: 'no matching record',
-	timing: 'no match',
-};
-
-export function findAnswer(id: string): Answer | undefined {
-	return answers.find((a) => a.id === id);
-}
-
-/**
- * Deliberately dumb keyword matching for free-text questions. It exists so the
- * panel degrades to "I do not know" instead of guessing. Replace this, not the
- * client, when the live version lands.
- */
-export function matchQuestion(text: string): Answer {
-	const q = text.toLowerCase();
-	const rules: Array<[string[], string]> = [
-		[['greenfield', 'from scratch', 'zero to', 'start something', 'new product'], 'greenfield'],
-		[['legacy', 'rewrite', 'migrat', 'old system', 'modernis', 'moderniz'], 'legacy'],
-		[['grow', 'mentor', 'coach', 'hiring', 'interview', 'onboard', 'career'], 'people'],
-		[['manage', 'lead', 'team', 'report', 'headcount'], 'lead'],
-		[['ai', 'agent', 'llm', 'claude', 'copilot', 'automation'], 'ai'],
-		[['work with', 'like to work', 'culture', 'communicat'], 'work'],
-		[['ship', 'built', 'build', 'project', 'portfolio', 'experience'], 'shipped'],
-	];
-	for (const [needles, id] of rules) {
-		if (needles.some((n) => q.includes(n))) {
-			const hit = findAnswer(id);
-			if (hit) return { ...hit, question: text };
-		}
-	}
-	return { ...fallbackAnswer, question: text };
-}

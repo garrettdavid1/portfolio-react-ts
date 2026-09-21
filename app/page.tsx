@@ -112,10 +112,7 @@ export default function Home() {
 				<CareerArc />
 
 				<div className="wrap">
-					<AskPanel
-						questions={answers.map((a) => ({ id: a.id, question: a.question }))}
-						initial={answers[0]}
-					/>
+					<AskPanel answers={answers} />
 				</div>
 
 				{/* how, kept short and kept below the proof */}
@@ -139,10 +136,12 @@ export default function Home() {
 				<section className="notes wrap" id="notes" aria-labelledby="notes-heading">
 					<div className="section-head">
 						<h2 id="notes-heading">Notes</h2>
-						<a href="#notes">Every post &rarr;</a>
+						<a href={site.linkedin} target="_blank" rel="noreferrer">
+							Read these on LinkedIn &rarr;
+						</a>
 					</div>
 					{notes.map((n) => (
-						<a className="note" key={n.slug} href={`#${n.slug}`}>
+						<article className="note" key={n.slug}>
 							<span className="note__meta">
 								{n.dateLabel}
 								<span className="note__topic">{n.topic}</span>
@@ -152,7 +151,7 @@ export default function Home() {
 								<p>{n.dek}</p>
 							</span>
 							<span className="note__time">{n.readingTime}</span>
-						</a>
+						</article>
 					))}
 				</section>
 

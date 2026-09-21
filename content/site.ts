@@ -16,6 +16,7 @@ export function TODO(text: string): string {
 export const site = {
 	name: 'David Garrett',
 	domain: 'davidgarrett.us',
+	linkedin: 'https://www.linkedin.com/in/davidthed3v/recent-activity/all/',
 	role: 'Engineering Manager, Deque Systems',
 	location: 'Atlanta, Georgia',
 	tagline: 'Engineering leader who still ships.',
@@ -248,7 +249,7 @@ export const contact = {
 	kicker: 'OPEN TO THE RIGHT CONVERSATION',
 	title: 'What are you trying to ship?',
 	body:
-		'A platform to build, a system nobody wants to touch, or a team that needs to get faster without breaking things. Tell me about it. I answer my own email.',
+		'A platform to build, a system nobody wants to touch, a team that needs to get faster without breaking things, or an engineer or manager who wants coaching from someone still doing the job. Tell me about it. I answer my own email.',
 	cta: 'Start a conversation',
 	fineprint: 'Or find me on LinkedIn. I reply there too.',
 };

@@ -46,15 +46,10 @@ VersaDev client work.
 
 ## The Ask panel
 
-`components/AskPanel.tsx` posts to `app/api/ask/route.ts`, which today resolves against a
-hand-written index in `content/answers.ts`. It is a curated lookup, not a model, and the
-free-text path deliberately answers "I do not have a written answer for that one" rather
-than guessing.
-
-To make it live, replace the body of `answerFor()` in the route with a model call over an
-allow-listed slice of the control plane. Keep what is already there: the per-IP rate
-limit, the length caps on input, and the refusal path. Nothing under `vault/`, and nothing
-about the businesses, is ever in scope.
+`components/AskPanel.tsx` is a static question list. Every answer lives in
+`content/answers.ts` and ships with the page, so picking a question is local state,
+not a request. There is no model behind it, no free-text box and no API route:
+David decided against wiring an agent to it (2026-09-21).
 
 ## The two forms
 
