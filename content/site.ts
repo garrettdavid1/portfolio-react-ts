@@ -44,17 +44,17 @@ export const value = {
 	items: [
 		{
 			n: '01',
+			title: 'Hours and days, where it used to be weeks and quarters',
+			body:
+				'I have always been a fast engineer. Pairing ten years of judgment with a fleet of agents changed the unit of time the work is measured in. Judgment is the half that does not come free: it decides which of an agent’s output you can trust, and it is why the speed does not cost you a mess later. Recent evidence, all shipped while carrying twelve direct reports: a Datadog APM and logging migration, a sequenced six-PR feature series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
+			proof: 'Deque Systems, and my own agent platform',
+		},
+		{
+			n: '02',
 			title: 'Making a team faster without adding people',
 			body:
 				'Keeping engineers on their top priorities, holding the bar on accountability, and building the incentive and motivation that let a team rally around a quarter. The measurement work underneath it means the change is visible rather than claimed.',
 			proof: 'Deque Systems',
-		},
-		{
-			n: '02',
-			title: 'Still in the codebase, not just the calendar',
-			body:
-				'I ship production work alongside the management job: a Datadog APM and logging migration, a sequenced six-PR feature series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL. Estimates and reviews come from someone who did the thing recently, not someone recalling it.',
-			proof: 'Deque Systems, alongside twelve reports',
 		},
 		{
 			n: '03',
