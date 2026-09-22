@@ -12,9 +12,11 @@ Two pieces carry extra weight: the **career arc**, an engraved axis from teachin
 to engineering management, and the **Ask about my work** panel, which answers a hiring
 manager's questions and cites what it read.
 
-One standing constraint: the site must not read as touting for contract work. David is not
-advertising availability. The framing is that he is always building something outside the
-day job, which is why he is still close to the code.
+Positioning (David, 2026-09-22): a personal brand, not a job search. The site sells four
+things under his own name: building products for clients, teaching teams to work with AI,
+setting up AI tooling, and teaching people to code. Deque is credibility in the track
+record, not the headline. No tool or product is named or linked, and none of his
+businesses (Innovia, Offplate, the rental sites, Mind The Pennies) appear anywhere.
 
 ## Run it
 

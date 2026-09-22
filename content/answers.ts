@@ -1,11 +1,10 @@
 /**
  * The answers behind the "Ask about my work" panel.
  *
- * Questions a hiring manager or a prospective client actually asks, answered
- * from the record rather than from process talk. Facts come from David's
- * resume (2026-08). Written by hand and shipped with the page, so the
- * panel is a curated index. There is no model behind it and no request: the
- * answers ship in the page and the panel switches between them locally.
+ * Questions a prospective client, team lead or learner actually asks, answered
+ * from the record. Facts come from David's resume (2026-08). Written by hand
+ * and shipped with the page: there is no model behind it and no request, and
+ * the panel switches between answers locally.
  */
 
 export type Answer = {
@@ -15,70 +14,70 @@ export type Answer = {
 	more: string;
 	/** What the claim rests on. Shown verbatim under the answer. */
 	source: string;
-	/** Retrieval cost, shown next to the source. Honest, not decorative. */
+	/** A short count or cadence, shown next to the source. */
 	timing: string;
 };
 
 export const answers: Answer[] = [
 	{
+		id: 'build',
+		question: 'Can he build my product?',
+		body:
+			'Yes, end to end: product decisions, front end, back end and deploy. PreDiscover went from an empty repo to a background-search platform with paying clients, cutting searches that took hours down to minutes or seconds.',
+		more:
+			'The unit of time is days and weeks rather than quarters, because ten years of judgment is paired with a fleet of agents. You get code you own, with the reasoning behind it written down.',
+		source: 'PreDiscover, DesignStudio, Shopmonkey',
+		timing: '10 years shipping',
+	},
+	{
+		id: 'teach-ai',
+		question: 'Can he teach my team to use AI well?',
+		body:
+			'He already does this at work. At Deque he built the AI-assisted engineering workflow the CTO had turned into two org-wide template repositories, and wrote the coding guidelines now used across six-plus repos.',
+		more:
+			'Sessions happen in your own codebase: what to hand an agent, how to review what comes back, and where the hard stops go. The rule he teaches first is his own: nothing is working until you have read what it wrote.',
+		source: 'Deque Systems',
+		timing: '6+ repos',
+	},
+	{
+		id: 'tooling',
+		question: 'What does setting up the tooling involve?',
+		body:
+			'Three pieces: a shared context your agents read before every task, tools that let them act on your systems instead of only suggesting, and guardrails on anything that cannot be undone.',
+		more:
+			'It is the same setup he runs his own work on every day, from task filing to deploys to a morning briefing. You get it installed and the reasoning written down, so your team can change it without him.',
+		source: 'his own agent platform, in daily use',
+		timing: 'daily',
+	},
+	{
+		id: 'learn-code',
+		question: 'I am new to coding. Can he teach me?',
+		body:
+			'Yes. He taught high school English before he wrote software professionally, and he still ships production code, so you learn from someone who does the work now.',
+		more:
+			'He mentored a support colleague at Shopmonkey into a full-time engineering role, wrote an internal React tutorial at MDL autoMation, and built the Shopmonkey team that trained and placed more than twenty-five engineers in three months.',
+		source: 'Tucker High School, Shopmonkey, MDL autoMation',
+		timing: '25+ engineers trained',
+	},
+	{
 		id: 'shipped',
 		question: 'What has he shipped?',
 		body:
-			'Ten years of it: enterprise SaaS at Shopmonkey, a new enterprise application at Juvare, legacy dealership systems migrated off Silverlight at MDL, and client platforms built outside the day job, the largest being a background-search product with paying customers.',
+			'Ten years of it: enterprise SaaS at Shopmonkey, a new enterprise application at Juvare, legacy dealership systems migrated off Silverlight at MDL, and client platforms including a background-search product with paying customers.',
 		more:
-			'At Deque he ships alongside the management job rather than instead of it: a Datadog APM and logging migration, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
+			'He still ships alongside an engineering-manager role: a Datadog APM and logging migration, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
 		source: 'resume, August 2026',
 		timing: '5 employers',
-	},
-	{
-		id: 'greenfield',
-		question: 'Can he start something from nothing?',
-		body:
-			'PreDiscover began as an empty repo and ended as a background-search platform with paying clients, cutting searches that took hours down to minutes or seconds.',
-		more:
-			'DesignStudio at Juvare was greenfield with constraints: a new enterprise application that had to fit inside WebEOC. He architected the front end and the testing suite.',
-		source: 'PreDiscover, DesignStudio',
-		timing: '2 greenfield builds',
-	},
-	{
-		id: 'legacy',
-		question: 'What about a system nobody wants to touch?',
-		body:
-			'He migrated MDL autoMation off Silverlight onto modern JavaScript while high-end dealerships kept running on it: the screens that greet guests and track vehicles in real time, and the dispatch tool valet staff use all day.',
-		more:
-			'The other version of that job was Shopmonkey, where he was the sole engineer holding version one up for roughly six thousand auto shops across the US and Canada while version two was being built.',
-		source: 'MDL autoMation, Shopmonkey',
-		timing: '2 engagements',
 	},
 	{
 		id: 'lead',
 		question: 'Is he a manager or an engineer?',
 		body:
-			'Both, deliberately. He manages thirteen engineers across three product teams in a forty-engineer organization at Deque Systems, and still ships production code.',
+			'Both. He manages thirteen engineers across three product teams at Deque Systems and still ships production code.',
 		more:
-			'He also built the delivery-measurement layer the organization reads, now covering ten teams, so what his teams deliver is on the dashboard, not in his description of it.',
+			'He built the delivery-measurement layer that organization reads, now covering ten teams, so what his teams deliver is on the dashboard rather than in his description of it.',
 		source: 'resume, August 2026',
 		timing: '13 reports',
-	},
-	{
-		id: 'people',
-		question: 'How does he grow people?',
-		body:
-			'By building real relationships first: bi-weekly one-to-ones, pair programming, and career planning built around what each engineer wants rather than only what the roadmap wants.',
-		more:
-			'It predates the job title. He taught high school English and ran training and advancement programs at Chick-fil-A. At Shopmonkey he built the team that interviewed, trained and placed more than twenty-five engineers across the org in three months, and mentored a support colleague into a full-time engineering role.',
-		source: 'Deque, Shopmonkey, Chick-fil-A, Tucker High School',
-		timing: '25+ engineers placed',
-	},
-	{
-		id: 'ai',
-		question: 'How does he use AI in the work?',
-		body:
-			'Most of the code he ships is written by an agent, over a shared written context, with hard stops on anything irreversible.',
-		more:
-			'At Deque this became an AI-assisted engineering operating system, productized at the CTO’s request into two org-wide template repositories, plus coding guidelines adopted across six-plus repos. He reads what an agent wrote before calling it done.',
-		source: 'Deque Systems, his own agent platform',
-		timing: 'daily',
 	},
 	{
 		id: 'work',

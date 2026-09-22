@@ -17,51 +17,63 @@ export const site = {
 	name: 'David Garrett',
 	domain: 'davidgarrett.us',
 	linkedin: 'https://www.linkedin.com/in/davidthed3v/recent-activity/all/',
-	role: 'Engineering Manager, Deque Systems',
+	role: 'Builds software · teaches AI and code',
 	location: 'Atlanta, Georgia',
-	tagline: 'Engineering leader who still ships.',
+	tagline: 'I build software, and I teach people to build it with AI.',
 	description:
-		'Engineering manager at Deque Systems: thirteen engineers across three teams, and production code alongside it. Greenfield platforms, legacy systems replaced under load, and the systems an engineering org runs on.',
+		'Software engineer and engineering manager. I build products for people who need something made, and I teach teams and new developers to code and to work with AI.',
 };
 
 export const nav = [
-	{ href: '#work', label: 'Work' },
-	{ href: '#record', label: 'The arc' },
-	{ href: '#ask', label: 'Ask about my work' },
+	{ href: '#offers', label: 'What I offer' },
+	{ href: '#work', label: 'Track record' },
+	{ href: '#ask', label: 'Questions' },
 	{ href: '#notes', label: 'Notes' },
-	{ href: '#contact', label: 'Get in touch', accent: true },
+	{ href: '#contact', label: 'Work with me', accent: true },
 ];
 
 export const hero = {
 	statement:
-		'I lead engineering teams and still ship production code.',
-	sub: 'Ten years of full-stack work, now managing thirteen engineers across three product teams inside a forty-engineer organization. I build the systems an engineering org runs on: delivery measurement, review cycles, and the AI workflows underneath them. There has always been something of my own in progress alongside the day job.',
+		'I build software, and I teach people to build it with AI.',
+	sub: 'Ten years as a software engineer and engineering manager. I pair that judgment with a fleet of agents to ship in days what used to take quarters. I build products for people who need something made, and I teach engineers, teams and new developers to work the same way.',
 };
 
 /** The three things someone hires David for. */
+/** The four things David offers, each with who it is for and the proof behind it. */
 export const value = {
-	heading: 'What I get hired for',
+	heading: 'What I offer',
 	items: [
 		{
 			n: '01',
-			title: 'Hours and days, where it used to be weeks and quarters',
+			title: 'Have something built',
+			who: 'For founders and teams who need a product and do not want to manage engineers to get it.',
 			body:
-				'I have always been a fast engineer. Pairing ten years of judgment with a fleet of agents changed the unit of time the work is measured in. The judgment decides which agent output to trust, which is why the speed does not leave a mess behind it. Recent work, shipped while carrying thirteen direct reports: a Datadog APM and logging migration, a sequenced six-PR feature series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
-			proof: 'Deque Systems, and my own agent platform',
+				'I build the whole thing: product, front end, back end and deploy. Ten years of judgment paired with a fleet of agents means work that used to take a quarter takes weeks, and the judgment is what keeps that speed from turning into a rewrite later.',
+			proof: 'PreDiscover went from an empty repo to paying clients. Also DesignStudio at Juvare and enterprise SaaS at Shopmonkey.',
 		},
 		{
 			n: '02',
-			title: 'Making a team faster without adding people',
+			title: 'Teach your team to work with AI',
+			who: 'For engineering teams and managers who have the tools and not yet the results.',
 			body:
-				'Engineers kept on their top priorities, a firm bar on accountability, and incentives that get a team behind a quarter. The measurement layer I built underneath shows the result in the numbers.',
-			proof: 'Deque Systems',
+				'Hands-on sessions in your own codebase: what to hand an agent, how to review what comes back, and where the hard stops go so nothing irreversible happens unchecked.',
+			proof: 'At Deque I built the AI-assisted engineering workflow the CTO had turned into org-wide templates, and wrote the coding guidelines now used across six-plus repos.',
 		},
 		{
 			n: '03',
-			title: 'Building the layer a whole org runs on',
+			title: 'Set up the tooling',
+			who: 'For teams that want AI wired into how they already work.',
 			body:
-				'Delivery measurement in DX now covering ten teams, plus the reporting methodology used across engineering. Quarterly performance reviews automated end to end, and an AI-assisted engineering operating system productized at the CTO’s request into two org-wide template repositories.',
-			proof: 'Deque Systems',
+				'A shared context your agents read before every task, tools that let them act on your systems, and guardrails on anything that cannot be undone. You get the setup and the reasoning behind each piece, written down.',
+			proof: 'The same setup runs my own work every day: tasks, deploys and a morning briefing.',
+		},
+		{
+			n: '04',
+			title: 'Learn to code',
+			who: 'For people starting out or switching careers, and engineers ready for the next level.',
+			body:
+				'One-on-one mentoring from someone who taught high school English before writing software, and still ships production code.',
+			proof: 'Mentored a support colleague into a full-time engineering role, wrote MDL\u2019s internal React tutorial, and built the Shopmonkey team that trained and placed more than twenty-five engineers in three months.',
 		},
 	],
 };
@@ -148,7 +160,7 @@ export const work = [
 export const record = {
 	heading: 'The arc',
 	intro:
-		'Before software I taught high school English and ran training and advancement programs at Chick-fil-A. That is where I learned to manage people. The orange stretch of the line is VersaDev, my own freelance work, running alongside a full-time job for five of these years.',
+		'Before software I taught high school English and ran training and advancement programs at Chick-fil-A. That is where I learned to teach. The orange stretch of the line is VersaDev, my own freelance work, running alongside a full-time job for five of these years.',
 	span: { from: 0.087, to: 0.647 },
 	axisLabels: [
 		{ label: '2017', pos: 0 },
@@ -249,7 +261,7 @@ export const contact = {
 	kicker: 'OPEN TO THE RIGHT CONVERSATION',
 	title: 'What are you trying to ship?',
 	body:
-		'A platform to build, a system nobody wants to touch, a team that needs to get faster without breaking things, or an engineer or manager who wants coaching from someone still doing the job. Tell me about it. I answer my own email.',
+		'A product to build, a team that needs to get good with AI, tooling to set up, or code you want to learn. Tell me about it. I answer my own email.',
 	cta: 'Start a conversation',
 	fineprint: 'Or find me on LinkedIn. I reply there too.',
 };

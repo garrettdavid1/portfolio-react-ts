@@ -58,17 +58,17 @@ export default function Home() {
 					<h1>{hero.statement}</h1>
 					<p>{hero.sub}</p>
 					<div className="hero__actions">
-						<a className="btn btn--solid" href="#work">
-							See the work
+						<a className="btn btn--solid" href="#offers">
+							What I offer
 						</a>
 						<a className="btn btn--ghost" href="#contact">
-							Get in touch
+							Work with me
 						</a>
 					</div>
 				</div>
 
-				{/* what someone gets out of hiring him */}
-				<section className="value wrap" aria-labelledby="value-heading">
+				{/* the four offers */}
+				<section className="value wrap" id="offers" aria-labelledby="value-heading">
 					<h2 className="section-label" id="value-heading">
 						{value.heading}
 					</h2>
@@ -77,6 +77,7 @@ export default function Home() {
 							<article className="value__item" key={v.n}>
 								<p className="value__n mono">{v.n}</p>
 								<h3>{v.title}</h3>
+								<p className="value__who">{v.who}</p>
 								<p className="value__body">{v.body}</p>
 								<p className="value__proof mono">{v.proof}</p>
 							</article>
@@ -87,7 +88,7 @@ export default function Home() {
 				{/* the projects themselves */}
 				<section className="work wrap" id="work" aria-labelledby="work-heading">
 					<div className="section-head">
-						<h2 id="work-heading">Selected work</h2>
+						<h2 id="work-heading">Track record</h2>
 						<p className="work__note">
 							Six of them. Each one went live and somebody depended on it.
 						</p>
