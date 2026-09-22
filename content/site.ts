@@ -51,10 +51,10 @@ export const value = {
 		},
 		{
 			n: '02',
-			title: 'Replacing what the business already runs on',
+			title: 'Still in the codebase, not just the calendar',
 			body:
-				'Legacy Silverlight applications migrated onto modern JavaScript at MDL autoMation while dealerships kept running on them. At Shopmonkey I was the sole engineer holding version one up for roughly six thousand auto shops while version two was built.',
-			proof: 'MDL autoMation · Shopmonkey',
+				'I ship production work alongside the management job: a Datadog APM and logging migration, a sequenced six-PR feature series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL. Estimates and reviews come from someone who did the thing recently, not someone recalling it.',
+			proof: 'Deque Systems, alongside twelve reports',
 		},
 		{
 			n: '03',
