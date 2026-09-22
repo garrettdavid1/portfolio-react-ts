@@ -34,8 +34,8 @@ export const nav = [
 
 export const hero = {
 	statement:
-		'I lead engineering teams, and I still ship the code myself. Both halves are the job now.',
-	sub: 'Ten years of full-stack work, now managing thirteen engineers across three product teams inside a forty-engineer organization. I build the systems an engineering org runs on, delivery measurement, review cycles, the AI workflows underneath them, and I have never gone a stretch without something of my own being built alongside it.',
+		'I lead engineering teams and still ship production code.',
+	sub: 'Ten years of full-stack work, now managing thirteen engineers across three product teams inside a forty-engineer organization. I build the systems an engineering org runs on: delivery measurement, review cycles, and the AI workflows underneath them. There has always been something of my own in progress alongside the day job.',
 };
 
 /** The three things someone hires David for. */
@@ -46,14 +46,14 @@ export const value = {
 			n: '01',
 			title: 'Hours and days, where it used to be weeks and quarters',
 			body:
-				'I have always been a fast engineer. Pairing ten years of judgment with a fleet of agents changed the unit of time the work is measured in. Judgment is the half that does not come free: it decides which of an agent’s output you can trust, and it is why the speed does not cost you a mess later. Recent evidence, all shipped while carrying twelve direct reports: a Datadog APM and logging migration, a sequenced six-PR feature series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
+				'I have always been a fast engineer. Pairing ten years of judgment with a fleet of agents changed the unit of time the work is measured in. The judgment decides which agent output to trust, which is why the speed does not leave a mess behind it. Recent work, shipped while carrying thirteen direct reports: a Datadog APM and logging migration, a sequenced six-PR feature series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
 			proof: 'Deque Systems, and my own agent platform',
 		},
 		{
 			n: '02',
 			title: 'Making a team faster without adding people',
 			body:
-				'Keeping engineers on their top priorities, holding the bar on accountability, and building the incentive and motivation that let a team rally around a quarter. The measurement work underneath it means the change is visible rather than claimed.',
+				'Engineers kept on their top priorities, a firm bar on accountability, and incentives that get a team behind a quarter. The measurement layer I built underneath shows the result in the numbers.',
 			proof: 'Deque Systems',
 		},
 		{
@@ -72,7 +72,7 @@ export const work = [
 		client: 'Deque Systems',
 		title: 'Thirteen engineers, three teams, and the org’s delivery layer',
 		role: 'Software Engineering Manager, previously Technical Lead',
-		period: 'June 2024 – present',
+		period: 'June 2024 to present',
 		body:
 			'Three product teams (API Integrations, Scan and Results, Bandura) inside a forty-engineer organization. The teams build and maintain axe-core, Axe Watcher, Axe Linter, the DevTools CLI, Developer Hub, Axe Reports and Axe Monitor. Alongside the management work: a Datadog APM and logging migration, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
 		outcome:
@@ -84,7 +84,7 @@ export const work = [
 		client: 'Shopmonkey',
 		title: 'Enterprise SaaS, version one and version two',
 		role: 'Senior Software Engineer, then Engineering Lead',
-		period: 'July 2021 – June 2024',
+		period: 'July 2021 to June 2024',
 		body:
 			'Led a team of four senior engineers across both platforms, and built the strategic "farm" team that interviewed, trained, onboarded and placed more than twenty-five engineers across the org in three months.',
 		outcome:
@@ -96,7 +96,7 @@ export const work = [
 		client: 'Juvare',
 		title: 'DesignStudio',
 		role: 'Software Engineer and Scrum Master',
-		period: 'September 2019 – July 2021',
+		period: 'September 2019 to July 2021',
 		body:
 			'Architected the front end and the testing suite for DesignStudio, a new enterprise application, and managed offshore contractors delivering FormStudio. Also on WebEOC enhancements, defects and deployment through Azure and Jenkins.',
 		outcome: 'FormStudio delivered on time with a distributed contract team.',
@@ -107,9 +107,9 @@ export const work = [
 		client: 'VersaDev, LLC',
 		title: 'Building outside the day job',
 		role: 'Owner, freelance',
-		period: 'February 2018 – June 2023',
+		period: 'February 2018 to June 2023',
 		body:
-			'Web applications built outside my day job, from startup products to internal enterprise tools: admin portals, data-visualization dashboards, documented component libraries, and junior developers mentored into the industry. The largest was PreDiscover, a criminal-background-search platform and Chrome extension that pulled data from county-level courthouse sites, filtered cases and submitted into case-management software.',
+			'Web applications built outside my day job, from startup products to internal enterprise tools: admin portals, data-visualization dashboards and documented component libraries. The largest was PreDiscover, a criminal-background-search platform and Chrome extension that pulled data from county-level courthouse sites, filtered cases and submitted into case-management software.',
 		outcome:
 			'PreDiscover turned searches that took hours into minutes or seconds, and shipped with paying clients using it.',
 		stack: 'React · Node · Express · MongoDB · Chrome extension',
@@ -119,7 +119,7 @@ export const work = [
 		client: 'MDL autoMation',
 		title: 'Getting the dealerships off Silverlight',
 		role: 'Software Developer',
-		period: 'April 2017 – September 2019',
+		period: 'April 2017 to September 2019',
 		body:
 			'Migrated legacy applications away from Silverlight onto modern JavaScript, live in high-end car dealerships: the screens that greet guests and track vehicles in real time, and the dispatch tool valet staff use all day. Also a React Native mobile app for service advisors.',
 		// No verified outcome line for this one yet; the case renders without it.
@@ -131,9 +131,9 @@ export const work = [
 		client: 'Personal',
 		title: 'A personal agent platform',
 		role: 'Sole engineer',
-		period: '2025 – present',
+		period: '2025 to present',
 		body:
-			'Self-hosted app, API, scheduler and MCP server that runs my own working life: agents file tasks, the urgent ones push to my phone, and a briefing lands every morning. It is where I learn what building with agents actually costs before I recommend it to anyone.',
+			'Self-hosted app, API, scheduler and MCP server that runs my own working life: agents file tasks, the urgent ones push to my phone, and a briefing lands every morning. It is where I learn what building with agents costs before I recommend it to anyone.',
 		outcome:
 			'In daily use. It is the reason a full-time management job still leaves room to build.',
 		stack: 'TypeScript · Postgres · Railway · Web Push · MCP',
@@ -148,7 +148,7 @@ export const work = [
 export const record = {
 	heading: 'The arc',
 	intro:
-		'Before software I taught high school English and ran training and advancement programs at Chick-fil-A. That is where the management half came from. The orange stretch of the line is VersaDev, my own freelance work, running alongside a full-time job for five of these years.',
+		'Before software I taught high school English and ran training and advancement programs at Chick-fil-A. That is where I learned to manage people. The orange stretch of the line is VersaDev, my own freelance work, running alongside a full-time job for five of these years.',
 	span: { from: 0.087, to: 0.647 },
 	axisLabels: [
 		{ label: '2017', pos: 0 },
@@ -195,7 +195,7 @@ export const record = {
 export const how = {
 	heading: 'How I work now',
 	intro:
-		'Most of the code I ship is written by an agent, so the job moved to knowing which parts to distrust. At work this became an AI-assisted operating system productized at the CTO’s request into two org-wide template repositories, and the coding guidelines adopted across six-plus repos.',
+		'Most of the code I ship is written by an agent, so the job moved to knowing which parts to distrust. At work that became the coding guidelines now used across six-plus repos.',
 	points: [
 		{
 			title: 'A count is not a result.',

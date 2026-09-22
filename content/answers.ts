@@ -22,7 +22,7 @@ export type Answer = {
 export const answers: Answer[] = [
 	{
 		id: 'shipped',
-		question: 'What has he actually shipped?',
+		question: 'What has he shipped?',
 		body:
 			'Ten years of it: enterprise SaaS at Shopmonkey, a new enterprise application at Juvare, legacy dealership systems migrated off Silverlight at MDL, and client platforms built outside the day job, the largest being a background-search product with paying customers.',
 		more:
@@ -36,7 +36,7 @@ export const answers: Answer[] = [
 		body:
 			'PreDiscover began as an empty repo and ended as a background-search platform with paying clients, cutting searches that took hours down to minutes or seconds.',
 		more:
-			'DesignStudio at Juvare was the other kind of greenfield, harder in its way: a new enterprise application built inside an existing product ecosystem, where he architected both the front end and the testing suite.',
+			'DesignStudio at Juvare was greenfield with constraints: a new enterprise application that had to fit inside WebEOC. He architected the front end and the testing suite.',
 		source: 'PreDiscover, DesignStudio',
 		timing: '2 greenfield builds',
 	},
@@ -56,13 +56,13 @@ export const answers: Answer[] = [
 		body:
 			'Both, deliberately. He manages thirteen engineers across three product teams in a forty-engineer organization at Deque Systems, and still ships production code.',
 		more:
-			'What he actually does with it: keeps engineers on their top priorities, holds the bar on accountability, and builds the incentive that lets a team rally around a quarter. He also built the delivery-measurement layer the organization reads, so the result is visible rather than asserted.',
+			'He also built the delivery-measurement layer the organization reads, now covering ten teams, so what his teams deliver is on the dashboard, not in his description of it.',
 		source: 'resume, August 2026',
-		timing: '12 reports',
+		timing: '13 reports',
 	},
 	{
 		id: 'people',
-		question: 'How does he actually grow people?',
+		question: 'How does he grow people?',
 		body:
 			'By building real relationships first: bi-weekly one-to-ones, pair programming, and career planning built around what each engineer wants rather than only what the roadmap wants.',
 		more:
@@ -76,7 +76,7 @@ export const answers: Answer[] = [
 		body:
 			'Most of the code he ships is written by an agent, over a shared written context, with hard stops on anything irreversible.',
 		more:
-			'At Deque this became an AI-assisted engineering operating system, productized at the CTO’s request into two org-wide template repositories, plus coding guidelines adopted across six-plus repos. The discipline matters more than the tooling: one of his own automations reported four records created and all four were wrong, on a green run.',
+			'At Deque this became an AI-assisted engineering operating system, productized at the CTO’s request into two org-wide template repositories, plus coding guidelines adopted across six-plus repos. He reads what an agent wrote before calling it done.',
 		source: 'Deque Systems, his own agent platform',
 		timing: 'daily',
 	},

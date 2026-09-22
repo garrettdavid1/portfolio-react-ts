@@ -52,8 +52,8 @@ export default function AskPanel({ answers }: Props) {
 			</div>
 
 			<p className="ask__foot mono">
-				Seven questions I get asked, answered from the record rather than from
-				process talk. If yours is not here, email me.
+				Seven questions I get asked, answered from the record. If yours is
+				missing, email me.
 			</p>
 		</section>
 	);

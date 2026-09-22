@@ -42,7 +42,7 @@ export default function Briefing() {
 						<p className="briefing__kicker mono">Where to send it</p>
 						<h2 id="signup-heading">Tell me where it should land</h2>
 						<p>
-							I send the thing itself, then I write about once a fortnight on building
+							I send the thing itself, then I write about every two weeks on building
 							with agents and checking their work. Unsubscribe whenever.
 						</p>
 					</div>
