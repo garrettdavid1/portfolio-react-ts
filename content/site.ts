@@ -17,11 +17,10 @@ export const site = {
 	name: 'David Garrett',
 	domain: 'davidgarrett.us',
 	linkedin: 'https://www.linkedin.com/in/davidthed3v/recent-activity/all/',
-	role: 'Builds software · teaches AI and code',
 	location: 'Atlanta, Georgia',
 	tagline: 'I build software, and I teach people to build it with AI.',
 	description:
-		'Software engineer and engineering manager. I build products for people who need something made, and I teach teams and new developers to code and to work with AI.',
+		'Software engineer and engineering manager. I build what people need, and I teach business owners, engineering teams and new developers to use AI and to code.',
 };
 
 export const nav = [
@@ -35,32 +34,40 @@ export const nav = [
 export const hero = {
 	statement:
 		'I build software, and I teach people to build it with AI.',
-	sub: 'Ten years as a software engineer and engineering manager. I pair that judgment with a fleet of agents to ship in days what used to take quarters. I build products for people who need something made, and I teach engineers, teams and new developers to work the same way.',
+	sub: 'Ten years as a software engineer and engineering manager. I pair that judgment with a fleet of agents to ship in days what used to take quarters. I build what people need, and I teach business owners, engineering teams and new developers to work the same way.',
 };
 
 /** The three things someone hires David for. */
-/** The four things David offers, each with who it is for and the proof behind it. */
+/** What David offers, each with who it is for and the proof behind it. */
 export const value = {
 	heading: 'What I offer',
 	items: [
 		{
 			n: '01',
 			title: 'Have something built',
-			who: 'For founders and teams who need a product and do not want to manage engineers to get it.',
+			who: 'For business owners, founders and teams who need something built and would rather not learn how.',
 			body:
 				'I build the whole thing: product, front end, back end and deploy. Ten years of judgment paired with a fleet of agents means work that used to take a quarter takes weeks, and the judgment is what keeps that speed from turning into a rewrite later.',
 			proof: 'PreDiscover went from an empty repo to paying clients. Also DesignStudio at Juvare and enterprise SaaS at Shopmonkey.',
 		},
 		{
 			n: '02',
-			title: 'Teach your team to work with AI',
+			title: 'Use AI in your business',
+			who: 'For business owners and non-technical people who want the time back without learning to code.',
+			body:
+				'Plain-language training on putting AI to work where your week goes: email, scheduling, writing, research and the repetitive admin. No code. If you would rather skip the learning, I build it for you instead.',
+			proof: 'I taught high school English and ran training programs at Chick-fil-A, and I run my own calendar, inbox and household through the same kind of tools I would show you.',
+		},
+		{
+			n: '03',
+			title: 'Teach your engineering team to work with AI',
 			who: 'For engineering teams and managers who have the tools and not yet the results.',
 			body:
 				'Hands-on sessions in your own codebase: what to hand an agent, how to review what comes back, and where the hard stops go so nothing irreversible happens unchecked.',
 			proof: 'At Deque I built the AI-assisted engineering workflow the CTO had turned into org-wide templates, and wrote the coding guidelines now used across six-plus repos.',
 		},
 		{
-			n: '03',
+			n: '04',
 			title: 'Set up the tooling',
 			who: 'For teams that want AI wired into how they already work.',
 			body:
@@ -68,7 +75,7 @@ export const value = {
 			proof: 'The same setup runs my own work every day: tasks, deploys and a morning briefing.',
 		},
 		{
-			n: '04',
+			n: '05',
 			title: 'Learn to code',
 			who: 'For people starting out or switching careers, and engineers ready for the next level.',
 			body:
@@ -261,7 +268,7 @@ export const contact = {
 	kicker: 'OPEN TO THE RIGHT CONVERSATION',
 	title: 'What are you trying to ship?',
 	body:
-		'A product to build, a team that needs to get good with AI, tooling to set up, or code you want to learn. Tell me about it. I answer my own email.',
+		'Something to build, AI you want working in your business, a team to train, tooling to set up, or code you want to learn. Tell me about it. I answer my own email.',
 	cta: 'Start a conversation',
 	fineprint: 'Or find me on LinkedIn. I reply there too.',
 };
@@ -272,6 +279,5 @@ export const footer = {
 		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/davidthed3v/' },
 		{ label: 'GitHub', href: 'https://github.com/garrettdavid1' },
 		{ label: 'Email', href: 'mailto:davidgarrettcoding@gmail.com' },
-		{ label: 'The briefing agent', href: '/briefing' },
 	],
 };

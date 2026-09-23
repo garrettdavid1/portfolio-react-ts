@@ -1,7 +1,6 @@
 # davidgarrett.us
 
-Personal site. Next.js App Router, no UI framework, three Google fonts. A homepage and a
-`/briefing` signup page.
+Personal site. Next.js App Router, no UI framework, three Google fonts. One page.
 
 Design direction: "Field Notes" — ivory paper, Fraunces over Newsreader, IBM Plex Mono
 for machine text, rust accent.
@@ -12,9 +11,10 @@ Two pieces carry extra weight: the **career arc**, an engraved axis from teachin
 to engineering management, and the **Ask about my work** panel, which answers a hiring
 manager's questions and cites what it read.
 
-Positioning (David, 2026-09-22): a personal brand, not a job search. The site sells four
-things under his own name: building products for clients, teaching teams to work with AI,
-setting up AI tooling, and teaching people to code. Deque is credibility in the track
+Positioning (David, 2026-09-22): a personal brand, not a job search. The site sells five
+things under his own name: building what people need, training business owners and
+non-technical people to use AI, teaching engineering teams to work with AI, setting up AI
+tooling, and teaching people to code. Deque is credibility in the track
 record, not the headline. No tool or product is named or linked, and none of his
 businesses (Innovia, Offplate, the rental sites, Mind The Pennies) appear anywhere.
 
@@ -53,17 +53,14 @@ VersaDev client work.
 not a request. There is no model behind it, no free-text box and no API route:
 David decided against wiring an agent to it (2026-09-21).
 
-## The two forms
+## The contact form
 
 The homepage form posts to `app/api/contact/route.ts`, which emails David through Resend
-when `RESEND_API_KEY`, `CONTACT_TO` and `CONTACT_FROM` are set.
+when `RESEND_API_KEY`, `CONTACT_TO` and `CONTACT_FROM` are set. Without them it returns 503
+with an honest message rather than pretending to have sent anything.
 
-The `/briefing` page is the signup the LinkedIn funnel points at. It posts to
-`app/api/subscribe/route.ts`, which adds the address to a Resend audience when
-`RESEND_API_KEY` and `RESEND_AUDIENCE_ID` are set.
-
-Without their variables both return 503 with an honest message rather than pretending to
-have stored anything. A form that silently drops mail is worse than no form.
+The `/briefing` signup page and its subscribe route were removed on 2026-09-22: the free
+briefing agent it offered is now something Anthropic gives away.
 
 ## Deploying
 

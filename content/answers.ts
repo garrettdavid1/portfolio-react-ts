@@ -70,14 +70,14 @@ export const answers: Answer[] = [
 		timing: '5 employers',
 	},
 	{
-		id: 'lead',
-		question: 'Is he a manager or an engineer?',
+		id: 'owner',
+		question: 'I run a business and I am not technical. Can he help?',
 		body:
-			'Both. He manages thirteen engineers across three product teams at Deque Systems and still ships production code.',
+			'Yes, two ways. He can teach you to use AI for the work that eats your week, in plain language and with no code, or he can build what you need so you never have to learn it.',
 		more:
-			'He built the delivery-measurement layer that organization reads, now covering ten teams, so what his teams deliver is on the dashboard rather than in his description of it.',
-		source: 'resume, August 2026',
-		timing: '13 reports',
+			'He taught high school English and ran training programs before he wrote software, so explaining this to people who do not live in it is familiar ground. He also runs his own calendar, inbox and household through the same kind of tools.',
+		source: 'Tucker High School, Chick-fil-A, his own daily setup',
+		timing: 'no code needed',
 	},
 	{
 		id: 'work',
