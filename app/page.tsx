@@ -34,7 +34,7 @@ export default async function Home() {
 	const outstanding = unfilled();
 	const activity = await getActivity();
 	const lines = activity
-		? agent.lines.map((l) => (l.section === 'work' ? { ...l, text: live.agentLine(activity) } : l))
+		? agent.lines.map((l) => (l.section === 'work' && live.agentLine(activity) ? { ...l, text: live.agentLine(activity) } : l))
 		: agent.lines;
 
 	return (
@@ -63,7 +63,7 @@ export default async function Home() {
 				<div className="meta-bar mono">
 					<span>{site.location}</span>
 					<span>Building software since {record.roles[0].year}</span>
-					{activity ? (
+					{activity && live.metaLine(activity) ? (
 						<span className="meta-bar__live">
 							<span className="live-dot" aria-hidden="true" />
 							{live.metaLine(activity)}

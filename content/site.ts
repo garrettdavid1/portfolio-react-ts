@@ -9,6 +9,8 @@
  * recovered from the previous site. Where the two disagreed the resume won.
  */
 
+import type { Activity } from '@/lib/activity';
+
 export function TODO(text: string): string {
 	return `[${text}]`;
 }
@@ -281,21 +283,38 @@ export const agent = {
 
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
 
-/** Wording for the live counts. Every number comes from lib/activity.ts. */
+/**
+ * What the agents did, as verb phrases, most telling first. Zero counts are
+ * left out rather than shown, so a quiet week reads short, never as zero work.
+ */
+function agentDid(a: Activity): string[] {
+	const did: string[] = [];
+	if (a.tasksCompletedByAgents) did.push(`completed ${plural(a.tasksCompletedByAgents, 'task')}`);
+	if (a.tasksFiledByAgents) did.push(`filed ${plural(a.tasksFiledByAgents, 'task')}`);
+	if (a.emailActionsCompleted) did.push(`handled ${plural(a.emailActionsCompleted, 'email')}`);
+	if (a.remindersDelivered) did.push(`sent ${plural(a.remindersDelivered, 'reminder')}`);
+	if (a.briefings) did.push(`wrote ${plural(a.briefings, 'briefing')}`);
+	return did;
+}
+
+/** Wording for the live counts. Every number comes from lib/activity.ts; an empty string hides the line. */
 export const live = {
 	/** The line under the masthead, first person. */
-	metaLine(a: { windowDays: number; tasksFiledByAgents?: number; handedToDavid?: number; tasksClosed?: number }) {
-		const parts = [`Past ${a.windowDays} days`, `my agents filed ${plural(a.tasksFiledByAgents ?? 0, 'task')}`];
-		if (a.handedToDavid !== undefined) parts.push(`${a.handedToDavid} needed me`);
-		if (a.tasksClosed !== undefined) parts.push(`${a.tasksClosed} closed`);
+	metaLine(a: Activity) {
+		const did = agentDid(a);
+		if (!did.length) return '';
+		const parts = [`Past ${a.windowDays} days`, `my agents ${did[0]}`, ...did.slice(1)];
+		if (a.tasksFiledByAgents && a.handedToDavid !== undefined) parts.push(a.handedToDavid ? `${a.handedToDavid} needed me` : 'none needed me');
 		return parts.join(' · ');
 	},
 	/** What the bot says at the track record, in the agent's voice. */
-	agentLine(a: { windowDays: number; tasksFiledByAgents?: number; handedToDavid?: number; tasksClosed?: number }) {
-		const filed = `In the past ${a.windowDays} days I filed ${plural(a.tasksFiledByAgents ?? 0, 'task')} for David.`;
-		if (a.handedToDavid !== undefined) return `${filed} ${a.handedToDavid} needed his call.`;
-		if (a.tasksClosed !== undefined) return `${filed} ${a.tasksClosed} are already closed.`;
-		return filed;
+	agentLine(a: Activity) {
+		const did = agentDid(a).slice(0, 3);
+		if (!did.length) return '';
+		const list = did.length === 1 ? did[0] : `${did.slice(0, -1).join(', ')} and ${did[did.length - 1]}`;
+		const said = `In the past ${a.windowDays} days I ${list} for David.`;
+		if (a.tasksFiledByAgents && a.handedToDavid !== undefined) return `${said} ${a.handedToDavid ? a.handedToDavid : 'None'} needed his call.`;
+		return said;
 	},
 };
 
