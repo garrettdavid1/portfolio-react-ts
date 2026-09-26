@@ -1,12 +1,18 @@
 import AskPanel from '@/components/AskPanel';
 import CareerArc from '@/components/CareerArc';
+import Companion from '@/components/Companion';
+import LiveMark from '@/components/LiveMark';
+import Mark from '@/components/Mark';
 import ContactForm from '@/components/ContactForm';
 import { answers } from '@/content/answers';
+import { getActivity } from '@/lib/activity';
 import {
+	agent,
 	contact,
 	footer,
 	hero,
 	how,
+	live,
 	nav,
 	notes,
 	record,
@@ -21,8 +27,15 @@ function unfilled(): number {
 	return (blob.match(/\[[A-Z][A-Z ,.'’-]{1,}\]/g) ?? []).length;
 }
 
-export default function Home() {
+/** The live counts refresh hourly at most; the page is otherwise static. */
+export const revalidate = 3600;
+
+export default async function Home() {
 	const outstanding = unfilled();
+	const activity = await getActivity();
+	const lines = activity
+		? agent.lines.map((l) => (l.section === 'work' ? { ...l, text: live.agentLine(activity) } : l))
+		: agent.lines;
 
 	return (
 		<>
@@ -36,6 +49,7 @@ export default function Home() {
 			<header className="wrap">
 				<div className="masthead">
 					<a className="masthead__name" href="#main">
+						<Mark size={34} />
 						{site.name}
 					</a>
 					<nav className="masthead__nav" aria-label="Sections">
@@ -49,11 +63,20 @@ export default function Home() {
 				<div className="meta-bar mono">
 					<span>{site.location}</span>
 					<span>Building software since {record.roles[0].year}</span>
+					{activity ? (
+						<span className="meta-bar__live">
+							<span className="live-dot" aria-hidden="true" />
+							{live.metaLine(activity)}
+						</span>
+					) : null}
 				</div>
 			</header>
 
 			<main id="main">
 				<div className="hero wrap">
+					<div className="hero__mark" id="hero-mark">
+						<LiveMark size="100%" />
+					</div>
 					<h1>{hero.statement}</h1>
 					<p>{hero.sub}</p>
 					<div className="hero__actions">
@@ -66,7 +89,7 @@ export default function Home() {
 					</div>
 				</div>
 
-				{/* the four offers */}
+				{/* the offers */}
 				<section className="value wrap" id="offers" aria-labelledby="value-heading">
 					<h2 className="section-label" id="value-heading">
 						{value.heading}
@@ -166,6 +189,8 @@ export default function Home() {
 					</section>
 				</div>
 			</main>
+
+			<Companion lines={lines} anchorId="hero-mark" />
 
 			<footer className="footer wrap">
 				<div>

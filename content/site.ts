@@ -264,6 +264,41 @@ export const notes = [
 	},
 ];
 
+/**
+ * The bot that follows the reader down the page speaks as one of David's
+ * agents, so it refers to him in the third person. One line per section id.
+ */
+export const agent = {
+	name: "David's agent",
+	lines: [
+		{ section: 'offers', text: 'Not sure which one fits? Email him. He will tell you plainly.' },
+		{ section: 'work', text: 'Every one of these went live.' },
+		{ section: 'record', text: 'The orange stretch is the freelance years, on nights and weekends.' },
+		{ section: 'ask', text: 'Pick a question. Every answer comes from his record.' },
+		{ section: 'contact', text: 'He reads these himself. I only keep his calendar.' },
+	],
+};
+
+const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
+
+/** Wording for the live counts. Every number comes from lib/activity.ts. */
+export const live = {
+	/** The line under the masthead, first person. */
+	metaLine(a: { windowDays: number; tasksFiledByAgents?: number; handedToDavid?: number; tasksClosed?: number }) {
+		const parts = [`Past ${a.windowDays} days`, `my agents filed ${plural(a.tasksFiledByAgents ?? 0, 'task')}`];
+		if (a.handedToDavid !== undefined) parts.push(`${a.handedToDavid} needed me`);
+		if (a.tasksClosed !== undefined) parts.push(`${a.tasksClosed} closed`);
+		return parts.join(' · ');
+	},
+	/** What the bot says at the track record, in the agent's voice. */
+	agentLine(a: { windowDays: number; tasksFiledByAgents?: number; handedToDavid?: number; tasksClosed?: number }) {
+		const filed = `In the past ${a.windowDays} days I filed ${plural(a.tasksFiledByAgents ?? 0, 'task')} for David.`;
+		if (a.handedToDavid !== undefined) return `${filed} ${a.handedToDavid} needed his call.`;
+		if (a.tasksClosed !== undefined) return `${filed} ${a.tasksClosed} are already closed.`;
+		return filed;
+	},
+};
+
 export const contact = {
 	kicker: 'OPEN TO THE RIGHT CONVERSATION',
 	title: 'What are you trying to ship?',
