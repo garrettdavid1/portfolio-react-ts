@@ -314,6 +314,9 @@ export const live = {
 	},
 };
 
+/** Page effects the site ships with; ids from components/Effects.tsx. */
+export const effects = ['reveal', 'count', 'depth', 'spotlight', 'ripple'] as const;
+
 export const contact = {
 	kicker: 'OPEN TO THE RIGHT CONVERSATION',
 	title: 'What are you trying to ship?',

@@ -1,15 +1,16 @@
 import AskPanel from '@/components/AskPanel';
 import CareerArc from '@/components/CareerArc';
+import Effects from '@/components/Effects';
 import Companion from '@/components/Companion';
 import LiveMark from '@/components/LiveMark';
 import Mark from '@/components/Mark';
-import PalettePicker from '@/components/PalettePicker';
 import ContactForm from '@/components/ContactForm';
 import { answers } from '@/content/answers';
 import { getActivity } from '@/lib/activity';
 import {
 	agent,
 	contact,
+	effects,
 	footer,
 	hero,
 	how,
@@ -203,7 +204,7 @@ export default async function Home() {
 			</main>
 
 			<Companion lines={lines} anchorId="hero-mark" />
-			{process.env.VERCEL_ENV !== 'production' ? <PalettePicker /> : null}
+			<Effects enabled={effects} picker={process.env.VERCEL_ENV !== 'production'} />
 
 			<footer className="footer wrap">
 				<div>

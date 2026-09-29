@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <style>
-    .bg { fill: #1a1814; } .ink { stroke: #faf8f3; } .eye { fill: #e79466; }
+    .bg { fill: #0b1220; } .ink { stroke: #e3eaf5; } .eye { fill: #3ee6b0; }
   </style>
   <rect class="bg" width="64" height="64" rx="14"/>
   <g transform="translate(4.5 8.2) scale(0.69)">
