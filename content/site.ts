@@ -284,33 +284,35 @@ export const agent = {
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
 
 /**
- * Only counts that show work delivered make the line: shipped code first,
- * then tasks and email the agents finished without David. Activity counts
- * (reminders sent, briefings written, tasks filed) are deliberately left out,
- * and so is any count too small to mean anything.
+ * Only counts that show work delivered appear: shipped code first, then tasks
+ * and email the agents finished without David. Activity counts (reminders
+ * sent, briefings written, tasks filed) are deliberately left out, and so is
+ * any count too small to mean anything.
  */
 const MEANINGFUL = 5;
 
-function agentDid(a: Activity): string[] {
-	const did: string[] = [];
-	if (a.agentCommits) did.push(`wrote ${plural(a.agentCommits, 'commit')}`);
-	if (a.pullRequestsMerged) did.push(`merged ${plural(a.pullRequestsMerged, 'pull request')}`);
-	if ((a.tasksCompletedByAgents ?? 0) >= MEANINGFUL) did.push(`closed ${plural(a.tasksCompletedByAgents!, 'task')}`);
-	if ((a.emailActionsCompleted ?? 0) >= MEANINGFUL) did.push(`cleared ${plural(a.emailActionsCompleted!, 'email')}`);
-	return did;
+type Stat = { n: number; label: string; phrase: string };
+
+function delivered(a: Activity): Stat[] {
+	const out: Stat[] = [];
+	const add = (n: number | undefined, label: string, phrase: (n: number) => string, min = 1) => {
+		if (n !== undefined && n >= min) out.push({ n, label, phrase: phrase(n) });
+	};
+	add(a.agentCommits, 'commits written by my agents', (n) => `wrote ${plural(n, 'commit')}`);
+	add(a.pullRequestsMerged, 'pull requests merged', (n) => `merged ${plural(n, 'pull request')}`);
+	add(a.tasksCompletedByAgents, 'tasks my agents closed', (n) => `closed ${plural(n, 'task')}`, MEANINGFUL);
+	add(a.emailActionsCompleted, 'emails my agents cleared', (n) => `cleared ${plural(n, 'email')}`, MEANINGFUL);
+	return out;
 }
 
-/** Wording for the live counts. Every number comes from lib/activity.ts; an empty string hides the line. */
+/** Wording for the live counts. Every number comes from lib/activity.ts. */
 export const live = {
-	/** The line under the masthead, first person. */
-	metaLine(a: Activity) {
-		const did = agentDid(a);
-		if (!did.length) return '';
-		return [`Past ${a.windowDays} days`, `my agents ${did[0]}`, ...did.slice(1)].join(' · ');
-	},
-	/** What the bot says at the track record, in the agent's voice. */
+	heading: (days: number) => `Live from my agents · past ${days} days`,
+	/** The figures under the hero; empty hides the panel. */
+	stats: (a: Activity) => delivered(a).map(({ n, label }) => ({ n, label })),
+	/** What the bot says at the track record, in the agent's voice; empty keeps the default line. */
 	agentLine(a: Activity) {
-		const did = agentDid(a).slice(0, 3);
+		const did = delivered(a).slice(0, 3).map((s) => s.phrase);
 		if (!did.length) return '';
 		const list = did.length === 1 ? did[0] : `${did.slice(0, -1).join(', ')} and ${did[did.length - 1]}`;
 		return `In the past ${a.windowDays} days we ${list} for David.`;

@@ -33,6 +33,7 @@ export const revalidate = 3600;
 export default async function Home() {
 	const outstanding = unfilled();
 	const activity = await getActivity();
+	const stats = activity ? live.stats(activity) : [];
 	const lines = activity
 		? agent.lines.map((l) => (l.section === 'work' && live.agentLine(activity) ? { ...l, text: live.agentLine(activity) } : l))
 		: agent.lines;
@@ -63,12 +64,6 @@ export default async function Home() {
 				<div className="meta-bar mono">
 					<span>{site.location}</span>
 					<span>Building software since {record.roles[0].year}</span>
-					{activity && live.metaLine(activity) ? (
-						<span className="meta-bar__live">
-							<span className="live-dot" aria-hidden="true" />
-							{live.metaLine(activity)}
-						</span>
-					) : null}
 				</div>
 			</header>
 
@@ -87,6 +82,22 @@ export default async function Home() {
 							Work with me
 						</a>
 					</div>
+					{stats.length ? (
+						<section className="pulse" aria-labelledby="pulse-heading">
+							<h2 className="pulse__label mono" id="pulse-heading">
+								<span className="live-dot" aria-hidden="true" />
+								{live.heading(activity!.windowDays)}
+							</h2>
+							<dl className="pulse__stats">
+								{stats.map((s) => (
+									<div className="pulse__stat" key={s.label}>
+										<dt>{s.label}</dt>
+										<dd>{s.n}</dd>
+									</div>
+								))}
+							</dl>
+						</section>
+					) : null}
 				</div>
 
 				{/* the offers */}
