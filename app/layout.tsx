@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import { Fraunces, Newsreader, IBM_Plex_Mono } from 'next/font/google';
-import { site } from '@/content/site';
+import { footer, site } from '@/content/site';
 import './globals.css';
 
 const display = Fraunces({
@@ -39,6 +40,20 @@ export const metadata: Metadata = {
 		type: 'website',
 	},
 	robots: { index: true, follow: true },
+	alternates: { canonical: '/' },
+	twitter: { card: 'summary_large_image' },
+};
+
+/** Tells search engines who the page is about, so results show the name and role. */
+const person = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: site.name,
+	url: `https://${site.domain}`,
+	jobTitle: 'Software engineer and engineering manager',
+	description: site.description,
+	address: { '@type': 'PostalAddress', addressLocality: 'Atlanta', addressRegion: 'GA', addressCountry: 'US' },
+	sameAs: footer.links.filter((l) => l.href.startsWith('https://')).map((l) => l.href),
 };
 
 export default function RootLayout({
@@ -53,6 +68,11 @@ export default function RootLayout({
 					Skip to content
 				</a>
 				{children}
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }}
+				/>
+				<Analytics />
 			</body>
 		</html>
 	);

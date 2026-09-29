@@ -182,7 +182,11 @@ export default async function Home() {
 								<span className="note__topic">{n.topic}</span>
 							</span>
 							<span>
-								<h3>{n.title}</h3>
+								<h3>
+									<a className="note__link" href={n.url ?? site.linkedin} target="_blank" rel="noreferrer">
+										{n.title}
+									</a>
+								</h3>
 								<p>{n.dek}</p>
 							</span>
 							<span className="note__time">{n.readingTime}</span>

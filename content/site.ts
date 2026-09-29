@@ -231,33 +231,34 @@ export const how = {
 	],
 };
 
-export const notes = [
+/** Each note links to its LinkedIn post; with no url it falls back to the activity feed. */
+export const notes: { slug: string; dateLabel: string; topic: string; readingTime: string; title: string; dek: string; url?: string }[] = [
 	{
 		slug: 'four-records',
-		dateLabel: '18 SEP 2026',
+		dateLabel: '24 SEP 2026',
 		topic: 'Verification',
-		readingTime: '4 min read',
+		readingTime: '1 min read',
 		title: 'My automation reported four records created. All four were wrong.',
 		dek:
 			'The script ran clean. No errors, the right count, green all the way down, and every value it wrote was wrong. Agents are good at producing something that runs. Running is the low bar.',
 	},
 	{
 		slug: 'shared-memory',
-		dateLabel: '18 SEP 2026',
+		dateLabel: '23 SEP 2026',
 		topic: 'Agent design',
-		readingTime: '5 min read',
+		readingTime: '1 min read',
 		title: 'Every lesson one of my agents learns, all of them keep.',
 		dek:
 			'I kept fixing the same mistake in different projects, so I built a shared context every agent reads before it starts. Now they make new mistakes instead of old ones. Teams work the same way.',
 	},
 	{
 		slug: 'not-a-chatbot-tab',
-		dateLabel: '18 SEP 2026',
+		dateLabel: '22 SEP 2026',
 		topic: 'Systems',
-		readingTime: '6 min read',
-		title: 'I run most of my life through AI agents. Not a chatbot tab. A system.',
+		readingTime: '1 min read',
+		title: 'What I can ship in an evening now.',
 		dek:
-			'One repo is the operating manual every agent reads. A task app I built lets them file work that buzzes my phone. I spend my time on decisions, not logistics.',
+			'I added a whole new section to the app that runs my life and deployed it to production in one evening. I do not type faster. I built a system of agents that carries my context.',
 	},
 ];
 
