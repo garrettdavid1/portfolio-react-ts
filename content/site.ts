@@ -40,7 +40,7 @@ export const hero = {
 };
 
 /** The three things someone hires David for. */
-/** What David offers, each with who it is for and the proof behind it. */
+/** What David offers, each with who it is for. */
 export const value = {
 	heading: 'What I offer',
 	items: [
@@ -50,7 +50,6 @@ export const value = {
 			who: 'For business owners, founders and teams who need something built and would rather not learn how.',
 			body:
 				'I build the whole thing: product, front end, back end and deploy. Ten years of judgment paired with a fleet of agents means work that used to take a quarter takes weeks, and the judgment is what keeps that speed from turning into a rewrite later.',
-			proof: 'PreDiscover went from an empty repo to paying clients. Also DesignStudio at Juvare and enterprise SaaS at Shopmonkey.',
 		},
 		{
 			n: '02',
@@ -58,7 +57,6 @@ export const value = {
 			who: 'For business owners and non-technical people who want the time back without learning to code.',
 			body:
 				'Plain-language training on putting AI to work where your week goes: email, scheduling, writing, research and the repetitive admin. No code. If you would rather skip the learning, I build it for you instead.',
-			proof: 'I taught high school English and ran training programs at Chick-fil-A, and I run my own calendar, inbox and household through the same kind of tools I would show you.',
 		},
 		{
 			n: '03',
@@ -66,7 +64,6 @@ export const value = {
 			who: 'For engineering teams and managers who have the tools and not yet the results.',
 			body:
 				'Hands-on sessions in your own codebase: what to hand an agent, how to review what comes back, and where the hard stops go so nothing irreversible happens unchecked.',
-			proof: 'At Deque I built the AI-assisted engineering workflow the CTO had turned into org-wide templates, and wrote the coding guidelines now used across six-plus repos.',
 		},
 		{
 			n: '04',
@@ -74,7 +71,6 @@ export const value = {
 			who: 'For teams that want AI wired into how they already work.',
 			body:
 				'A shared context your agents read before every task, tools that let them act on your systems, and guardrails on anything that cannot be undone. You get the setup and the reasoning behind each piece, written down.',
-			proof: 'The same setup runs my own work every day: tasks, deploys and a morning briefing.',
 		},
 		{
 			n: '05',
@@ -82,7 +78,6 @@ export const value = {
 			who: 'For people starting out or switching careers, and engineers ready for the next level.',
 			body:
 				'One-on-one mentoring from someone who taught high school English before writing software, and still ships production code.',
-			proof: 'Mentored a support colleague into a full-time engineering role, wrote MDL\u2019s internal React tutorial, and built the Shopmonkey team that trained and placed more than twenty-five engineers in three months.',
 		},
 	],
 };

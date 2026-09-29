@@ -112,7 +112,6 @@ export default async function Home() {
 								<h3>{v.title}</h3>
 								<p className="value__who">{v.who}</p>
 								<p className="value__body">{v.body}</p>
-								<p className="value__proof mono">{v.proof}</p>
 							</article>
 						))}
 					</div>
