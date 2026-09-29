@@ -10,7 +10,6 @@ import { getActivity } from '@/lib/activity';
 import {
 	agent,
 	contact,
-	effects,
 	footer,
 	hero,
 	how,
@@ -204,7 +203,7 @@ export default async function Home() {
 			</main>
 
 			<Companion lines={lines} anchorId="hero-mark" />
-			<Effects enabled={effects} picker={process.env.VERCEL_ENV !== 'production'} />
+			<Effects />
 
 			<footer className="footer wrap">
 				<div>
