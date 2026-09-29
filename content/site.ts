@@ -102,9 +102,9 @@ export const work = [
 		role: 'Software Engineering Manager, previously Technical Lead',
 		period: 'June 2024 to present',
 		body:
-			'Three product teams (API Integrations, Scan and Results, Bandura) inside a forty-engineer organization. The teams build and maintain axe-core, Axe Watcher, Axe Linter, the DevTools CLI, Developer Hub, Axe Reports and Axe Monitor. Alongside the management work: a Datadog APM and logging migration, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
+			'Three product teams (API Integrations, Scan and Results, Bandura) inside a forty-engineer organization. The teams build and maintain axe-core, Axe Watcher, Axe Linter, the DevTools CLI, Developer Hub, Axe Reports and Axe Monitor. I lead hackathons for my teams. Alongside the management work: migrations to pnpm and to Datadog APM and logging, a six-PR access-import series, and platform upgrades across Fastify, Prisma, TypeScript, Node and MySQL.',
 		outcome:
-			'Built the delivery-measurement layer the organization runs on, now covering ten teams, and automated the management layer itself: quarterly reviews end to end, per-report status pages, 1:1 prep and the weekly staff report.',
+			'Built the delivery-measurement layer the organization runs on, and automated the management layer itself: quarterly reviews end to end, per-report status pages, 1:1 prep and the weekly staff report.',
 		stack: 'TypeScript · Node · React · Postgres · MySQL · Prisma · DX',
 	},
 	{
