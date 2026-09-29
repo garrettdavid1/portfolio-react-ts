@@ -126,7 +126,7 @@ export const work = [
 		role: 'Software Engineer and Scrum Master',
 		period: 'September 2019 to July 2021',
 		body:
-			'Architected the front end and the testing suite for DesignStudio, a new enterprise application, and managed offshore contractors delivering FormStudio. Also on WebEOC enhancements, defects and deployment through Azure and Jenkins.',
+			'Architected the front end and the testing suite for DesignStudio, a drag-and-drop app builder that took what a user designed and generated and hosted the entire back end. It was built for emergency-preparedness companies and government agencies. Also managed offshore contractors delivering FormStudio, and worked on WebEOC enhancements, defects and deployment through Azure and Jenkins.',
 		outcome: 'FormStudio delivered on time with a distributed contract team.',
 		stack: 'TypeScript · React · ASP.NET · Azure · Jenkins',
 	},
@@ -186,7 +186,7 @@ export const record = {
 			role: 'Engineer, scrum master',
 			year: '2019',
 			pos: 0.255,
-			note: 'Front end and test suite for a new enterprise app.',
+			note: 'Front end and test suite for a drag-and-drop app builder.',
 			side: 'below' as const,
 		},
 		{
