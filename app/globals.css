@@ -14,6 +14,8 @@
 	--on-ink-2: #d6d0c6;
 	--ok: #5f8a6d;
 	--on-accent: #fffdf8;
+	--accent-2: #2f6f73;
+	--accent-3: #b07d12;
 
 	--gutter: 24px;
 	--measure: 68ch;
@@ -36,6 +38,8 @@
 		--on-ink-2: #3b352c;
 		--ok: #7fae8c;
 		--on-accent: #14130f;
+		--accent-2: #6cc3c0;
+		--accent-3: #e2b85c;
 	}
 }
 
@@ -1585,4 +1589,96 @@ a.btn {
 /* keeps a hyphenated phrase on one line in the headline */
 .nowrap {
 	white-space: nowrap;
+}
+
+/* ---------- color detail: three accents instead of one ---------- */
+
+body {
+	background:
+		radial-gradient(1100px 520px at 88% -80px, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%),
+		radial-gradient(900px 480px at -10% 240px, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 70%),
+		var(--paper);
+	background-repeat: no-repeat;
+}
+
+.masthead {
+	border-image: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3)) 1;
+}
+
+.section-label {
+	color: var(--accent-2);
+}
+
+.value__item {
+	--tone: var(--accent);
+	border-top-color: var(--tone);
+	padding: 20px 20px 24px;
+	background: color-mix(in srgb, var(--tone) 6%, transparent);
+}
+
+.value__item:nth-child(3n + 2) {
+	--tone: var(--accent-2);
+}
+
+.value__item:nth-child(3n) {
+	--tone: var(--accent-3);
+}
+
+.value__n {
+	color: var(--tone);
+	font-weight: 500;
+}
+
+.pulse {
+	border-left-color: var(--accent-2);
+	background:
+		linear-gradient(120deg, color-mix(in srgb, var(--accent-2) 10%, transparent), color-mix(in srgb, var(--accent) 8%, transparent)),
+		var(--paper-raised);
+}
+
+.pulse__stat:nth-child(1) dd {
+	color: var(--accent);
+}
+
+.pulse__stat:nth-child(2) dd {
+	color: var(--accent-2);
+}
+
+.pulse__stat:nth-child(3) dd {
+	color: var(--accent-3);
+}
+
+.pulse__stat:nth-child(4) dd {
+	color: var(--ok);
+}
+
+.case__client {
+	color: var(--accent-2);
+}
+
+.case:nth-of-type(3n + 2) .case__outcome {
+	border-left-color: var(--accent-2);
+}
+
+.case:nth-of-type(3n) .case__outcome {
+	border-left-color: var(--accent-3);
+}
+
+.how__point {
+	border-top: 2px solid var(--accent-3);
+}
+
+.note__topic {
+	color: var(--accent-2);
+}
+
+.briefing {
+	background:
+		radial-gradient(600px 300px at 100% 0%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 70%),
+		radial-gradient(500px 300px at 0% 100%, color-mix(in srgb, var(--accent-2) 30%, transparent), transparent 70%),
+		var(--ink);
+}
+
+.companion__bot {
+	border-color: color-mix(in srgb, var(--accent-2) 40%, var(--rule));
 }
