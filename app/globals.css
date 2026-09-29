@@ -13,6 +13,7 @@
 	--on-ink: #faf8f3;
 	--on-ink-2: #d6d0c6;
 	--ok: #5f8a6d;
+	--on-accent: #fffdf8;
 
 	--gutter: 24px;
 	--measure: 68ch;
@@ -34,6 +35,7 @@
 		--on-ink: #14130f;
 		--on-ink-2: #3b352c;
 		--ok: #7fae8c;
+		--on-accent: #14130f;
 	}
 }
 
@@ -577,7 +579,7 @@ textarea {
 .briefing__form textarea {
 	background: var(--paper);
 	border-color: var(--paper);
-	color: #1a1814;
+	color: var(--ink);
 }
 
 input[type='text'],
@@ -607,7 +609,7 @@ input::placeholder {
 	border: none;
 	border-radius: 2px;
 	background: var(--accent);
-	color: #fffdf8;
+	color: var(--on-accent);
 	cursor: pointer;
 }
 
@@ -628,7 +630,7 @@ a.btn {
 
 .btn--solid:hover {
 	background: var(--accent);
-	color: #fffdf8;
+	color: var(--on-accent);
 }
 
 .btn--ghost {
@@ -1120,7 +1122,7 @@ a.btn {
 .briefing__form input {
 	background: var(--paper);
 	border-color: var(--paper);
-	color: #1a1814;
+	color: var(--ink);
 }
 
 .briefing__fine {
@@ -1522,4 +1524,65 @@ a.btn {
 .marks__option p {
 	margin: 0;
 	color: var(--ink-2);
+}
+
+/* ---------- palette picker (previews only) ---------- */
+
+.palette {
+	position: fixed;
+	left: 16px;
+	bottom: 16px;
+	z-index: 45;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	max-width: min(300px, calc(100vw - 110px));
+	padding: 12px;
+	border: 1px solid var(--rule);
+	border-radius: 12px;
+	background: var(--paper-bright);
+	box-shadow: 0 6px 20px color-mix(in srgb, var(--ink) 14%, transparent);
+	font-family: var(--font-mono), ui-monospace, monospace;
+	font-size: 12px;
+	color: var(--ink-2);
+}
+
+.palette__row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.palette button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 8px;
+	border: 1px solid var(--rule);
+	border-radius: 6px;
+	background: var(--paper);
+	color: var(--ink);
+	font: inherit;
+	cursor: pointer;
+}
+
+.palette button[aria-pressed='true'] {
+	border-color: var(--accent);
+	box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.palette__swatch {
+	width: 12px;
+	height: 12px;
+	border-radius: 3px;
+	border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+}
+
+.palette__toggle {
+	align-self: flex-start;
+}
+
+/* keeps a hyphenated phrase on one line in the headline */
+.nowrap {
+	white-space: nowrap;
 }

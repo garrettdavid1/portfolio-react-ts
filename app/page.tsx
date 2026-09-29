@@ -3,6 +3,7 @@ import CareerArc from '@/components/CareerArc';
 import Companion from '@/components/Companion';
 import LiveMark from '@/components/LiveMark';
 import Mark from '@/components/Mark';
+import PalettePicker from '@/components/PalettePicker';
 import ContactForm from '@/components/ContactForm';
 import { answers } from '@/content/answers';
 import { getActivity } from '@/lib/activity';
@@ -72,7 +73,11 @@ export default async function Home() {
 					<div className="hero__mark" id="hero-mark">
 						<LiveMark size="100%" />
 					</div>
-					<h1>{hero.statement}</h1>
+					<h1>
+						{hero.statement.split('AI-native').flatMap((part, i) =>
+							i ? [<span className="nowrap" key={i}>AI-native</span>, part] : [part],
+						)}
+					</h1>
 					<p>{hero.sub}</p>
 					<div className="hero__actions">
 						<a className="btn btn--solid" href="#offers">
@@ -198,6 +203,7 @@ export default async function Home() {
 			</main>
 
 			<Companion lines={lines} anchorId="hero-mark" />
+			{process.env.VERCEL_ENV !== 'production' ? <PalettePicker /> : null}
 
 			<footer className="footer wrap">
 				<div>
