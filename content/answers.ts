@@ -25,7 +25,7 @@ export const answers: Answer[] = [
 		body:
 			'Yes, end to end: product decisions, front end, back end and deploy. PreDiscover went from an empty repo to a background-search platform with paying clients, cutting searches that took hours down to minutes or seconds.',
 		more:
-			'The unit of time is days and weeks rather than quarters, because ten years of judgment is paired with a fleet of agents. You get code you own, with the reasoning behind it written down.',
+			'How long depends on the product, but expect it faster than you have seen software built, because ten years of judgment is paired with a fleet of agents. You get code you own, with the reasoning behind it written down.',
 		source: 'PreDiscover, DesignStudio, Shopmonkey',
 		timing: '10 years shipping',
 	},

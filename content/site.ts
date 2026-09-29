@@ -49,7 +49,7 @@ export const value = {
 			title: 'Have something built',
 			who: 'For business owners, founders and teams who need something built and would rather not learn how.',
 			body:
-				'I build the whole thing: product, front end, back end and deploy. Ten years of judgment paired with a fleet of agents means work that used to take a quarter takes weeks, and the judgment is what keeps that speed from turning into a rewrite later.',
+				'I build the whole thing: product, front end, back end and deploy. How long it takes depends on what you need, but it will likely be faster than you have seen software built before. Ten years of judgment is what keeps that speed from turning into a rewrite later.',
 		},
 		{
 			n: '02',
