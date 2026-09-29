@@ -20,7 +20,7 @@ export const site = {
 	domain: 'davidgarrett.us',
 	linkedin: 'https://www.linkedin.com/in/davidthed3v/recent-activity/all/',
 	location: 'Atlanta, Georgia',
-	tagline: 'I build software, and I teach people to build it with AI.',
+	tagline: 'I build software with an AI-native workflow, and I teach others to do the same.',
 	description:
 		'Software engineer and engineering manager. I build what people need, and I teach business owners, engineering teams and new developers to use AI and to code.',
 };
@@ -35,7 +35,7 @@ export const nav = [
 
 export const hero = {
 	statement:
-		'I build software, and I teach people to build it with AI.',
+		'I build software with an AI-native workflow, and I teach others to do the same.',
 	sub: 'Ten years as a software engineer and engineering manager. I pair that judgment with a fleet of agents to ship in days what used to take quarters. I build what people need, and I teach business owners, engineering teams and new developers to work the same way.',
 };
 
