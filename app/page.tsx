@@ -121,9 +121,6 @@ export default async function Home() {
 				<section className="work wrap" id="work" aria-labelledby="work-heading">
 					<div className="section-head">
 						<h2 id="work-heading">Track record</h2>
-						<p className="work__note">
-							Six of them. Each one went live and somebody depended on it.
-						</p>
 					</div>
 					{work.map((w) => (
 						<article className="case" key={w.slug}>
