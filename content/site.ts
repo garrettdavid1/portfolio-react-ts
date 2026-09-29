@@ -84,6 +84,18 @@ export const value = {
 
 export const work = [
 	{
+		slug: 'agent-platform',
+		client: 'Personal',
+		title: 'A personal agent platform',
+		role: 'Sole engineer',
+		period: '2025 to present',
+		body:
+			'Self-hosted app, API, scheduler and MCP server that runs my own working life: agents file tasks, the urgent ones push to my phone, and a briefing lands every morning. It is where I learn what building with agents costs before I recommend it to anyone.',
+		outcome:
+			'In daily use. It is the reason a full-time management job still leaves room to build.',
+		stack: 'TypeScript · Postgres · Railway · Web Push · MCP',
+	},
+	{
 		slug: 'deque',
 		client: 'Deque Systems',
 		title: 'Thirteen engineers, three teams, and the org’s delivery layer',
@@ -141,18 +153,6 @@ export const work = [
 		// No verified outcome line for this one yet; the case renders without it.
 		outcome: '',
 		stack: 'KnockoutJS · C#/.NET Web API · SignalR · MongoDB · React Native',
-	},
-	{
-		slug: 'agent-platform',
-		client: 'Personal',
-		title: 'A personal agent platform',
-		role: 'Sole engineer',
-		period: '2025 to present',
-		body:
-			'Self-hosted app, API, scheduler and MCP server that runs my own working life: agents file tasks, the urgent ones push to my phone, and a briefing lands every morning. It is where I learn what building with agents costs before I recommend it to anyone.',
-		outcome:
-			'In daily use. It is the reason a full-time management job still leaves room to build.',
-		stack: 'TypeScript · Postgres · Railway · Web Push · MCP',
 	},
 ];
 
