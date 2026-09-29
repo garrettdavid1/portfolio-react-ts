@@ -90,9 +90,9 @@ export const work = [
 		role: 'Sole engineer',
 		period: '2025 to present',
 		body:
-			'Self-hosted app, API, scheduler and MCP server that runs my own working life: agents file tasks, the urgent ones push to my phone, and a briefing lands every morning. It is where I learn what building with agents costs before I recommend it to anyone.',
+			'Two things in one system. It runs my working life: agents file and close tasks, clear email, push the urgent items to my phone and write a briefing every morning. It is also a coding system I have trained to build and ship software fast, and it writes most of the code I ship.',
 		outcome:
-			'In daily use. It is the reason a full-time management job still leaves room to build.',
+			'It built and deployed a complete web app in under 40 minutes, and the launch needed only minor touch-ups afterward. The live figures at the top of this page come from it.',
 		stack: 'TypeScript · Postgres · Railway · Web Push · MCP',
 	},
 	{
