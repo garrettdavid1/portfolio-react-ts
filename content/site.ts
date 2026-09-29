@@ -235,6 +235,7 @@ export const how = {
 export const notes: { slug: string; dateLabel: string; topic: string; readingTime: string; title: string; dek: string; url?: string }[] = [
 	{
 		slug: 'four-records',
+		url: 'https://www.linkedin.com/feed/update/urn:li:activity:7508963475231023104/',
 		dateLabel: '24 SEP 2026',
 		topic: 'Verification',
 		readingTime: '1 min read',
@@ -244,6 +245,7 @@ export const notes: { slug: string; dateLabel: string; topic: string; readingTim
 	},
 	{
 		slug: 'shared-memory',
+		url: 'https://www.linkedin.com/feed/update/urn:li:activity:7508541070709014528/',
 		dateLabel: '23 SEP 2026',
 		topic: 'Agent design',
 		readingTime: '1 min read',
@@ -253,6 +255,7 @@ export const notes: { slug: string; dateLabel: string; topic: string; readingTim
 	},
 	{
 		slug: 'not-a-chatbot-tab',
+		url: 'https://www.linkedin.com/feed/update/urn:li:activity:7508178721586102273/',
 		dateLabel: '22 SEP 2026',
 		topic: 'Systems',
 		readingTime: '1 min read',
