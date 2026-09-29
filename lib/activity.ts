@@ -8,6 +8,9 @@
 
 export type Activity = {
 	windowDays: number;
+	/** Commits carrying an agent co-author trailer, across David's repos. */
+	agentCommits?: number;
+	pullRequestsMerged?: number;
 	/** Tasks an agent closed itself, not David. */
 	tasksCompletedByAgents?: number;
 	tasksFiledByAgents?: number;
@@ -20,6 +23,8 @@ export type Activity = {
 
 const KEYS = [
 	'windowDays',
+	'agentCommits',
+	'pullRequestsMerged',
 	'tasksCompletedByAgents',
 	'tasksFiledByAgents',
 	'handedToDavid',

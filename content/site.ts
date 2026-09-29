@@ -284,16 +284,19 @@ export const agent = {
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
 
 /**
- * What the agents did, as verb phrases, most telling first. Zero counts are
- * left out rather than shown, so a quiet week reads short, never as zero work.
+ * Only counts that show work delivered make the line: shipped code first,
+ * then tasks and email the agents finished without David. Activity counts
+ * (reminders sent, briefings written, tasks filed) are deliberately left out,
+ * and so is any count too small to mean anything.
  */
+const MEANINGFUL = 5;
+
 function agentDid(a: Activity): string[] {
 	const did: string[] = [];
-	if (a.tasksCompletedByAgents) did.push(`completed ${plural(a.tasksCompletedByAgents, 'task')}`);
-	if (a.tasksFiledByAgents) did.push(`filed ${plural(a.tasksFiledByAgents, 'task')}`);
-	if (a.emailActionsCompleted) did.push(`handled ${plural(a.emailActionsCompleted, 'email')}`);
-	if (a.remindersDelivered) did.push(`sent ${plural(a.remindersDelivered, 'reminder')}`);
-	if (a.briefings) did.push(`wrote ${plural(a.briefings, 'briefing')}`);
+	if (a.agentCommits) did.push(`wrote ${plural(a.agentCommits, 'commit')}`);
+	if (a.pullRequestsMerged) did.push(`shipped ${plural(a.pullRequestsMerged, 'pull request')}`);
+	if ((a.tasksCompletedByAgents ?? 0) >= MEANINGFUL) did.push(`closed ${plural(a.tasksCompletedByAgents!, 'task')}`);
+	if ((a.emailActionsCompleted ?? 0) >= MEANINGFUL) did.push(`cleared ${plural(a.emailActionsCompleted!, 'email')}`);
 	return did;
 }
 
@@ -303,18 +306,14 @@ export const live = {
 	metaLine(a: Activity) {
 		const did = agentDid(a);
 		if (!did.length) return '';
-		const parts = [`Past ${a.windowDays} days`, `my agents ${did[0]}`, ...did.slice(1)];
-		if (a.tasksFiledByAgents && a.handedToDavid !== undefined) parts.push(a.handedToDavid ? `${a.handedToDavid} needed me` : 'none needed me');
-		return parts.join(' · ');
+		return [`Past ${a.windowDays} days`, `my agents ${did[0]}`, ...did.slice(1)].join(' · ');
 	},
 	/** What the bot says at the track record, in the agent's voice. */
 	agentLine(a: Activity) {
 		const did = agentDid(a).slice(0, 3);
 		if (!did.length) return '';
 		const list = did.length === 1 ? did[0] : `${did.slice(0, -1).join(', ')} and ${did[did.length - 1]}`;
-		const said = `In the past ${a.windowDays} days I ${list} for David.`;
-		if (a.tasksFiledByAgents && a.handedToDavid !== undefined) return `${said} ${a.handedToDavid ? a.handedToDavid : 'None'} needed his call.`;
-		return said;
+		return `In the past ${a.windowDays} days we ${list} for David.`;
 	},
 };
 
