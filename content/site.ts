@@ -294,7 +294,7 @@ const MEANINGFUL = 5;
 function agentDid(a: Activity): string[] {
 	const did: string[] = [];
 	if (a.agentCommits) did.push(`wrote ${plural(a.agentCommits, 'commit')}`);
-	if (a.pullRequestsMerged) did.push(`shipped ${plural(a.pullRequestsMerged, 'pull request')}`);
+	if (a.pullRequestsMerged) did.push(`merged ${plural(a.pullRequestsMerged, 'pull request')}`);
 	if ((a.tasksCompletedByAgents ?? 0) >= MEANINGFUL) did.push(`closed ${plural(a.tasksCompletedByAgents!, 'task')}`);
 	if ((a.emailActionsCompleted ?? 0) >= MEANINGFUL) did.push(`cleared ${plural(a.emailActionsCompleted!, 'email')}`);
 	return did;
