@@ -83,9 +83,9 @@ export const answers: Answer[] = [
 		id: 'work',
 		question: 'What are you like to work with?',
 		body:
-			'Direct, and allergic to progress theater. I would rather hear that something is broken on Tuesday than hear it is on track until Friday.',
+			'Positive, collaborative and direct. I would rather hear that something is broken on Tuesday than hear it is on track until Friday.',
 		more:
-			'I write decisions down once so they do not get re-made worse later, and I expect the same.',
+			'I work to understand the whole of what my clients do, within reason, so what I build fits how their business actually runs. My measure of success is how much better I make their life. I also write decisions down once, so nobody has to make them again.',
 		source: 'me',
 		timing: 'static',
 	},
