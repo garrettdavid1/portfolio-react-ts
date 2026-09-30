@@ -158,13 +158,13 @@ export const work = [
 
 /**
  * The arc, drawn as an engraved axis. `pos` is the fraction along an axis that
- * runs April 2017 to late 2026, so the spacing is real. `span` is the orange
+ * runs April 2017 to late 2026, so the spacing is real. `span` is the green
  * stretch marking the years the freelance work ran alongside a full-time job.
  */
 export const record = {
 	heading: 'The arc',
 	intro:
-		'Before software I taught high school English and ran training and advancement programs at Chick-fil-A. That is where I learned to teach. The orange stretch of the line is VersaDev, my own freelance work, running alongside a full-time job for five of these years.',
+		'Before software I taught high school English and ran training and advancement programs at Chick-fil-A. That is where I learned to teach. The green stretch of the line is VersaDev, my own freelance work, running alongside a full-time job for five of these years.',
 	span: { from: 0.087, to: 0.647 },
 	axisLabels: [
 		{ label: '2017', pos: 0 },
@@ -274,7 +274,7 @@ export const agent = {
 	lines: [
 		{ section: 'offers', text: 'Not sure which one fits? Email him. He will tell you plainly.' },
 		{ section: 'work', text: 'Every one of these went live.' },
-		{ section: 'record', text: 'The orange stretch is the freelance years, on nights and weekends.' },
+		{ section: 'record', text: 'The green stretch is the freelance years, on nights and weekends.' },
 		{ section: 'ask', text: 'Pick a question. Every answer comes from his record.' },
 		{ section: 'contact', text: 'He reads these himself. I only keep his calendar.' },
 	],
