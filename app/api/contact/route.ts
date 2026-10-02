@@ -49,7 +49,8 @@ export async function POST(request: Request) {
 		},
 		body: JSON.stringify({
 			from,
-			to,
+			// CONTACT_TO may list several addresses, comma-separated.
+			to: to.split(',').map((t) => t.trim()).filter(Boolean),
 			reply_to: email,
 			subject: `davidgarrett.us — ${email}`,
 			text: note.slice(0, 1200),

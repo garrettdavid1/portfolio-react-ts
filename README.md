@@ -59,10 +59,13 @@ The homepage form posts to `app/api/contact/route.ts`, which emails David throug
 when `RESEND_API_KEY`, `CONTACT_TO` and `CONTACT_FROM` are set. Without them it returns 503
 with an honest message rather than pretending to have sent anything.
 
-Since 2026-09-29 all three are set on Vercel (Production and Preview). The key is the send-only
-Resend key the rls app uses, so `CONTACT_FROM` must stay on its verified domain
-(`site@recessleaguesoccer.com`); only David sees that address. `CONTACT_TO` is
-davidgarrettcoding@gmail.com. The live-counts feed URL is `ACTIVITY_URL`, also on Vercel.
+All three are set on Vercel (Production and Preview). The key is the send-only Resend key the
+rls app uses, and it only delivers when sending as that app's own identity: `CONTACT_FROM` must be
+exactly `RLS <rls@recessleaguesoccer.com>`. Any other display name or address is accepted by the API
+(200 with an id) and then never arrives; verified 2026-10-02 with controlled tests. Only David sees
+the sender; the subject names the site and Reply-To is the visitor. `CONTACT_TO` takes a
+comma-separated list and is davidgarrettcoding@gmail.com,garrettdavid1@gmail.com. The live-counts
+feed URL is `ACTIVITY_URL`, also on Vercel.
 
 The `/briefing` signup page and its subscribe route were removed on 2026-09-22: the free
 briefing agent it offered is now something Anthropic gives away.
