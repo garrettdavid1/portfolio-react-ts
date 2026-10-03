@@ -5,7 +5,8 @@ import { contact } from '@/content/site';
 
 type State = { kind: 'idle' | 'busy' | 'done' | 'error'; message?: string };
 
-export default function ContactForm() {
+/** `topic` tags where the note came from, so local leads stand out in the inbox. */
+export default function ContactForm({ topic }: { topic?: 'woodstock' }) {
 	const [email, setEmail] = useState('');
 	const [note, setNote] = useState('');
 	const [state, setState] = useState<State>({ kind: 'idle' });
@@ -19,7 +20,7 @@ export default function ContactForm() {
 			const res = await fetch('/api/contact', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ email, note }),
+				body: JSON.stringify({ email, note, topic }),
 			});
 			const data = (await res.json()) as { message?: string };
 			if (!res.ok) throw new Error(data.message ?? 'That did not go through.');

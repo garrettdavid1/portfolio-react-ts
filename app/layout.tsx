@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import { Fraunces, Newsreader, IBM_Plex_Mono } from 'next/font/google';
 import { footer, site } from '@/content/site';
+import { personId } from '@/lib/local-schema';
 import './globals.css';
 
 const display = Fraunces({
@@ -48,11 +49,12 @@ export const metadata: Metadata = {
 const person = {
 	'@context': 'https://schema.org',
 	'@type': 'Person',
+	'@id': personId,
 	name: site.name,
 	url: `https://${site.domain}`,
 	jobTitle: 'Software engineer and engineering manager',
 	description: site.description,
-	address: { '@type': 'PostalAddress', addressLocality: 'Atlanta', addressRegion: 'GA', addressCountry: 'US' },
+	address: { '@type': 'PostalAddress', addressLocality: 'Woodstock', addressRegion: 'GA', addressCountry: 'US' },
 	sameAs: footer.links.filter((l) => l.href.startsWith('https://')).map((l) => l.href),
 };
 

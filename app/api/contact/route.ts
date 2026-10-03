@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 		return NextResponse.json({ message: 'Bad request.' }, { status: 400 });
 	}
 
-	const { email, note } = (payload ?? {}) as { email?: unknown; note?: unknown };
+	const { email, note, topic } = (payload ?? {}) as { email?: unknown; note?: unknown; topic?: unknown };
 
 	if (typeof email !== 'string' || !EMAIL.test(email) || email.length > 254) {
 		return NextResponse.json(
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
 			// CONTACT_TO may list several addresses, comma-separated.
 			to: to.split(',').map((t) => t.trim()).filter(Boolean),
 			reply_to: email,
-			subject: `davidgarrett.us — ${email}`,
+			subject: `davidgarrett.us${topic === 'woodstock' ? ' [Woodstock business]' : ''} — ${email}`,
 			text: note.slice(0, 1200),
 		}),
 	});

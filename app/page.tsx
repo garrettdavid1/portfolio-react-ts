@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import AskPanel from '@/components/AskPanel';
 import CareerArc from '@/components/CareerArc';
 import Effects from '@/components/Effects';
@@ -14,6 +15,7 @@ import {
 	hero,
 	how,
 	live,
+	localBand,
 	nav,
 	notes,
 	record,
@@ -121,6 +123,13 @@ export default async function Home() {
 						))}
 					</div>
 				</section>
+
+				<aside className="local-band wrap" aria-label="For local businesses">
+					<p className="local__kicker mono">{localBand.kicker}</p>
+					<p className="local-band__text">
+						{localBand.text} <Link href={localBand.href}>{localBand.link}</Link>
+					</p>
+				</aside>
 
 				{/* the projects themselves */}
 				<section className="work wrap" id="work" aria-labelledby="work-heading">

@@ -19,7 +19,7 @@ export const site = {
 	name: 'David Garrett',
 	domain: 'davidgarrett.us',
 	linkedin: 'https://www.linkedin.com/in/davidthed3v/recent-activity/all/',
-	location: 'Atlanta, Georgia',
+	location: 'Woodstock, Georgia',
 	tagline: 'I build software with an AI-native workflow, and I teach others to do the same.',
 	description:
 		'Software engineer and engineering manager. I build what people need, and I teach business owners, engineering teams and new developers to use AI and to code.',
@@ -318,6 +318,14 @@ export const live = {
 	},
 };
 
+/** The band under the offers that sends local owners to /woodstock. */
+export const localBand = {
+	kicker: 'FOR WOODSTOCK AND CHEROKEE COUNTY BUSINESSES',
+	text: 'Run a business near Woodstock? I will come to your shop or office, find the busywork, and build the fix.',
+	link: 'AI and automation for Woodstock businesses',
+	href: '/woodstock',
+};
+
 export const contact = {
 	kicker: 'OPEN TO THE RIGHT CONVERSATION',
 	title: 'What are you trying to ship?',
@@ -328,7 +336,7 @@ export const contact = {
 };
 
 export const footer = {
-	line: 'Atlanta, Georgia. Dad of four. Fluent in Brazilian Portuguese. Usually building something.',
+	line: 'Woodstock, Georgia. Dad of four. Fluent in Brazilian Portuguese. Usually building something.',
 	links: [
 		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/davidthed3v/' },
 		{ label: 'GitHub', href: 'https://github.com/garrettdavid1' },
