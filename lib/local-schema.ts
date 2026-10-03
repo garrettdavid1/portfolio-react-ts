@@ -1,10 +1,11 @@
 import { site } from '@/content/site';
-import { county, hub, packageFor, packages, pricesPublished, towns, type Package, type Service } from '@/content/woodstock';
+import { county, hub, towns, type Service } from '@/content/woodstock';
 
 /**
  * Structured data for the Woodstock pages. The business has no street address on
  * purpose: it is run from home and listed as a service-area business, so only
- * the town and the areas served appear.
+ * the town and the areas served appear. No Offer or price data: prices are agreed
+ * per project after a free consultation.
  */
 
 const origin = `https://${site.domain}`;
@@ -15,22 +16,6 @@ const areaServed = [
 	...towns.map((name) => ({ '@type': 'City', name: `${name}, GA` })),
 	{ '@type': 'AdministrativeArea', name: `${county}, GA` },
 ];
-
-function offer(p: Package) {
-	if (p.from === null) return null;
-	return {
-		'@type': 'Offer',
-		name: p.name,
-		priceCurrency: 'USD',
-		priceSpecification: {
-			'@type': p.unit ? 'UnitPriceSpecification' : 'PriceSpecification',
-			minPrice: p.from,
-			priceCurrency: 'USD',
-			...(p.unit ? { unitText: 'MONTH' } : {}),
-		},
-		areaServed,
-	};
-}
 
 export function businessSchema() {
 	return {
@@ -44,20 +29,10 @@ export function businessSchema() {
 		address: { '@type': 'PostalAddress', addressLocality: 'Woodstock', addressRegion: 'GA', addressCountry: 'US' },
 		areaServed,
 		founder: { '@id': personId },
-		...(pricesPublished
-			? {
-					hasOfferCatalog: {
-						'@type': 'OfferCatalog',
-						name: hub.packagesHeading,
-						itemListElement: packages.map(offer).filter(Boolean),
-					},
-				}
-			: {}),
 	};
 }
 
 export function serviceSchema(s: Service) {
-	const o = pricesPublished ? offer(packageFor(s)) : null;
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'Service',
@@ -67,7 +42,6 @@ export function serviceSchema(s: Service) {
 		url: `${origin}${hub.path}/${s.slug}`,
 		provider: { '@id': businessId },
 		areaServed,
-		...(o ? { offers: o } : {}),
 	};
 }
 

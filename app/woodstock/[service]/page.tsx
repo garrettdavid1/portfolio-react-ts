@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import LocalFrame from '@/components/LocalFrame';
-import { hub, pricesPublished, serviceBySlug, services } from '@/content/woodstock';
+import { hub, serviceBySlug, services } from '@/content/woodstock';
 import { breadcrumbs, serviceSchema } from '@/lib/local-schema';
 
 export const dynamicParams = false;
@@ -16,7 +16,7 @@ type Props = { params: Promise<{ service: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const s = serviceBySlug((await params).service);
 	if (!s) return {};
-	const title = pricesPublished ? s.titlePriced : s.title;
+	const title = s.title;
 	const path = `${hub.path}/${s.slug}`;
 	return {
 		title: { absolute: title },
@@ -45,7 +45,7 @@ export default async function ServicePage({ params }: Props) {
 				<p>{s.lede}</p>
 				<div className="hero__actions">
 					<a className="btn btn--solid" href="#contact">
-						Book a first visit
+						Book a free consultation
 					</a>
 				</div>
 			</div>
@@ -83,12 +83,12 @@ export default async function ServicePage({ params }: Props) {
 				</section>
 			) : null}
 
-			{pricesPublished ? (
-				<section className="local wrap" aria-label="What it costs">
-					<h2 className="section-label">What it costs</h2>
-					<p className="local__body">{s.cost}</p>
-				</section>
-			) : null}
+			<section className="local wrap" aria-labelledby="cost-heading">
+				<h2 className="section-label" id="cost-heading">
+					What it costs
+				</h2>
+				<p className="local__body">{s.cost}</p>
+			</section>
 
 			<section className="local wrap" aria-labelledby="faq-heading">
 				<h2 className="section-label" id="faq-heading">
@@ -118,7 +118,7 @@ export default async function ServicePage({ params }: Props) {
 					))}
 				</div>
 				<p className="local__note">
-					<Link href={hub.path}>How a first visit works, and the areas I serve</Link>
+					<Link href={hub.path}>How the free consultation works, and the areas I serve</Link>
 				</p>
 			</section>
 		</LocalFrame>

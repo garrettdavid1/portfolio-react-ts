@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import LocalFrame from '@/components/LocalFrame';
-import { hub, packages, pricesPublished, services, towns } from '@/content/woodstock';
+import { hub, packages, services, towns } from '@/content/woodstock';
 import { breadcrumbs, businessSchema } from '@/lib/local-schema';
 
-const title = pricesPublished ? hub.titlePriced : hub.title;
+const title = hub.title;
 
 export const metadata: Metadata = {
 	title: { absolute: title },
@@ -27,7 +27,7 @@ export default function Woodstock() {
 				<p>{hub.lede}</p>
 				<div className="hero__actions">
 					<a className="btn btn--solid" href="#contact">
-						Book a first visit
+						Book a free consultation
 					</a>
 					<a className="btn btn--ghost" href="#services">
 						See services
@@ -73,10 +73,7 @@ export default function Woodstock() {
 				<dl className="local__packages">
 					{packages.map((p) => (
 						<div className="local__package" key={p.name}>
-							<dt>
-								{p.name}
-								{pricesPublished ? <span className="local__price">{p.price}</span> : null}
-							</dt>
+							<dt>{p.name}</dt>
 							<dd>{p.what}</dd>
 						</div>
 					))}

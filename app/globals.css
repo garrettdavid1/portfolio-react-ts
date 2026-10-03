@@ -1809,16 +1809,6 @@ a.local__card:hover {
 	font-family: var(--font-display), Georgia, serif;
 	font-size: 20px;
 	font-weight: 600;
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-}
-
-.local__price {
-	font-family: var(--font-body), Georgia, serif;
-	font-size: 17px;
-	font-weight: 500;
-	color: var(--accent);
 }
 
 .local__package dd {
