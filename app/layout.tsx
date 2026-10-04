@@ -43,6 +43,7 @@ export const metadata: Metadata = {
 	robots: { index: true, follow: true },
 	alternates: { canonical: '/' },
 	twitter: { card: 'summary_large_image' },
+	verification: { google: 'kg9-ZAXUsC94MBTklWImUIQ9EZvx2SC9ugzvAHygBRQ' },
 };
 
 /** Tells search engines who the page is about, so results show the name and role. */
