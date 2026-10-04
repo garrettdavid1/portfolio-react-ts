@@ -77,6 +77,14 @@ The previous site was Create React App, so the Vercel project's **framework pres
 changing to Next.js** before the first deploy from this branch, and the two environment
 variables above need setting if the forms are meant to work.
 
+## Indexing
+
+Google reads `/sitemap.xml` through Search Console. Bing and the other IndexNow engines get the
+same list from `npm run indexnow`: run it after a push once Vercel has deployed. It checks the key
+file in `public/` is live, then posts every sitemap URL. The Woodstock pages carry
+`ProfessionalService` and `BreadcrumbList` JSON-LD (service pages add a `Service`), built in
+`lib/local-schema.ts`.
+
 ## Theme
 
 Light is the designed direction; a dark variant is defined under

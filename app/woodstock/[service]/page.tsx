@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import LocalFrame from '@/components/LocalFrame';
 import { hub, serviceBySlug, services } from '@/content/woodstock';
-import { breadcrumbs, serviceSchema } from '@/lib/local-schema';
+import { breadcrumbs, businessSchema, serviceSchema } from '@/lib/local-schema';
 
 export const dynamicParams = false;
 
@@ -38,7 +38,7 @@ export default async function ServicePage({ params }: Props) {
 	const others = services.filter((o) => o.slug !== s.slug);
 
 	return (
-		<LocalFrame crumbs={trail} contactTitle={s.contactTitle} schema={[serviceSchema(s), breadcrumbs(trail)]}>
+		<LocalFrame crumbs={trail} contactTitle={s.contactTitle} schema={[businessSchema(), serviceSchema(s), breadcrumbs(trail)]}>
 			<div className="hero wrap">
 				<p className="local__kicker mono">{s.crumb}, Woodstock, GA</p>
 				<h1>{s.h1}</h1>
